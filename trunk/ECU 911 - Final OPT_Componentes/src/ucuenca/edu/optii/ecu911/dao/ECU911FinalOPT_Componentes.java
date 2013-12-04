@@ -6,10 +6,6 @@
 
 package ucuenca.edu.optii.ecu911.dao;
 
-/**
- *
- * @author cuent
- */
 public class ECU911FinalOPT_Componentes {
 
     /**
