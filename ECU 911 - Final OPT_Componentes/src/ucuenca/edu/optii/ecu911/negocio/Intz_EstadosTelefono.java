@@ -10,7 +10,7 @@ package ucuenca.edu.optii.ecu911.negocio;
  */
 public interface Intz_EstadosTelefono {
     public void SuspenderTelefono(Telefono tel);
-     public void OcuparTelefono(Telefono tel);
-      public void EsperarTelefono(Telefono tel);
-       public void LiberarTelefono(Telefono tel);
+    public void OcuparTelefono(Telefono tel);
+    public void EsperarTelefono(Telefono tel);
+    public void LiberarTelefono(Telefono tel);
 }

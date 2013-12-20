@@ -14,5 +14,5 @@ public class EntidadPolicia extends EntidadCooperativa{
     public void actualizar() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-    
+   
 }

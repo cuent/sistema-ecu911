@@ -15,4 +15,5 @@ public class EntidadBomberos  extends EntidadCooperativa{
         throw new UnsupportedOperationException("Not supported yet.");
     }
     
+   
 }
