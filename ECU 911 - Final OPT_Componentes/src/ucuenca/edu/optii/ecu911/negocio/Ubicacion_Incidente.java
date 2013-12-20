@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
 
 /**
@@ -13,7 +9,16 @@ public class Ubicacion_Incidente {
     String interseccion;
     String referencia_ubicacion;
     String ciudad;
+    TipoIncidente mitipo;
 
+    public TipoIncidente getMitipo() {
+        return mitipo;
+    }
+
+    public void setMitipo(TipoIncidente mitipo) {
+        this.mitipo = mitipo;
+    }
+    
     public String getCalle_principal() {
         return calle_principal;
     }

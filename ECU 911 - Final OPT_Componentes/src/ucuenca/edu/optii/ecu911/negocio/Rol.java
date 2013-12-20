@@ -4,6 +4,14 @@
  */
 package ucuenca.edu.optii.ecu911.negocio;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import ucuenca.edu.optii.ecu911.dao.RolDB;
+
 /**
  *
  * @author May
@@ -11,6 +19,15 @@ package ucuenca.edu.optii.ecu911.negocio;
 public class Rol {
     int id;
     String descripcion;
+    List<Permiso> mispermisos = new ArrayList<Permiso>();
+
+    public List<Permiso> getMispermisos() {
+        return mispermisos;
+    }
+
+    public void setMispermisos(List<Permiso> mispermisos) {
+        this.mispermisos = mispermisos;
+    }
 
     public int getId() {
         return id;
@@ -28,4 +45,15 @@ public class Rol {
         this.descripcion = descripcion;
     }
     
+     public boolean grabar() {
+        try {
+            RolDB unrol = new RolDB();
+            unrol.grabar(this);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Rol.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+           return false;
+        }  
+    }
 }
