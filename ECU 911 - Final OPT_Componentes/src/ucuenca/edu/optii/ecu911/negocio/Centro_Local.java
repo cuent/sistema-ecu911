@@ -12,19 +12,4 @@ package ucuenca.edu.optii.ecu911.negocio;
  */
 public class Centro_Local extends CentroEcu_Observado{
 
-    @Override
-    public void agregarEntidadObservadora(EntidadCooperativa mientidad) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void eliminarEntidadObservadora(EntidadCooperativa mientidad) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void notificar() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
 }
