@@ -11,7 +11,7 @@ package ucuenca.edu.optii.ecu911.negocio;
 public class Persona {
     String cedula;
     String nombres;
-    String apellidos;
+  
 
     public String getCedula() {
         return cedula;
@@ -29,12 +29,4 @@ public class Persona {
         this.nombres = nombres;
     }
 
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
-    
 }

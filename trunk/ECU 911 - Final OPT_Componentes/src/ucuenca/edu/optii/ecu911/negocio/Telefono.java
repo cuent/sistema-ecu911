@@ -4,18 +4,44 @@
  */
 package ucuenca.edu.optii.ecu911.negocio;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import ucuenca.edu.optii.ecu911.dao.TelefonoDB;
+
 /**
  *
  * @author May
  */
 public class Telefono {
- int id;
- String tipo;
- String numero;
- 
-public void EstablecerEstado(Intz_EstadosTelefono es){
+
+    int id;
+    String tipo;
+    String numero;
+    Intz_EstadosTelefono miestado;
+     public Telefono() {
+        miestado = new E_Disponible();
+    }
     
-}
+    public void EstablecerEstado(Intz_EstadosTelefono es) {
+    }
+
+    public void SuspenderTelefono() {
+        miestado = new E_Suspendido();
+    }
+
+    public void OcuparTelefono() {
+        miestado = new E_Ocupado();
+    }
+
+    public void EsperarTelefono() {
+        miestado = new E_Espera();
+    }
+
+    public void LiberarTelefono() {
+        miestado = new E_Disponible();
+    }
 
     public int getId() {
         return id;
@@ -40,6 +66,36 @@ public void EstablecerEstado(Intz_EstadosTelefono es){
     public void setNumero(String numero) {
         this.numero = numero;
     }
-
-
+    public boolean grabar() {
+        try {
+            TelefonoDB aspfDB = new TelefonoDB();
+            aspfDB.grabar(this);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+           return false;
+        }  
+    }
+    
+    
+    public boolean buscarNumero() {
+        try {
+            Telefono aux;
+            TelefonoDB aspectoDB = new TelefonoDB();
+            aux = aspectoDB.buscarNumero(this.numero);
+            
+            if(aux!=null){
+             setId(aux.getId());
+             setTipo(aux.getTipo()); 
+             setNumero(aux.getNumero());
+             return true;
+            }else{       
+                 return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }
