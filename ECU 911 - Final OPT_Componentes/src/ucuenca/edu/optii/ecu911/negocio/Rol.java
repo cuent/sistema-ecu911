@@ -56,4 +56,23 @@ public class Rol {
            return false;
         }  
     }
+     
+     public boolean buscarIde() {
+        try {
+            Rol aux;
+            RolDB unrol = new RolDB();
+            aux = unrol.buscar(this.descripcion);
+            if(aux!=null){
+             setId(aux.getId());
+             return true;
+            }else{
+                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
+                 return false;
+            }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return false;
+    }
 }

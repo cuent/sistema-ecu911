@@ -7,6 +7,7 @@ package ucuenca.edu.optii.ecu911.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import ucuenca.edu.optii.ecu911.negocio.Telefono;
 
 /**
@@ -29,18 +30,34 @@ public class TelefonoDB {
         db.cerrarConexion();
         return resultado;
     }
-
+ public ArrayList listarDisponibles() throws SQLException {
+        OperacionesBase db = new OperacionesBase();
+        String query="select * from telefono inner join (select id from telefono except (select id_fono from entidad_cooperativa union select id_fono from cliente))as valido using (id)";
+        ResultSet resultado = db.seleccion(query);
+        Telefono unperm=null;
+        ArrayList todos=new ArrayList();
+       
+        while (resultado.next()) {
+            unperm = new Telefono();
+            unperm.setId(resultado.getInt(1));           
+            unperm.setTipo(resultado.getString(2));     
+            unperm.setNumero(resultado.getString(3));             
+            todos.add(unperm);
+        }
+        db.cerrarConexion();
+         //JOptionPane.showMessageDialog(null, todos.size());
+        return todos;
+    }
     public ArrayList listar() throws SQLException {
         OperacionesBase db = new OperacionesBase();
         String query="select * from telefono ";
         ResultSet resultado = db.seleccion(query);
         Telefono unperm=null;
-        
         ArrayList todos=new ArrayList();
         while (resultado.next()) {
             unperm = new Telefono();
             unperm.setId(resultado.getInt(1));           
-             unperm.setTipo(resultado.getString(2));     
+            unperm.setTipo(resultado.getString(2));     
             unperm.setNumero(resultado.getString(3));               
             todos.add(unperm);
         }
@@ -50,7 +67,6 @@ public class TelefonoDB {
     public Telefono buscarNumero(String num) throws SQLException {
         OperacionesBase db = new OperacionesBase();
         String query="select * from telefono where numero='" + num + "'";
-        
         ResultSet resultado = db.seleccion(query);
            Telefono mitelf=null;
         if (resultado!=null && resultado.next()!=false) {

@@ -78,6 +78,25 @@ public class Telefono {
         }  
     }
     
+    public boolean buscarNumeroSegunIde() {
+        try {
+            Telefono aux;
+            TelefonoDB aspectoDB = new TelefonoDB();
+            aux = aspectoDB.buscar(this.id);
+            
+            if(aux!=null){
+             setId(aux.getId());
+             setTipo(aux.getTipo()); 
+             setNumero(aux.getNumero());
+             return true;
+            }else{       
+                 return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     
     public boolean buscarNumero() {
         try {

@@ -91,17 +91,24 @@ public class OperadorEcu extends Persona{
            return false;
         }  
     }
-        public void buscar() {
+        
+     public boolean buscar() {
         try {
             OperadorEcu aux;
-            OperadorEcuDB usuarioDB = new OperadorEcuDB();
-            aux = usuarioDB.buscar(this.cedula);
-            setNombres(aux.getNombres());
-            setSueldo(aux.getSueldo());
-            setUsuario(aux.getUsuario());
-            setPassw(aux.getPassw());
+            OperadorEcuDB aspectoDB = new OperadorEcuDB();
+            aux = aspectoDB.buscar(this);
+            if(aux!=null){
+             setCedula(aux.getCedula());
+             setUsuario(aux.getUsuario());   
+             return true;
+            }else{
+                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
+                 return false;
+            }
+            
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No existe esa id");
-        } 
+             JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return false;
     }
 }

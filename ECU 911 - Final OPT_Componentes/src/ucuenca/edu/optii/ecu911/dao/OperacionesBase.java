@@ -25,7 +25,6 @@ public class OperacionesBase {
 	{		
 		Connection var= db.getConnection();
 		Statement stmt = var.createStatement();
-                //resulset conjunto de resultados
 		ResultSet resultado=stmt.executeQuery(query);
 		return resultado;
 	}

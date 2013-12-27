@@ -47,17 +47,15 @@ public class RolDB {
         return todos;
     }
     
-    public Rol buscar(int ide) throws SQLException {
+    public Rol buscar(String descrip) throws SQLException {
         OperacionesBase db = new OperacionesBase();
-        String query="select * from rol where id='" + ide + "'";
+        String query="select id from rol where descripcion='" + descrip + "'";
         
         ResultSet resultado = db.seleccion(query);
            Rol miAspecto=null;
         if (resultado!=null && resultado.next()!=false) {
-            //resultado.next();
             miAspecto = new Rol();
-            miAspecto.setId(resultado.getInt(1));
-            miAspecto.setDescripcion(resultado.getString(2));
+            miAspecto.setId(resultado.getInt(1));    
         }
         db.cerrarConexion();
         return miAspecto;
