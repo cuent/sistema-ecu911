@@ -17,7 +17,7 @@ import ucuenca.edu.optii.ecu911.negocio.Telefono;
 public class ClienteDB {
         public boolean grabar(Cliente unp) throws SQLException {
         OperacionesBase db = new OperacionesBase();
-        String query = "insert into cliente values('"+unp.getCedula()+"','" + unp.getMifono() +"','" + unp.getNombres() +"')";
+        String query = "insert into cliente values('"+unp.getCedula()+"','" + unp.getMifono().getId() +"','" + unp.getNombres() +"')";
         Boolean resultado = db.ingreso(query);
         db.cerrarConexion();
         return resultado;
@@ -54,7 +54,7 @@ public class ClienteDB {
     
     public Cliente buscarTelefono(int ide) throws SQLException {
         OperacionesBase db = new OperacionesBase();
-        String query="select * from cliente where telefonoid='" + ide + "'";
+        String query="select * from cliente where id_fono='" + ide + "'";
         
         ResultSet resultado = db.seleccion(query);
            Cliente mitelf=null;

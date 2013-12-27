@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class LoginDB {
     public boolean grabar(Login login) throws SQLException {
         OperacionesBase db = new OperacionesBase();
-        String query = "insert into login(fecha_i, ioOpEcu) values('"+login.getFecha_inicio()+"', '" + login.getUsu().getCedula() + "')";
+        String query = "insert into login(id_op_ecu, fecha_i) values('"+login.getUsu().getCedula() +"', '" + login.getFecha_inicio()+ "')";
         Boolean resultado = db.ingreso(query);
         db.cerrarConexion();
         return resultado;

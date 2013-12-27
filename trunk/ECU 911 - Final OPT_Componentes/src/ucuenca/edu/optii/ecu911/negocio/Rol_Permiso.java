@@ -5,63 +5,62 @@
 package ucuenca.edu.optii.ecu911.negocio;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import ucuenca.edu.optii.ecu911.dao.PermisoDB;
+import ucuenca.edu.optii.ecu911.dao.RolPermisoDC;
 
 /**
  *
  * @author May
  */
-public class Permiso {
-    int id;
-    String descripcion;
+public class Rol_Permiso {
+    int Rolid;
+    int PermisoId;
 
-    public int getId() {
-        return id;
+    public int getRolid() {
+        return Rolid;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRolid(int Rolid) {
+        this.Rolid = Rolid;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public int getPermisoId() {
+        return PermisoId;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setPermisoId(int PermisoId) {
+        this.PermisoId = PermisoId;
     }
-     public boolean grabar() {
+    
+      public boolean grabar() {
         try {
-            PermisoDB aspfDB = new PermisoDB();
+            RolPermisoDC aspfDB = new RolPermisoDC();
             aspfDB.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Permiso.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Rol_Permiso.class.getName()).log(Level.SEVERE, null, ex);
            JOptionPane.showMessageDialog(null, ex.getMessage());
            return false;
         }  
     }
-    
-      public boolean buscarDescripcion() {
+       public ArrayList buscarPermisos() {
         try {
-            Permiso aux;
-            PermisoDB unper = new PermisoDB();
-            aux = unper.buscar(this.id);
+            ArrayList<Integer> aux;
+            RolPermisoDC unrol = new RolPermisoDC();
+            aux = unrol.buscar(this.Rolid);
             if(aux!=null){
-             setId(aux.getId());
-             setDescripcion(aux.getDescripcion());
-             return true;
+             return aux;
             }else{
                  JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
-                 return false;
+                 return null;
             }
             
         } catch (SQLException ex) {
              JOptionPane.showMessageDialog(null, ex.getMessage());
         }
-        return false;
+        return null;
     }
 }

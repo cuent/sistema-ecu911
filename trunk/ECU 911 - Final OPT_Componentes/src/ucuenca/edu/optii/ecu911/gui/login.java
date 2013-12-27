@@ -217,20 +217,22 @@ public class login extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
-       usuario.setCedula(txtuser.getText());
-       usuario.buscar();
+       usuario.setUsuario(txtuser.getText());
+       usuario.setPassw(txtpass.getText());
+       boolean v=usuario.buscar();
+       if(v==true) { 
        try {
-       if(txtuser.getText().compareTo(usuario.getCedula())==0 && txtpass.getText().compareTo(usuario.getPassw())==0){
+       if(!txtuser.getText().equals("") && !txtpass.getText().equals("")){
             admi.setVisible(true);
             this.setVisible(false);
             logueo.setFecha_inicio(txtfecha.getText());            
             logueo.setUsu(usuario);
-            logueo.grabar();
-                        
-        }}catch(java.lang.NullPointerException e){
-            JOptionPane.showMessageDialog(null, "El usuario no existe ");
-        
-       }
+            logueo.grabar();            
+            }
+          }catch(java.lang.NullPointerException e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+         }
+       } 
     }//GEN-LAST:event_okButtonActionPerformed
     
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed

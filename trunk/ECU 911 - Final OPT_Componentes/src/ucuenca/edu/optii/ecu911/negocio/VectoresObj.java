@@ -31,10 +31,20 @@ public class VectoresObj {
      private ArrayList entidades=new ArrayList();
      private ArrayList servicios=new ArrayList();
      private ArrayList telefonos=new ArrayList();
-      private ArrayList incidentes=new ArrayList();
-      private ArrayList tiposInc=new ArrayList();
-      private ArrayList entidades_tiposInc=new ArrayList();
+     private ArrayList incidentes=new ArrayList();
+     private ArrayList tiposInc=new ArrayList();
+     private ArrayList entidades_tiposInc=new ArrayList();
+     private ArrayList telfsDisponibles=new ArrayList();
+     
+     
+    public ArrayList getTelfsDisponibles() {
+        return telfsDisponibles;
+    }
 
+    public void setTelfsDisponibles(ArrayList telfsDisponibles) {
+        this.telfsDisponibles = telfsDisponibles;
+    }
+ 
     public ArrayList getEntidades_tiposInc() {
         return entidades_tiposInc;
     }
@@ -210,4 +220,14 @@ public class VectoresObj {
             
         }
     }
+     public void listarTelefonosDisponibles() {
+        try {
+            TelefonoDB aspPerm = new TelefonoDB();
+            setTelfsDisponibles(aspPerm.listarDisponibles());
+        } catch (SQLException ex) {
+            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+    }
+     
 }

@@ -20,6 +20,16 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
    String ciudad;
    String correo;
    Telefono mifono;
+   String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+   
 
     public Telefono getMifono() {
         return mifono;
