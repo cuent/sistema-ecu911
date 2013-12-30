@@ -11,12 +11,5 @@ package ucuenca.edu.optii.ecu911.negocio;
  * @author cuent
  */
 public class Centro_Nacional extends CentroEcu_Observado{
-
    
-
-    @Override
-    public void notificar() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
 }

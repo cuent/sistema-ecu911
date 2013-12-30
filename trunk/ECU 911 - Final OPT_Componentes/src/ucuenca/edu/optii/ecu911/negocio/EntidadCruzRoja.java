@@ -8,11 +8,6 @@ package ucuenca.edu.optii.ecu911.negocio;
  *
  * @author May
  */
-public class EntidadCruzRoja extends EntidadCooperativa{
-@Override
-    public void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
+public class EntidadCruzRoja extends EntidadCooperativa {
 
-    
 }

@@ -10,9 +10,4 @@ package ucuenca.edu.optii.ecu911.negocio;
  */
 public class EntidadPolicia extends EntidadCooperativa{
 
-    @Override
-    public void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-   
 }

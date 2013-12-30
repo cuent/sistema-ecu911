@@ -22,21 +22,21 @@ import ucuenca.edu.optii.ecu911.dao.TipoIncidenteDB;
  * @author May
  */
 public class VectoresObj {
-     private ArrayList permisos=new ArrayList();
-     private ArrayList clientes=new ArrayList();
-     private ArrayList roles=new ArrayList();
-     private ArrayList opEcus=new ArrayList();
-     private ArrayList opEntidades=new ArrayList();
-     private ArrayList centros=new ArrayList();
-     private ArrayList entidades=new ArrayList();
-     private ArrayList servicios=new ArrayList();
-     private ArrayList telefonos=new ArrayList();
-     private ArrayList incidentes=new ArrayList();
-     private ArrayList tiposInc=new ArrayList();
-     private ArrayList entidades_tiposInc=new ArrayList();
-     private ArrayList telfsDisponibles=new ArrayList();
-     
-     
+
+    private ArrayList permisos = new ArrayList();
+    private ArrayList clientes = new ArrayList();
+    private ArrayList roles = new ArrayList();
+    private ArrayList opEcus = new ArrayList();
+    private ArrayList opEntidades = new ArrayList();
+    private ArrayList centros = new ArrayList();
+    private ArrayList entidades = new ArrayList();
+    private ArrayList servicios = new ArrayList();
+    private ArrayList telefonos = new ArrayList();
+    private ArrayList incidentes = new ArrayList();
+    private ArrayList tiposInc = new ArrayList();
+    private ArrayList entidades_tiposInc = new ArrayList();
+    private ArrayList telfsDisponibles = new ArrayList();
+
     public ArrayList getTelfsDisponibles() {
         return telfsDisponibles;
     }
@@ -44,7 +44,7 @@ public class VectoresObj {
     public void setTelfsDisponibles(ArrayList telfsDisponibles) {
         this.telfsDisponibles = telfsDisponibles;
     }
- 
+
     public ArrayList getEntidades_tiposInc() {
         return entidades_tiposInc;
     }
@@ -52,7 +52,6 @@ public class VectoresObj {
     public void setEntidades_tiposInc(ArrayList entidades_tiposInc) {
         this.entidades_tiposInc = entidades_tiposInc;
     }
-      
 
     public ArrayList getIncidentes() {
         return incidentes;
@@ -70,7 +69,6 @@ public class VectoresObj {
         this.tiposInc = tiposInc;
     }
 
-     
     public ArrayList getTelefonos() {
         return telefonos;
     }
@@ -142,92 +140,95 @@ public class VectoresObj {
     public void setServicios(ArrayList servicios) {
         this.servicios = servicios;
     }
-     public void listarTiposIncidentesSegunEntidades(int entid) {
+
+    public void listarTiposIncidentesSegunEntidades(int entid) {
         try {
             Entidad_TipoIncDB aspPerm = new Entidad_TipoIncDB();
             setEntidades_tiposInc(aspPerm.buscar(entid));
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
- 
+
     public void listarPermisos() {
         try {
             PermisoDB aspPerm = new PermisoDB();
             setPermisos(aspPerm.listar());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
-    
-      public void listarRoles() {
+
+    public void listarRoles() {
         try {
             RolDB aspPerm = new RolDB();
             setRoles(aspPerm.listar());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
-      
-      public void listarTelefonos() {
+
+    public void listarTelefonos() {
         try {
             TelefonoDB aspPerm = new TelefonoDB();
             setTelefonos(aspPerm.listar());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
-      
-       public void listarClientes() {
+
+    public void listarClientes() {
         try {
             ClienteDB aspPerm = new ClienteDB();
             setClientes(aspPerm.listar());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
+
     public void listarTipoIncidentes() {
         try {
             TipoIncidenteDB aspPerm = new TipoIncidenteDB();
             setTiposInc(aspPerm.listar());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
-    }  
-    
+    }
+
     public void listarOperadoresEcu() {
         try {
             OperadorEcuDB aspPerm = new OperadorEcuDB();
             setOpEcus(aspPerm.listar());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
-    
-     public void listarEntidades() {
+
+    public void listarEntidades() {
         try {
             EntidadDB aspPerm = new EntidadDB();
             setEntidades(aspPerm.listar());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
-     public void listarTelefonosDisponibles() {
+
+    public void listarTelefonosDisponibles() {
         try {
             TelefonoDB aspPerm = new TelefonoDB();
             setTelfsDisponibles(aspPerm.listarDisponibles());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
-     
+
 }

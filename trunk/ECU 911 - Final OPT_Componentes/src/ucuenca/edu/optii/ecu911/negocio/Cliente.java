@@ -59,4 +59,23 @@ public class Cliente extends Persona{
         }
         return false;
     }
+      
+    public boolean buscarCedula() {
+        try {
+            Cliente aux;
+            ClienteDB aspectoDB = new ClienteDB();
+            aux = aspectoDB.buscarCedula(this.cedula);
+
+            if (aux != null) {
+                setCedula(aux.getCedula());
+                setNombres(aux.getNombres());
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 }

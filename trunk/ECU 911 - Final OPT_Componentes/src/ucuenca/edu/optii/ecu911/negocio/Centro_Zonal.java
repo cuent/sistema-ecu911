@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ucuenca.edu.optii.ecu911.negocio;
 
 /**
  *
  * @author cuent
  */
-public class Centro_Zonal extends CentroEcu_Observado{
+public class Centro_Zonal extends CentroEcu_Observado {
 
-    
-
-    @Override
-    public void notificar() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
 }
