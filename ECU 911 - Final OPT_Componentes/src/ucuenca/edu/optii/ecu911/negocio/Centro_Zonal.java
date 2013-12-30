@@ -11,4 +11,9 @@ package ucuenca.edu.optii.ecu911.negocio;
  */
 public class Centro_Zonal extends CentroEcu_Observado {
 
+    String nombre;
+
+    public String getNombre() {
+        return "Centro ECU 911 Zonal";
+    }
 }

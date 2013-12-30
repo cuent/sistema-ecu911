@@ -11,7 +11,7 @@ package ucuenca.edu.optii.ecu911.negocio;
 public interface Intz_EntidadCooperativa_Observador {
      
      public void recibir_info();
-     public void recibir_alarma();
+     public String recibir_alarma();
      public void generar_reportes_incidente();
      public void actualizar(); 
      

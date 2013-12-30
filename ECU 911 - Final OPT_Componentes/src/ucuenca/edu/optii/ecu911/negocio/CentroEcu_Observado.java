@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ucuenca.edu.optii.ecu911.negocio;
 
 import java.util.ArrayList;
@@ -14,9 +13,12 @@ import java.util.List;
  * @author cuent
  */
 public class CentroEcu_Observado implements Intz_CentroObservado {
+
     int id;
+    String key = "";
     String ciudad;
- private static List<Intz_EntidadCooperativa_Observador> observadores = new ArrayList<Intz_EntidadCooperativa_Observador>();
+    String cadena = "";
+    private static List<Intz_EntidadCooperativa_Observador> observadores = new ArrayList<Intz_EntidadCooperativa_Observador>();
 
     public int getId() {
         return id;
@@ -33,7 +35,6 @@ public class CentroEcu_Observado implements Intz_CentroObservado {
     public static void setObservadores(List<Intz_EntidadCooperativa_Observador> observadores) {
         CentroEcu_Observado.observadores = observadores;
     }
-   
 
     public String getCiudad() {
         return ciudad;
@@ -45,15 +46,54 @@ public class CentroEcu_Observado implements Intz_CentroObservado {
 
     @Override
     public void agregarEntidadObservadora(Intz_EntidadCooperativa_Observador mientidad) {
-         observadores.add(mientidad);
+        observadores.add(mientidad);
     }
 
     @Override
     public void eliminarEntidadObservadora(Intz_EntidadCooperativa_Observador mientidad) {
         observadores.remove(mientidad);
     }
-     @Override
-    public void notificar() {
-        throw new UnsupportedOperationException("Not supported yet.");
+
+    @Override
+    public String notificar(List incidentes) {
+        CentroEcu_Observado c = new CentroEcu_Observado();
+        if (incidentes.contains("incendio forestal")) {
+            key = "incendio forestal";
+            c.agregarEntidadObservadora(new EntidadBomberos());
+            c.agregarEntidadObservadora(new EntidadCruzRoja());
+            c.agregarEntidadObservadora(new EntidadGestionRiesgos());
+            c.agregarEntidadObservadora(new EntidadPolicia());
+        } else if (incidentes.contains("asalto sin lesion")) {
+            key = "asalto sin lesion";
+            c.agregarEntidadObservadora(new EntidadGestionRiesgos());
+            c.agregarEntidadObservadora(new EntidadPolicia());
+        } else if (incidentes.contains("asalto con lesion")) {
+            key = "asalto con lesion";
+            c.agregarEntidadObservadora(new EntidadCruzRoja());
+            c.agregarEntidadObservadora(new EntidadGestionRiesgos());
+            c.agregarEntidadObservadora(new EntidadPolicia());
+        } else if (incidentes.contains("incendio hogar")) {
+            key = "incendio hogar";
+            c.agregarEntidadObservadora(new EntidadBomberos());
+            c.agregarEntidadObservadora(new EntidadCruzRoja());
+            c.agregarEntidadObservadora(new EntidadPolicia());
+        } else if (incidentes.contains("abandono nino")) {
+            key = "abandono nino";
+            c.agregarEntidadObservadora(new EntidadCruzRoja());
+            c.agregarEntidadObservadora(new EntidadGestionRiesgos());
+            c.agregarEntidadObservadora(new EntidadPolicia());
+        } else if (incidentes.contains("alerta terrorista")) {
+            key = "alerta terrorista";
+            c.agregarEntidadObservadora(new EntidadBomberos());
+            c.agregarEntidadObservadora(new EntidadCruzRoja());
+            c.agregarEntidadObservadora(new EntidadFuerzasArmadas());
+            c.agregarEntidadObservadora(new EntidadPolicia());
+        }
+
+        cadena = "Para el incidente de: " + key + "\n";
+        for (int i = 0; i < observadores.size(); i++) {
+            cadena = cadena + observadores.get(i).recibir_alarma() + "\n";
+        }
+        return cadena;
     }
 }

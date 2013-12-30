@@ -3,13 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package ucuenca.edu.optii.ecu911.negocio;
 
 /**
  *
  * @author cuent
  */
-public class Centro_Local extends CentroEcu_Observado{
+public class Centro_Local extends CentroEcu_Observado {
+
+    String nombre;
+
+    public String getNombre() {
+        return "Centro ECU 911 Local";
+    }
 
 }
