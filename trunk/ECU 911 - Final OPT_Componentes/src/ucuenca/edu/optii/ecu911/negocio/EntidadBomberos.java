@@ -13,7 +13,7 @@ public class EntidadBomberos  extends EntidadCooperativa{
     @Override
     public String recibir_alarma() {
 super.recibir_alarma(); //To change body of generated methods, choose Tools | Templates.
-    return "Bomberos en camino";
+    return "Bomberos en camino...";
     }
 
  

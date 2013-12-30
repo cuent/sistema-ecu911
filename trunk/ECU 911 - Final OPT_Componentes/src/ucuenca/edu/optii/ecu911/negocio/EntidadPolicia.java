@@ -14,7 +14,7 @@ public class EntidadPolicia extends EntidadCooperativa {
     public String recibir_alarma() {
         super.recibir_alarma(); //To change body of generated methods, choose Tools | Templates.
 
-        return "Policia en Camino";
+        return "Policia en Camino...";
 
     }
 

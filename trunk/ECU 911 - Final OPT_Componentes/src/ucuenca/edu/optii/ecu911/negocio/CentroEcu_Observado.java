@@ -55,39 +55,45 @@ public class CentroEcu_Observado implements Intz_CentroObservado {
     }
 
     @Override
-    public String notificar(List incidentes) {
+    public String notificar(String incidente) {
+        observadores.clear();
         CentroEcu_Observado c = new CentroEcu_Observado();
-        if (incidentes.contains("incendio forestal")) {
+        if (incidente.contains("incendio forestal")) {
             key = "incendio forestal";
             c.agregarEntidadObservadora(new EntidadBomberos());
             c.agregarEntidadObservadora(new EntidadCruzRoja());
             c.agregarEntidadObservadora(new EntidadGestionRiesgos());
             c.agregarEntidadObservadora(new EntidadPolicia());
-        } else if (incidentes.contains("asalto sin lesion")) {
+        } else if (incidente.contains("asalto sin lesion")) {
             key = "asalto sin lesion";
             c.agregarEntidadObservadora(new EntidadGestionRiesgos());
             c.agregarEntidadObservadora(new EntidadPolicia());
-        } else if (incidentes.contains("asalto con lesion")) {
+        } else if (incidente.contains("asalto con lesion")) {
             key = "asalto con lesion";
             c.agregarEntidadObservadora(new EntidadCruzRoja());
             c.agregarEntidadObservadora(new EntidadGestionRiesgos());
             c.agregarEntidadObservadora(new EntidadPolicia());
-        } else if (incidentes.contains("incendio hogar")) {
+        } else if (incidente.contains("incendio hogar")) {
             key = "incendio hogar";
             c.agregarEntidadObservadora(new EntidadBomberos());
             c.agregarEntidadObservadora(new EntidadCruzRoja());
             c.agregarEntidadObservadora(new EntidadPolicia());
-        } else if (incidentes.contains("abandono nino")) {
+        } else if (incidente.contains("abandono nino")) {
             key = "abandono nino";
             c.agregarEntidadObservadora(new EntidadCruzRoja());
             c.agregarEntidadObservadora(new EntidadGestionRiesgos());
             c.agregarEntidadObservadora(new EntidadPolicia());
-        } else if (incidentes.contains("alerta terrorista")) {
+        } else if (incidente.contains("alerta terrorista")) {
             key = "alerta terrorista";
             c.agregarEntidadObservadora(new EntidadBomberos());
             c.agregarEntidadObservadora(new EntidadCruzRoja());
             c.agregarEntidadObservadora(new EntidadFuerzasArmadas());
             c.agregarEntidadObservadora(new EntidadPolicia());
+        } else if (incidente.contains("secuestro")) {
+            key = "secuestro";
+            c.agregarEntidadObservadora(new EntidadFuerzasArmadas());
+            c.agregarEntidadObservadora(new EntidadPolicia());
+            c.agregarEntidadObservadora(new EntidadGestionRiesgos());
         }
 
         cadena = "Para el incidente de: " + key + "\n";
