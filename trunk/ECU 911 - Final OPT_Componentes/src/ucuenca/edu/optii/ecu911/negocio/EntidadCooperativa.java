@@ -70,8 +70,8 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
     }
 
     @Override
-    public void recibir_alarma() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public String recibir_alarma() {
+        return "";
     }
 
     @Override
