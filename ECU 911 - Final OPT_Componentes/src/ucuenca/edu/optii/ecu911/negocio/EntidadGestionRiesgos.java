@@ -13,7 +13,7 @@ public class EntidadGestionRiesgos extends EntidadCooperativa {
     @Override
     public String recibir_alarma() {
         super.recibir_alarma(); //To change body of generated methods, choose Tools | Templates.
-        return "Gestion de Riesgos en camino";
+        return "Gestion de Riesgos en camino...";
     }
 
 }

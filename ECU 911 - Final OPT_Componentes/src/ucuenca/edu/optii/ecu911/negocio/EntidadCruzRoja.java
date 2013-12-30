@@ -13,7 +13,7 @@ public class EntidadCruzRoja extends EntidadCooperativa {
     @Override
     public String recibir_alarma() {
         super.recibir_alarma(); //To change body of generated methods, choose Tools | Templates.
-        return "Cruz Roja en camino";
+        return "Cruz Roja en camino...";
     }
 
 }
