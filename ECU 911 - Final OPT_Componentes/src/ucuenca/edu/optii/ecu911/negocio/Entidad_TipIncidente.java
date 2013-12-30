@@ -41,8 +41,8 @@ public class Entidad_TipIncidente {
             aspfDB.grabar(inc, ent);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Entidad_TipIncidente.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
+            //Logger.getLogger(Entidad_TipIncidente.class.getName()).log(Level.SEVERE, null, ex);
+           //JOptionPane.showMessageDialog(null, ex.getMessage());
            return false;
         }  
     }

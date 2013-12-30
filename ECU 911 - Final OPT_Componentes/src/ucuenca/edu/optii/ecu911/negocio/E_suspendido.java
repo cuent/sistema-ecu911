@@ -8,7 +8,7 @@ package ucuenca.edu.optii.ecu911.negocio;
  *
  * @author May
  */
-public class E_Suspendido implements Intz_EstadosTelefono{
+public class E_suspendido implements Intz_EstadosTelefono{
 
     @Override
     public void SuspenderTelefono(Telefono tel) {

@@ -20,7 +20,7 @@ public class DatabaseManager {
             //autocommit si esta en true, se almacena automaticamente cuando saco algo
             //si esta en false, no guarda automaticamente, sirve para actualizar cambios cuando yo quiero, no simempre
 		try {
-                    String url = "jdbc:postgresql://localhost/baseEcu?user=postgres&password=postgrespass";
+                    String url = "jdbc:postgresql://localhost/baseEcu?user=postgres&password=43844384";
                     connection = DriverManager.getConnection(url);
                     connection.setAutoCommit(false);
 		} catch (SQLException e) {

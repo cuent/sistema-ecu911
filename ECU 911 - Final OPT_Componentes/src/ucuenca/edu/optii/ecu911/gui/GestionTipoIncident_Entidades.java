@@ -20,63 +20,67 @@ import ucuenca.edu.optii.ecu911.negocio.VectoresObj;
  * @author May
  */
 public class GestionTipoIncident_Entidades extends javax.swing.JPanel {
-String entId;
-VectoresObj vect=new VectoresObj();
-EntidadCooperativa unE=new EntidadCooperativa();
-Entidad_TipIncidente MuchosM=new Entidad_TipIncidente();
+
+    String entId;
+    VectoresObj vect = new VectoresObj();
+    EntidadCooperativa unE = new EntidadCooperativa();
+    Entidad_TipIncidente MuchosM = new Entidad_TipIncidente();
+
     /**
      * Creates new form GestionTipoIncident_Entidades
      */
     public GestionTipoIncident_Entidades() {
         initComponents();
     }
-   public GestionTipoIncident_Entidades(String mientidadId) {
+
+    public GestionTipoIncident_Entidades(String mientidadId) {
         initComponents();
-        entId=mientidadId;
+        entId = mientidadId;
         inicia();
         actualizaTablaM_M(Integer.parseInt(entId));
     }
-   
-   public void inicia(){
-   jLabel1.setText(entId);
-   int idEnt=Integer.valueOf(jLabel1.getText());
-   unE.setId(idEnt);
-   String entTipo=unE.buscarEntidadHijo();
-   if(entTipo!=null){
-      txtentidad.setText(entTipo);
-   }
-   actualizaComboTipoIncidentes();
-   }
-   
-    public void actualizaTablaM_M(int idEntidad){
-             vect.listarTiposIncidentesSegunEntidades(idEntidad);
-            ArrayList listado = new ArrayList();
-            listado = vect.getEntidades_tiposInc();
-            DefaultTableModel temp = (DefaultTableModel) tabla.getModel();
-            for (int i = tabla.getRowCount() - 1; i >= 0; i--) {
-                temp.removeRow(i);
-            }
-            for (int i = 0; i < listado.size(); i++) {
-                Entidad_TipIncidente otrop = new Entidad_TipIncidente();
-                otrop = (Entidad_TipIncidente) listado.get(i);
-                Object nuevo[] = {otrop.getMientidad().getId(), otrop.getMiTipoIn().getId()}; //esto es por las tres columnas aunque puede variar
-                temp.addRow(nuevo);
-            }
-            tabla.setModel(temp);
-   }
-    
-   public void actualizaComboTipoIncidentes(){
-    List tipositems = new ArrayList();
-    vect.listarTipoIncidentes();
-    tipositems = vect.getTiposInc();
-    comboTipoInci.removeAllItems();
-    comboTipoInci.addItem("");
+
+    public void inicia() {
+        jLabel1.setText(entId);
+        int idEnt = Integer.valueOf(jLabel1.getText());
+        unE.setId(idEnt);
+        String entTipo = unE.buscarEntidadHijo();
+        if (entTipo != null) {
+            txtentidad.setText(entTipo);
+        }
+        actualizaComboTipoIncidentes();
+    }
+
+    public void actualizaTablaM_M(int idEntidad) {
+        vect.listarTiposIncidentesSegunEntidades(idEntidad);
+        ArrayList listado;
+        listado = vect.getEntidades_tiposInc();
+        DefaultTableModel temp = (DefaultTableModel) tabla.getModel();
+        for (int i = tabla.getRowCount() - 1; i >= 0; i--) {
+            temp.removeRow(i);
+        }
+        for (int i = 0; i < listado.size(); i++) {
+            Entidad_TipIncidente otrop ;
+            otrop = (Entidad_TipIncidente) listado.get(i);
+            Object nuevo[] = {otrop.getMientidad().getId(), otrop.getMiTipoIn().getId()}; //esto es por las tres columnas aunque puede variar
+            temp.addRow(nuevo);
+        }
+        tabla.setModel(temp);
+    }
+
+    public void actualizaComboTipoIncidentes() {
+        List tipositems;
+        vect.listarTipoIncidentes();
+        tipositems = vect.getTiposInc();
+        comboTipoInci.removeAllItems();
+        comboTipoInci.addItem("");
         for (int i = 0; i < tipositems.size(); i++) {
-            TipoIncidente otroTipo = new TipoIncidente();
+            TipoIncidente otroTipo;
             otroTipo = (TipoIncidente) tipositems.get(i);
             comboTipoInci.addItem(otroTipo.getId() + ", " + otroTipo.getDescripcion());
-        }     
-     }
+        }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -180,9 +184,8 @@ Entidad_TipIncidente MuchosM=new Entidad_TipIncidente();
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2)
-                        .addComponent(comboTipoInci))
+                    .addComponent(comboTipoInci)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -199,7 +202,7 @@ Entidad_TipIncidente MuchosM=new Entidad_TipIncidente();
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboTipoInciMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_comboTipoInciMouseClicked
-    StringTokenizer tokens = new StringTokenizer((String) comboTipoInci.getSelectedItem(), ",");
+        StringTokenizer tokens = new StringTokenizer((String) comboTipoInci.getSelectedItem(), ",");
         try {
             ponTipoInc.setText(tokens.nextToken());
         } catch (NoSuchElementException e) {
@@ -208,16 +211,18 @@ Entidad_TipIncidente MuchosM=new Entidad_TipIncidente();
     }//GEN-LAST:event_comboTipoInciMouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-       if(jLabel1.getText().equals("")||ponTipoInc.getText().equals("") ){
-       JOptionPane.showMessageDialog(null,"Debe llenar los campos de texto");
-    }  
-    else{          
-     int miEnt=Integer.valueOf(jLabel1.getText());
-     int miTipInc=Integer.valueOf(ponTipoInc.getText());   
-        boolean r =MuchosM.grabar(miTipInc,miEnt);
-        if (r==true){JOptionPane.showMessageDialog(null,"Datos Grabados Satisfactoriamente...");}
-        else if (r==false){ JOptionPane.showMessageDialog(null,"Error al Grabar datos");}  
-        actualizaTablaM_M(miEnt);
+        if (jLabel1.getText().equals("") || ponTipoInc.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe llenar los campos de texto");
+        } else {
+            int miEnt = Integer.valueOf(jLabel1.getText());
+            int miTipInc = Integer.valueOf(ponTipoInc.getText());
+            boolean r = MuchosM.grabar(miTipInc, miEnt);
+            if (r == true) {
+                JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
+            } else if (r == false) {
+                JOptionPane.showMessageDialog(null, "Error al Grabar datos");
+            }
+            actualizaTablaM_M(miEnt);
         }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1MouseClicked
