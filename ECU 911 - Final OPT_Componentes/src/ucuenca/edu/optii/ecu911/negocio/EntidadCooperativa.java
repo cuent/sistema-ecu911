@@ -18,7 +18,7 @@ import ucuenca.edu.optii.ecu911.dao.TelefonoDB;
 public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
    int id;
    String ciudad;
-   String correo;
+  
    Telefono mifono;
    String tipo;
 
@@ -54,16 +54,7 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
    
-
     @Override
     public void recibir_info() {
         throw new UnsupportedOperationException("Not supported yet.");
@@ -99,8 +90,7 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
         try {
             String aux;
             EntidadDB aspectoDB= new EntidadDB();
-            aux = aspectoDB.buscarHijoEntidad(this.id);
-            
+            aux = aspectoDB.buscarHijoEntidad(this.id);     
             if(aux!=null){  
              return aux;
             }else{       
@@ -111,4 +101,23 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
         }
         return null;
     } 
+        public EntidadCooperativa buscar() {
+        try {
+            EntidadCooperativa aux;
+            EntidadDB aspectoDB= new EntidadDB();
+            aux = aspectoDB.buscar(this.id);     
+            if(aux!=null){
+                setId(aux.getId());
+                setCiudad(aux.getCiudad());
+                setTipo(aux.getTipo());
+                setMifono(aux.getMifono());
+             return aux;
+            }else{       
+                 return null;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
 }

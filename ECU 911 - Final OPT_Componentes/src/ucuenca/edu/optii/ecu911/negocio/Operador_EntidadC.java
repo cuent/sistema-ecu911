@@ -4,6 +4,12 @@
  */
 package ucuenca.edu.optii.ecu911.negocio;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import ucuenca.edu.optii.ecu911.dao.OperadorEntidadDB;
+
 /**
  *
  * @author May
@@ -36,5 +42,15 @@ public class Operador_EntidadC extends Persona{
     public void setMientidad(EntidadCooperativa mientidad) {
         this.mientidad = mientidad;
     }
- 
+  public boolean grabar() {
+        try {
+            OperadorEntidadDB aspfDB = new OperadorEntidadDB();
+            aspfDB.grabar(this);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Operador_EntidadC.class.getName()).log(Level.SEVERE, null, ex);
+           JOptionPane.showMessageDialog(null, ex.getMessage());
+           return false;
+        }  
+    }
 }

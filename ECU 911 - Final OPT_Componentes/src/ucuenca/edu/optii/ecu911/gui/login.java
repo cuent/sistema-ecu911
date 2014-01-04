@@ -45,7 +45,7 @@ public class login extends javax.swing.JDialog {
     public login(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-         formato=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        formato=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         hora =calendario.get(Calendar.HOUR_OF_DAY);
         minutos = calendario.get(Calendar.MINUTE);
         segundos = calendario.get(Calendar.SECOND);
@@ -224,7 +224,9 @@ public class login extends javax.swing.JDialog {
        try {
        if(!txtuser.getText().equals("") && !txtpass.getText().equals("")){
             admi.setVisible(true);
+            
             this.setVisible(false);
+            //guardando registros de inicio de sesion por usuarios, con fecha y hora
             logueo.setFecha_inicio(txtfecha.getText());            
             logueo.setUsu(usuario);
             logueo.grabar();            

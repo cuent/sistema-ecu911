@@ -25,6 +25,7 @@ public class GestionTipoIncident_Entidades extends javax.swing.JPanel {
     VectoresObj vect = new VectoresObj();
     EntidadCooperativa unE = new EntidadCooperativa();
     Entidad_TipIncidente MuchosM = new Entidad_TipIncidente();
+    TipoIncidente mitipo=new TipoIncidente();
 
     /**
      * Creates new form GestionTipoIncident_Entidades
@@ -62,7 +63,9 @@ public class GestionTipoIncident_Entidades extends javax.swing.JPanel {
         for (int i = 0; i < listado.size(); i++) {
             Entidad_TipIncidente otrop ;
             otrop = (Entidad_TipIncidente) listado.get(i);
-            Object nuevo[] = {otrop.getMientidad().getId(), otrop.getMiTipoIn().getId()}; //esto es por las tres columnas aunque puede variar
+            mitipo.setId(otrop.getMiTipoIn().getId());
+            mitipo.buscarDescripcion();  
+            Object nuevo[] = {otrop.getMientidad().getId(), mitipo.getDescripcion()}; //esto es por las tres columnas aunque puede variar
             temp.addRow(nuevo);
         }
         tabla.setModel(temp);

@@ -57,4 +57,24 @@ public class TipoIncidente {
            return false;
         }  
     }
+      
+      public boolean buscarDescripcion() {
+        try {
+            TipoIncidente aux;
+            TipoIncidenteDB unper = new TipoIncidenteDB();
+            aux = unper.buscar(this.id);
+            if(aux!=null){
+             setId(aux.getId());
+             setDescripcion(aux.getDescripcion());
+             return true;
+            }else{
+                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
+                 return false;
+            }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return false;
+    }  
 }

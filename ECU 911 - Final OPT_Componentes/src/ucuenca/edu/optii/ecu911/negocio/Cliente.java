@@ -16,6 +16,16 @@ import ucuenca.edu.optii.ecu911.dao.ClienteDB;
  */
 public class Cliente extends Persona{
     Telefono mifono;
+    String direccion;
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+    
 
     public Telefono getMifono() {
         return mifono;
@@ -69,6 +79,8 @@ public class Cliente extends Persona{
             if (aux != null) {
                 setCedula(aux.getCedula());
                 setNombres(aux.getNombres());
+                setDireccion(aux.getDireccion());
+                setMifono(aux.getMifono());
                 return true;
             } else {
                 return false;

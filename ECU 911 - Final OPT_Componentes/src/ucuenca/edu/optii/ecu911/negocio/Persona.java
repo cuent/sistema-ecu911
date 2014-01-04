@@ -11,7 +11,7 @@ package ucuenca.edu.optii.ecu911.negocio;
 public class Persona {
     String cedula;
     String nombres;
-  
+    
 
     public String getCedula() {
         return cedula;

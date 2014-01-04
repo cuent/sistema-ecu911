@@ -28,7 +28,7 @@ public class Telefono {
     }
 
     public void SuspenderTelefono() {
-        miestado = new E_Suspendido();
+        miestado = new E_suspendido();
     }
 
     public void OcuparTelefono() {

@@ -92,6 +92,28 @@ public class OperadorEcu extends Persona{
         }  
     }
         
+        public boolean buscarPorCedula() {
+        try {
+            OperadorEcu aux;
+            OperadorEcuDB aspectoDB = new OperadorEcuDB();
+            aux = aspectoDB.buscarXid(this);
+            if(aux!=null){
+             setCedula(aux.getCedula());
+             setUsuario(aux.getUsuario());
+             setNombres(aux.getNombres());
+             setMicentro(aux.getMicentro());
+             return true;
+            }else{
+                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
+                 return false;
+            }
+            
+        } catch (SQLException ex) {
+             JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return false;
+    }
+       
      public boolean buscar() {
         try {
             OperadorEcu aux;
@@ -99,7 +121,9 @@ public class OperadorEcu extends Persona{
             aux = aspectoDB.buscar(this);
             if(aux!=null){
              setCedula(aux.getCedula());
-             setUsuario(aux.getUsuario());   
+             setUsuario(aux.getUsuario());
+             setNombres(aux.getNombres());
+             setMicentro(aux.getMicentro());
              return true;
             }else{
                  JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");

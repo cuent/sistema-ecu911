@@ -18,7 +18,7 @@ public class ClienteDB {
 
     public boolean grabar(Cliente unp) throws SQLException {
         OperacionesBase db = new OperacionesBase();
-        String query = "insert into cliente values('" + unp.getCedula() + "','" + unp.getMifono().getId() + "','" + unp.getNombres() + "')";
+        String query = "insert into cliente values('" + unp.getCedula() + "','" + unp.getMifono().getId() + "','" + unp.getNombres()  + "','" +unp.getDireccion()+ "')";
         Boolean resultado = db.ingreso(query);
         db.cerrarConexion();
         return resultado;
@@ -47,6 +47,7 @@ public class ClienteDB {
             untl.setId(resultado.getInt(2));
             unicl.setMifono(untl);
             unicl.setNombres(resultado.getString(3));
+            unicl.setDireccion(resultado.getString(4));
             todos.add(unicl);
         }
         db.cerrarConexion();
@@ -86,6 +87,7 @@ public class ClienteDB {
             telefono.setId(resultado.getInt(2));
             cliente.setMifono(telefono);
             cliente.setNombres(resultado.getString(3));
+            cliente.setDireccion(resultado.getString(4));
         }
         db.cerrarConexion();
         return cliente;
