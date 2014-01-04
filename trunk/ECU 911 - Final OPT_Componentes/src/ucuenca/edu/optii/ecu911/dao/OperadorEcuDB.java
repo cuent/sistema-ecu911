@@ -28,6 +28,30 @@ public class OperadorEcuDB {
         return resultado;
     }
   
+  public OperadorEcu buscarXid(OperadorEcu op) throws SQLException {
+        OperacionesBase db = new OperacionesBase();
+         String query="select * from operador_ecu where cedula='" + op.getCedula()+"'";      
+         ResultSet resultado = db.seleccion(query);
+         OperadorEcu usuario=null;
+     
+        if (resultado!=null&&resultado.next()!=false){
+            usuario = new OperadorEcu();
+             CentroEcu_Observado centro=new CentroEcu_Observado();
+            Rol unrol=new Rol();
+            
+            usuario.setCedula(resultado.getString(1));           
+            usuario.setUsuario(resultado.getString(2));
+            usuario.setSueldo(resultado.getDouble(4));
+            centro.setId(resultado.getInt(5));
+            usuario.setMicentro(centro);   
+            unrol.setId(resultado.getInt(6));
+            usuario.setMirol(unrol);
+            usuario.setNombres(resultado.getString(7));     
+        } 
+        db.cerrarConexion();
+        return usuario;
+    }
+  
     public OperadorEcu buscar(OperadorEcu op) throws SQLException {
         OperacionesBase db = new OperacionesBase();
          String query="select * from operador_ecu where usuario='" + op.getUsuario()+"' and passwd='" + op.getPassw()+"'";      
@@ -36,8 +60,17 @@ public class OperadorEcuDB {
      
         if (resultado!=null&&resultado.next()!=false){
             usuario = new OperadorEcu();
+             CentroEcu_Observado centro=new CentroEcu_Observado();
+            Rol unrol=new Rol();
+            
             usuario.setCedula(resultado.getString(1));           
             usuario.setUsuario(resultado.getString(2));
+            usuario.setSueldo(resultado.getDouble(4));
+            centro.setId(resultado.getInt(5));
+            usuario.setMicentro(centro);   
+            unrol.setId(resultado.getInt(6));
+            usuario.setMirol(unrol);
+            usuario.setNombres(resultado.getString(7));     
         } 
         db.cerrarConexion();
         return usuario;
@@ -70,7 +103,4 @@ public class OperadorEcuDB {
         db.cerrarConexion();
         return todos;
     }
-    
-    
-
 }

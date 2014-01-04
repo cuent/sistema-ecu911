@@ -11,8 +11,11 @@ import java.util.logging.Logger;
 import ucuenca.edu.optii.ecu911.dao.ClienteDB;
 import ucuenca.edu.optii.ecu911.dao.EntidadDB;
 import ucuenca.edu.optii.ecu911.dao.Entidad_TipoIncDB;
+import ucuenca.edu.optii.ecu911.dao.LoginDB;
 import ucuenca.edu.optii.ecu911.dao.OperadorEcuDB;
+import ucuenca.edu.optii.ecu911.dao.OperadorEntidadDB;
 import ucuenca.edu.optii.ecu911.dao.PermisoDB;
+import ucuenca.edu.optii.ecu911.dao.RegistroLlamadasDB;
 import ucuenca.edu.optii.ecu911.dao.RolDB;
 import ucuenca.edu.optii.ecu911.dao.TelefonoDB;
 import ucuenca.edu.optii.ecu911.dao.TipoIncidenteDB;
@@ -36,7 +39,18 @@ public class VectoresObj {
     private ArrayList tiposInc = new ArrayList();
     private ArrayList entidades_tiposInc = new ArrayList();
     private ArrayList telfsDisponibles = new ArrayList();
+    private ArrayList entidadesDisponibles = new ArrayList();
+    private ArrayList misregistros= new ArrayList();
+    private ArrayList sesiones= new ArrayList();
+ 
+    public ArrayList getEntidadesDisponibles() {
+        return entidadesDisponibles;
+    }
 
+    public void setEntidadesDisponibles(ArrayList entidadesDisponibles) {
+        this.entidadesDisponibles = entidadesDisponibles;
+    }
+     
     public ArrayList getTelfsDisponibles() {
         return telfsDisponibles;
     }
@@ -141,6 +155,23 @@ public class VectoresObj {
         this.servicios = servicios;
     }
 
+    public ArrayList getMisregistros() {
+        return misregistros;
+    }
+
+    public void setMisregistros(ArrayList misregistros) {
+        this.misregistros = misregistros;
+    }
+
+    public ArrayList getSesiones() {
+        return sesiones;
+    }
+
+    public void setSesiones(ArrayList sesiones) {
+        this.sesiones = sesiones;
+    }
+
+    
     public void listarTiposIncidentesSegunEntidades(int entid) {
         try {
             Entidad_TipoIncDB aspPerm = new Entidad_TipoIncDB();
@@ -150,7 +181,15 @@ public class VectoresObj {
 
         }
     }
+    public void listarRegistrosLlamadas() {
+        try {
+            RegistroLlamadasDB aspPerm = new RegistroLlamadasDB();
+            setMisregistros(aspPerm.listar());
+        } catch (SQLException ex) {
+            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
 
+        }
+    }
     public void listarPermisos() {
         try {
             PermisoDB aspPerm = new PermisoDB();
@@ -170,7 +209,15 @@ public class VectoresObj {
 
         }
     }
+ public void listarSesiones() {
+        try {
+            LoginDB aspPerm = new LoginDB();
+           setSesiones(aspPerm.listar());
+        } catch (SQLException ex) {
+            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
 
+        }
+    }
     public void listarTelefonos() {
         try {
             TelefonoDB aspPerm = new TelefonoDB();
@@ -201,6 +248,15 @@ public class VectoresObj {
         }
     }
 
+      public void listarOperadoresEntidades() {
+        try {
+            OperadorEntidadDB aspPerm = new OperadorEntidadDB();
+            setOpEntidades(aspPerm.listar());
+        } catch (SQLException ex) {
+            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }
     public void listarOperadoresEcu() {
         try {
             OperadorEcuDB aspPerm = new OperadorEcuDB();
@@ -211,13 +267,20 @@ public class VectoresObj {
         }
     }
 
-    public void listarEntidades() {
+     public void listarEntidades() {
         try {
             EntidadDB aspPerm = new EntidadDB();
             setEntidades(aspPerm.listar());
         } catch (SQLException ex) {
             Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+        }
+    }
+    public void listarEntidadesDisponibles() {
+        try {
+            EntidadDB aspPerm = new EntidadDB();
+            setEntidadesDisponibles(aspPerm.listarDisponibles());
+        } catch (SQLException ex) {
+            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

@@ -56,9 +56,10 @@ public class LoginDB {
             login = new Login();
             usuario=new OperadorEcu();
             login.setId(resultado.getInt(1));           
-            login.setFecha_inicio(resultado.getString(2));
-            login.setFecha_fin(resultado.getString(3));
-            usuario.setCedula(resultado.getString(4));
+            login.setFecha_inicio(resultado.getString(3));
+            login.setFecha_fin(resultado.getString(4));
+            
+            usuario.setCedula(resultado.getString(2));
             login.setUsu(usuario);
             todos.add(login);
         }
