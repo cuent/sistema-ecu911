@@ -17,9 +17,18 @@ import ucuenca.edu.optii.ecu911.dao.TipoIncidenteDB;
  * @author May
  */
 public class TipoIncidente {
+
     int id;
     String descripcion;
     List<EntidadCooperativa> misentidades = new ArrayList<EntidadCooperativa>();
+
+    public TipoIncidente() {
+    }
+
+    public TipoIncidente(int id, String descripcion) {
+        this.id = id;
+        this.descripcion = descripcion;
+    }
 
     public List<EntidadCooperativa> getMisentidades() {
         return misentidades;
@@ -28,7 +37,6 @@ public class TipoIncidente {
     public void setMisentidades(List<EntidadCooperativa> misentidades) {
         this.misentidades = misentidades;
     }
-
 
     public int getId() {
         return id;
@@ -45,36 +53,36 @@ public class TipoIncidente {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
-   
-      public boolean grabar() {
+
+    public boolean grabar() {
         try {
-           TipoIncidenteDB unrol = new TipoIncidenteDB();
+            TipoIncidenteDB unrol = new TipoIncidenteDB();
             unrol.grabar(this);
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(Rol.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
-           return false;
-        }  
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            return false;
+        }
     }
-      
-      public boolean buscarDescripcion() {
+
+    public boolean buscarDescripcion() {
         try {
             TipoIncidente aux;
             TipoIncidenteDB unper = new TipoIncidenteDB();
             aux = unper.buscar(this.id);
-            if(aux!=null){
-             setId(aux.getId());
-             setDescripcion(aux.getDescripcion());
-             return true;
-            }else{
-                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
-                 return false;
+            if (aux != null) {
+                setId(aux.getId());
+                setDescripcion(aux.getDescripcion());
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
+                return false;
             }
-            
+
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
+            JOptionPane.showMessageDialog(null, ex.getMessage());
         }
         return false;
-    }  
+    }
 }
