@@ -1,16 +1,35 @@
 package ucuenca.edu.optii.ecu911.negocio;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import ucuenca.edu.optii.ecu911.dao.UbicacionIncidenteDB;
+
 /**
  *
  * @author May
  */
 public class Ubicacion_Incidente {
+
     String calle_principal;
     String interseccion;
     String referencia_ubicacion;
     String ciudad;
     TipoIncidente mitipo;
 
+    public Ubicacion_Incidente(String calle_principal, String referencia_ubicacion, String ciudad, TipoIncidente mitipo) {
+        this.calle_principal = calle_principal;
+        this.referencia_ubicacion = referencia_ubicacion;
+        this.ciudad = ciudad;
+        this.mitipo = mitipo;
+    }
+
+    public Ubicacion_Incidente() {
+    }
+
+    
+    
     public TipoIncidente getMitipo() {
         return mitipo;
     }
@@ -18,7 +37,7 @@ public class Ubicacion_Incidente {
     public void setMitipo(TipoIncidente mitipo) {
         this.mitipo = mitipo;
     }
-    
+
     public String getCalle_principal() {
         return calle_principal;
     }
@@ -50,5 +69,17 @@ public class Ubicacion_Incidente {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
-    
+
+    public boolean grabar() {
+        try {
+            UbicacionIncidenteDB ubicacionIncidenteDB = new UbicacionIncidenteDB();
+            ubicacionIncidenteDB.grabar(this);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Rol.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+            return false;
+        }
+    }
+
 }
