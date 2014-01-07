@@ -38,6 +38,9 @@ import ucuenca.edu.optii.ecu911.negocio.Telefono;
 import ucuenca.edu.optii.ecu911.negocio.TipoIncidente;
 import ucuenca.edu.optii.ecu911.negocio.Ubicacion_Incidente;
 import ucuenca.edu.optii.ecu911.negocio.VectoresObj;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ExcepcionVerificarAtenderIncidente;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ExcepcionVerificarDireccionIncidente;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ExcepcionVerificarPersonaAfectada;
 
 /**
  *
@@ -2060,11 +2063,11 @@ public class MenuAdm extends javax.swing.JFrame {
         String texto = "";
         String incidente = txtAtender.getText();
         if (txtCedulaAlarma.getText().replace(" ", "").equals("")) {
-            JOptionPane.showMessageDialog(this, "Seleccione un Cliente");
+            throw new ExcepcionVerificarPersonaAfectada(this);
         } else if (txtAtender.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Seleccione un Incidente");
+            throw new ExcepcionVerificarAtenderIncidente(this);
         } else if (txtDireccionAlarma.getText().replace(" ", "").equals("")) {
-            JOptionPane.showMessageDialog(this, "Ingrese la Direccion del Incidente");
+            throw new ExcepcionVerificarDireccionIncidente(this);
         } else {
             if (listCentroLocal.contains(cboProvincias.getSelectedItem())) {
                 Intz_CentroObservado local = new Centro_Local();
@@ -2081,9 +2084,9 @@ public class MenuAdm extends javax.swing.JFrame {
                     + "\nCon la siguiete informacion brindada: " + txtObservaciones.getText() + "\n" + "En la Provincia de "
                     + cboProvincias.getSelectedItem() + "\nPor el " + texto);
 
-            Ubicacion_Incidente ubicacionIncidente=new Ubicacion_Incidente(txtDireccionAlarma.getText(), 
-                    txtObservaciones.getText(), cboProvincias.getSelectedItem().toString(), 
-                    new TipoIncidente(Integer.parseInt(cboIncentesAlarma.getSelectedItem().toString().split(",")[0]),cboIncentesAlarma.getSelectedItem().toString().split(",")[1]));
+            Ubicacion_Incidente ubicacionIncidente = new Ubicacion_Incidente(txtDireccionAlarma.getText(),
+                    txtObservaciones.getText(), cboProvincias.getSelectedItem().toString(),
+                    new TipoIncidente(Integer.parseInt(cboIncentesAlarma.getSelectedItem().toString().split(",")[0]), cboIncentesAlarma.getSelectedItem().toString().split(",")[1]));
             ubicacionIncidente.grabar();
             JOptionPane.showMessageDialog(this, "Alarma Lanzada", "ADVERTENCIA", JOptionPane.INFORMATION_MESSAGE);
         }
