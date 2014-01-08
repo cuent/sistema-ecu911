@@ -14,5 +14,5 @@ public interface Intz_CentroObservado {
 
     public void agregarEntidadObservadora(Intz_EntidadCooperativa_Observador mientidad);
     public void eliminarEntidadObservadora(Intz_EntidadCooperativa_Observador mientidad);
-    public String notificar(String incidente);
+    public String notificar();
 }

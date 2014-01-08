@@ -66,6 +66,17 @@ public class TipoIncidente {
         }
     }
 
+    public ArrayList listar(String ciudad, String descripcion) {
+        try {
+            TipoIncidenteDB unrol = new TipoIncidenteDB();
+            return unrol.listar(ciudad, descripcion);
+        } catch (SQLException ex) {
+            Logger.getLogger(Rol.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+        return null;
+    }
+
     public boolean buscarDescripcion() {
         try {
             TipoIncidente aux;

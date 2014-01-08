@@ -34,6 +34,7 @@ import ucuenca.edu.optii.ecu911.negocio.Permiso;
 import ucuenca.edu.optii.ecu911.negocio.Registro_LLamadas;
 import ucuenca.edu.optii.ecu911.negocio.Rol;
 import ucuenca.edu.optii.ecu911.negocio.Rol_Permiso;
+import ucuenca.edu.optii.ecu911.negocio.Llamar;
 import ucuenca.edu.optii.ecu911.negocio.Telefono;
 import ucuenca.edu.optii.ecu911.negocio.TipoIncidente;
 import ucuenca.edu.optii.ecu911.negocio.Ubicacion_Incidente;
@@ -1093,7 +1094,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
         jLabel25.setText("Entidad Tipo:");
 
-        comboTipoEnti.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bomberos", "Policia", "CNT", "Cruz Roja", "Fuerzas Armadas" }));
+        comboTipoEnti.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Bomberos", "Policia", "CNT", "Cruz Roja", "Fuerzas Armadas", "Gestion Riesgos" }));
         comboTipoEnti.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 comboTipoEntiMouseClicked(evt);
@@ -2061,7 +2062,9 @@ public class MenuAdm extends javax.swing.JFrame {
 
     private void btnAlertarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlertarActionPerformed
         String texto = "";
+        String mensaje;
         String incidente = txtAtender.getText();
+        Llamar llamar = null;
         if (txtCedulaAlarma.getText().replace(" ", "").equals("")) {
             throw new ExcepcionVerificarPersonaAfectada(this);
         } else if (txtAtender.getText().equals("")) {
@@ -2069,21 +2072,27 @@ public class MenuAdm extends javax.swing.JFrame {
         } else if (txtDireccionAlarma.getText().replace(" ", "").equals("")) {
             throw new ExcepcionVerificarDireccionIncidente(this);
         } else {
+            ArrayList lista = new TipoIncidente().listar(cboProvincias.getSelectedItem().toString(), txtAtender.getText());
+
             if (listCentroLocal.contains(cboProvincias.getSelectedItem())) {
-                Intz_CentroObservado local = new Centro_Local();
-                texto = texto + local.notificar(incidente.toString());
+                llamar = new Llamar(lista, "local");
             } else if (listCentroNacional.contains(cboProvincias.getSelectedItem())) {
-                Intz_CentroObservado nacional = new Centro_Nacional();
-                texto = texto + nacional.notificar(incidente.toString());
+                llamar = new Llamar(lista, "nacional");
             } else if (listCentroZonal.contains(cboProvincias.getSelectedItem())) {
-                Intz_CentroObservado zonal = new Centro_Zonal();
-                texto = texto + zonal.notificar(incidente.toString());
+                llamar = new Llamar(lista, "zonal");
             }
-            txtNotificacion.setText("Atencion para el Cliente: " + txtNombresAlarma.getText()
+            ArrayList lentidades = llamar.alertar();
+
+            mensaje = "Atencion para el Cliente: " + txtNombresAlarma.getText()
                     + "\nA la siguiente direccion: " + txtDireccionAlarma.getText()
                     + "\nCon la siguiete informacion brindada: " + txtObservaciones.getText() + "\n" + "En la Provincia de "
-                    + cboProvincias.getSelectedItem() + "\nPor el " + texto);
+                    + cboProvincias.getSelectedItem() + "\n\nPor el " + txtAtender.getText() + "\nAtendido por ";
 
+            for (Object object : lentidades) {
+                mensaje += object.toString() + " de " + cboProvincias.getSelectedItem() + "\n";
+            }
+            mensaje += "Entidades en camino...";
+            txtNotificacion.setText(mensaje);
             Ubicacion_Incidente ubicacionIncidente = new Ubicacion_Incidente(txtDireccionAlarma.getText(),
                     txtObservaciones.getText(), cboProvincias.getSelectedItem().toString(),
                     new TipoIncidente(Integer.parseInt(cboIncentesAlarma.getSelectedItem().toString().split(",")[0]), cboIncentesAlarma.getSelectedItem().toString().split(",")[1]));

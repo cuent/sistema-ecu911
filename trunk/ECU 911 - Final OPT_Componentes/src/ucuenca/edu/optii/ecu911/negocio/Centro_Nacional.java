@@ -20,8 +20,8 @@ public class Centro_Nacional extends CentroEcu_Observado {
     }
 
     @Override
-    public String notificar(String incidentes) {
-        return getNombre() + "\n" + super.notificar(incidentes) + "\n"; //To change body of generated methods, choose Tools | Templates.
+    public String notificar() {
+        return getNombre() + "\n" + super.notificar() + "\n"; //To change body of generated methods, choose Tools | Templates.
     }
 
 }

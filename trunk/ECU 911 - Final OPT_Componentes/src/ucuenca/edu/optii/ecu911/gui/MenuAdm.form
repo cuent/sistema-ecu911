@@ -1528,12 +1528,13 @@
             <Component class="javax.swing.JComboBox" name="comboTipoEnti">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="5">
+                  <StringArray count="6">
                     <StringItem index="0" value="Bomberos"/>
                     <StringItem index="1" value="Policia"/>
                     <StringItem index="2" value="CNT"/>
                     <StringItem index="3" value="Cruz Roja"/>
                     <StringItem index="4" value="Fuerzas Armadas"/>
+                    <StringItem index="5" value="Gestion Riesgos"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -1905,7 +1906,7 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jPanel14" pref="0" max="32767" attributes="0"/>
+                          <Component id="jPanel14" pref="201" max="32767" attributes="0"/>
                           <Component id="jPanel18" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
