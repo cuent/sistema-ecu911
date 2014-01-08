@@ -8,7 +8,9 @@ package ucuenca.edu.optii.ecu911.negocio;
  *
  * @author May
  */
-public class EntidadPolicia extends EntidadCooperativa {
+public class EntidadPolicia extends EntidadCooperativa implements Visitable {
+
+    private String nombre = "Policia";
 
     @Override
     public String recibir_alarma() {
@@ -16,6 +18,15 @@ public class EntidadPolicia extends EntidadCooperativa {
 
         return "Policia en Camino...";
 
+    }
+
+    @Override
+    public String aceptar(Visitor visitor) {
+        return visitor.visitar(this);
+    }
+
+    public String getNombre() {
+        return nombre;
     }
 
 }

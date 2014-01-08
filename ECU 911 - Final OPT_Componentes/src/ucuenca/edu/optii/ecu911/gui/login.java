@@ -63,6 +63,7 @@ public class login extends javax.swing.JDialog {
                 doClose(RET_CANCEL);
             }
         });
+        setLocationRelativeTo(null);
     }
 
     /**
