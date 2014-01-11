@@ -35,6 +35,7 @@ import ucuenca.edu.optii.ecu911.negocio.Telefono;
 import ucuenca.edu.optii.ecu911.negocio.TipoIncidente;
 import ucuenca.edu.optii.ecu911.negocio.Ubicacion_Incidente;
 import ucuenca.edu.optii.ecu911.negocio.VectoresObj;
+import ucuenca.edu.optii.ecu911.negocio.Visitor;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ExcepcionVerificarAtenderIncidente;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ExcepcionVerificarDireccionIncidente;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ExcepcionVerificarPersonaAfectada;
@@ -53,7 +54,13 @@ import ucuenca.edu.optii.ecu911.negocio.validaciones;
  */
 public class MenuAdm extends javax.swing.JFrame {
 
-    EntidadCooperativa mienti = new EntidadCooperativa();
+    EntidadCooperativa mienti = new EntidadCooperativa() {
+
+        @Override
+        public String aceptar(Visitor visitor) {
+            return "";
+        }
+    };
     Cliente uncliente = new Cliente();
     Permiso unpermiso = new Permiso();
     Rol unrol = new Rol();
@@ -2133,7 +2140,7 @@ public class MenuAdm extends javax.swing.JFrame {
         String texto = "";
         String mensaje;
         String incidente = txtAtender.getText();
-       /* Llamar llamar = null;
+        Llamar llamar = null;
         if (txtCedulaAlarma.getText().replace(" ", "").equals("")) {
             throw new ExcepcionVerificarPersonaAfectada(this);
         } else if (txtAtender.getText().equals("")) {
@@ -2167,7 +2174,7 @@ public class MenuAdm extends javax.swing.JFrame {
                     new TipoIncidente(Integer.parseInt(cboIncentesAlarma.getSelectedItem().toString().split(",")[0]), cboIncentesAlarma.getSelectedItem().toString().split(",")[1]));
             ubicacionIncidente.grabar();
             JOptionPane.showMessageDialog(this, "Alarma Lanzada", "ADVERTENCIA", JOptionPane.INFORMATION_MESSAGE);
-        }*/
+        }
     }//GEN-LAST:event_btnAlertarActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -2291,7 +2298,13 @@ public class MenuAdm extends javax.swing.JFrame {
         comboEntidades.addItem("");
         //JOptionPane.showMessageDialog(null, misentidades.size());
         for (int i = 0; i < misentidades.size(); i++) {
-            EntidadCooperativa otroTipo = new EntidadCooperativa();
+            EntidadCooperativa otroTipo = new EntidadCooperativa() {
+
+                @Override
+                public String aceptar(Visitor visitor) {
+                    return "";
+                }
+            };
             otroTipo = (EntidadCooperativa) misentidades.get(i);
             comboEntidades.addItem(otroTipo.getId() + ", " + otroTipo.getTipo());
         }
@@ -2399,7 +2412,13 @@ public class MenuAdm extends javax.swing.JFrame {
             temp.removeRow(i);
         }
         for (int i = 0; i < tlfs.size(); i++) {
-            EntidadCooperativa otrop = new EntidadCooperativa();
+            EntidadCooperativa otrop = new EntidadCooperativa() {
+
+                @Override
+                public String aceptar(Visitor visitor) {
+                    return "";
+                }
+            };
             otrop = (EntidadCooperativa) tlfs.get(i);
             Telefono t = new Telefono();
             t.setId(otrop.getMifono().getId());
