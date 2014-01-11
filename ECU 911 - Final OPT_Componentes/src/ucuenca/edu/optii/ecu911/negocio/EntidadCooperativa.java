@@ -15,7 +15,7 @@ import ucuenca.edu.optii.ecu911.dao.TelefonoDB;
  *
  * @author May
  */
-public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
+public abstract class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
    int id;
    String ciudad;
   
@@ -119,4 +119,6 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
         }
         return null;
     }
+        
+    public abstract String aceptar(Visitor visitor);
 }

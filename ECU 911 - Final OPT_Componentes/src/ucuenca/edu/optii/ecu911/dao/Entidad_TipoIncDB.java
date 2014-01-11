@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import ucuenca.edu.optii.ecu911.negocio.TipoIncidente;
 import ucuenca.edu.optii.ecu911.negocio.EntidadCooperativa;
 import ucuenca.edu.optii.ecu911.negocio.Entidad_TipIncidente;
+import ucuenca.edu.optii.ecu911.negocio.Visitor;
 
 /**
  *
@@ -34,7 +35,13 @@ public class Entidad_TipoIncDB {
         ArrayList todos = new ArrayList();
         while (resultado.next()) {
             unobj = new Entidad_TipIncidente();
-            EntidadCooperativa ent = new EntidadCooperativa();
+            EntidadCooperativa ent = new EntidadCooperativa() {
+
+                @Override
+                public String aceptar(Visitor visitor) {
+                    return "";
+                }
+            };
             TipoIncidente tip = new TipoIncidente();
 
             ent.setId(resultado.getInt(1));
@@ -59,7 +66,13 @@ public class Entidad_TipoIncDB {
         ArrayList todos = new ArrayList();
         while (resultado.next()) {
             unobj = new Entidad_TipIncidente();
-            EntidadCooperativa ent = new EntidadCooperativa();
+            EntidadCooperativa ent = new EntidadCooperativa() {
+
+                @Override
+                public String aceptar(Visitor visitor) {
+                    return "";
+                }
+            };
             TipoIncidente tip = new TipoIncidente();
 
             ent.setId(resultado.getInt(1));

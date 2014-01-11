@@ -14,6 +14,7 @@ import ucuenca.edu.optii.ecu911.negocio.EntidadCooperativa;
 import ucuenca.edu.optii.ecu911.negocio.Entidad_TipIncidente;
 import ucuenca.edu.optii.ecu911.negocio.TipoIncidente;
 import ucuenca.edu.optii.ecu911.negocio.VectoresObj;
+import ucuenca.edu.optii.ecu911.negocio.Visitor;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCamposTextoExcepcion;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionGrabacionDatos;
 
@@ -25,7 +26,13 @@ public class GestionTipoIncident_Entidades extends javax.swing.JPanel {
 
     String entId;
     VectoresObj vect = new VectoresObj();
-    EntidadCooperativa unE = new EntidadCooperativa();
+    EntidadCooperativa unE = new EntidadCooperativa() {
+
+        @Override
+        public String aceptar(Visitor visitor) {
+            return "";
+        }
+    };
     Entidad_TipIncidente MuchosM = new Entidad_TipIncidente();
     TipoIncidente mitipo=new TipoIncidente();
 

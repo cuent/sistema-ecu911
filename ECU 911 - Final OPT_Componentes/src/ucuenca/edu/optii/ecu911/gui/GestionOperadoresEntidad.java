@@ -17,6 +17,7 @@ import ucuenca.edu.optii.ecu911.negocio.EntidadCooperativa;
 import ucuenca.edu.optii.ecu911.negocio.Operador_EntidadC;
 import ucuenca.edu.optii.ecu911.negocio.Telefono;
 import ucuenca.edu.optii.ecu911.negocio.VectoresObj;
+import ucuenca.edu.optii.ecu911.negocio.Visitor;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.TelefonoVerificacionException;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCamposTextoExcepcion;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionGrabacionDatos;
@@ -27,7 +28,13 @@ import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionGrabacionDatos;
  */
 public class GestionOperadoresEntidad extends javax.swing.JPanel {
 Operador_EntidadC operadorEntidad=new Operador_EntidadC();
-EntidadCooperativa mientidad=new EntidadCooperativa();
+EntidadCooperativa mientidad=new EntidadCooperativa() {
+
+    @Override
+    public String aceptar(Visitor visitor) {
+        return "";
+    }
+};
 VectoresObj unvector=new VectoresObj();
     /**
      * Creates new form GestionOperadoresEntidad
@@ -238,7 +245,13 @@ VectoresObj unvector=new VectoresObj();
         comboEntidades.removeAllItems();
         comboEntidades.addItem("");
         for (int i = 0; i < misentidades.size(); i++) {
-            EntidadCooperativa otroTipo = new EntidadCooperativa();
+            EntidadCooperativa otroTipo = new EntidadCooperativa() {
+
+                @Override
+                public String aceptar(Visitor visitor) {
+                    return "";
+                }
+            };
             otroTipo = (EntidadCooperativa) misentidades.get(i);
             otroTipo.buscar();
             comboEntidades.addItem(otroTipo.getId() + ",  " + otroTipo.getTipo()+" ,  "+otroTipo.getCiudad());
@@ -256,7 +269,13 @@ VectoresObj unvector=new VectoresObj();
             Operador_EntidadC otrop = new Operador_EntidadC();
             otrop = (Operador_EntidadC) operads.get(i);
             
-            EntidadCooperativa entidad=new EntidadCooperativa();
+            EntidadCooperativa entidad=new EntidadCooperativa() {
+
+                @Override
+                public String aceptar(Visitor visitor) {
+                    return "";
+                }
+            };
             entidad.setId(otrop.getMientidad().getId());
             String tipo=entidad.buscarEntidadHijo();
             entidad.buscar();

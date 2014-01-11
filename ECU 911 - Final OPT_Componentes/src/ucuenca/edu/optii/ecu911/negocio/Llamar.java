@@ -37,58 +37,15 @@ public class Llamar {
         }
     }
 
-    public ArrayList alertar() throws ClassNotFoundException {
+    public ArrayList alertar() {
         LlamarEntidad llamarEntidad = new LlamarEntidad();
-        
-        // profeee
-      /*   EntidadCooperativa e = FactoriaEntidades.get(incidente);
-        lista.add(e.aceptar(llamarEntidad));*/
-        
-        
-        for (Object object : lIncidente) {
-            String entidad = object.toString();
-            switch (entidad) {
-                case "Bomberos":
-                    EntidadBomberos bomberos = new EntidadBomberos();
-                    c.agregarEntidadObservadora(bomberos);
-                    lista.add(bomberos.aceptar(llamarEntidad));
-                    break;
-                case "Policia":
-                    EntidadPolicia policia = new EntidadPolicia();
-                    c.agregarEntidadObservadora(policia);
-                    lista.add(policia.aceptar(llamarEntidad));
-                    break;
-                case "CNT":
-                    EntidadCNT cnt = new EntidadCNT();
-                    c.agregarEntidadObservadora(cnt);
-                    lista.add(cnt.aceptar(llamarEntidad));
-                    break;
-                case "Cruz Roja":
-                    EntidadCruzRoja cruzRoja = new EntidadCruzRoja();
-                    c.agregarEntidadObservadora(cruzRoja);
-                    lista.add(cruzRoja.aceptar(llamarEntidad));
-                    break;
-                case "Fuerzas Armadas":
-                    EntidadFuerzasArmadas fuerzasArmadas = new EntidadFuerzasArmadas();
-                    c.agregarEntidadObservadora(fuerzasArmadas);
-                    lista.add(fuerzasArmadas.aceptar(llamarEntidad));
-                    break;
-                case "Gestion Riesgos":
-                    EntidadGestionRiesgos gestionRiesgos = new EntidadGestionRiesgos();
-                    c.agregarEntidadObservadora(gestionRiesgos);
-                    lista.add(gestionRiesgos.aceptar(llamarEntidad));
-                    break;
-            }
-            try {
-                EntidadCooperativa e = (EntidadCooperativa) Class.
-                                            forName("ucuenca.edu.aptii.ecu911.negocio.EntidadGestionRiesgos")
-                                            .newInstance();
-            } catch (InstantiationException ex) {
-                Logger.getLogger(Llamar.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                Logger.getLogger(Llamar.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        EntidadFactoryMethod factory = new EntidadFactory();
 
+        for (Object object : lIncidente) {
+            EntidadCooperativa entidad = factory.crearEntidad(object.toString());
+
+            c.agregarEntidadObservadora(entidad);
+            lista.add(entidad.aceptar(llamarEntidad));
         }
         c.notificar();
         return lista;
