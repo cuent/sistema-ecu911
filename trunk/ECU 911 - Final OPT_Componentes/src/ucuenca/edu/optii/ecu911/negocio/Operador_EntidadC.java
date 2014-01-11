@@ -5,9 +5,7 @@
 package ucuenca.edu.optii.ecu911.negocio;
 
 import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import ucuenca.edu.optii.ecu911.dao.OperadorEntidadDB;
 
 /**
@@ -48,8 +46,7 @@ public class Operador_EntidadC extends Persona{
             aspfDB.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Operador_EntidadC.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
+            Logger.getLogger(ex.getMessage());
            return false;
         }  
     }

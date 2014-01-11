@@ -40,6 +40,4 @@ public class Cliente_Operador {
     public void setMiOperador(OperadorEcu miOperador) {
         this.miOperador = miOperador;
     }
-    
-
 }

@@ -7,10 +7,6 @@ package ucuenca.edu.optii.ecu911.negocio;
 
 import java.util.List;
 
-/**
- *
- * @author cuent
- */
 public class Centro_Local extends CentroEcu_Observado {
 
     String nombre;

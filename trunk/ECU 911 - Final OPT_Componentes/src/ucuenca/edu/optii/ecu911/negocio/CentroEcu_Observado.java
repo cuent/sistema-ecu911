@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +54,6 @@ public class CentroEcu_Observado implements Intz_CentroObservado {
 
     @Override
     public String notificar() {
-
         for (int i = 0; i < observadores.size(); i++) {
             cadena = cadena + observadores.get(i).recibir_alarma() + "\n";
         }

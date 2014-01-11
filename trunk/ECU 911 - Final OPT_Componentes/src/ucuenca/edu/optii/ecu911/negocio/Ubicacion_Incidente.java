@@ -27,9 +27,7 @@ public class Ubicacion_Incidente {
 
     public Ubicacion_Incidente() {
     }
-
-    
-    
+   
     public TipoIncidente getMitipo() {
         return mitipo;
     }
@@ -76,10 +74,8 @@ public class Ubicacion_Incidente {
             ubicacionIncidenteDB.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Rol.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-            return false;
+            Logger.getLogger(ex.getMessage());
+             return false;
         }
     }
-
 }

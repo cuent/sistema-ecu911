@@ -5,9 +5,7 @@
 package ucuenca.edu.optii.ecu911.negocio;
 
 import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import ucuenca.edu.optii.ecu911.dao.ClienteDB;
 
 /**
@@ -38,15 +36,13 @@ public class Cliente extends Persona{
     public void llamar(){
     }
     
-    
       public boolean grabar() {
         try {
             ClienteDB unrol = new ClienteDB();
             unrol.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
+           Logger.getLogger(ex.getMessage());
            return false;
         }  
     }
@@ -65,7 +61,7 @@ public class Cliente extends Persona{
                  return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
         return false;
     }
@@ -86,7 +82,7 @@ public class Cliente extends Persona{
                 return false;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
         return false;
     }

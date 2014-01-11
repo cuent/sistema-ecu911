@@ -60,16 +60,14 @@ public class OperadorEcu extends Persona{
     public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
- 
-    
+     
     public void loguearse(){
     }
     
     public void atenderLlamada(){
     }
     public void rastrearLlamada(){
-    }
-    
+    }   
     public void recibirDatosIncidente(){
     }
     
@@ -86,8 +84,7 @@ public class OperadorEcu extends Persona{
             aspfDB.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(OperadorEcu.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
+            Logger.getLogger( ex.getMessage());
            return false;
         }  
     }
@@ -104,12 +101,12 @@ public class OperadorEcu extends Persona{
              setMicentro(aux.getMicentro());
              return true;
             }else{
-                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
-                 return false;
+                 Logger.getLogger("Error al buscar, usuario no existe"); 
+                return false;
             }
             
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
+             Logger.getLogger(null, ex.getMessage());
         }
         return false;
     }
@@ -126,12 +123,12 @@ public class OperadorEcu extends Persona{
              setMicentro(aux.getMicentro());
              return true;
             }else{
-                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
+                 Logger.getLogger(null, "Error al buscar, usuario no existe");
                  return false;
             }
             
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
+            Logger.getLogger(null, ex.getMessage());
         }
         return false;
     }

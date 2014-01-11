@@ -39,8 +39,7 @@ public class Permiso {
             aspfDB.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Permiso.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
+             Logger.getLogger(ex.getMessage());
            return false;
         }  
     }
@@ -55,12 +54,12 @@ public class Permiso {
              setDescripcion(aux.getDescripcion());
              return true;
             }else{
-                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
+                  Logger.getLogger("El usuario no existe");
                  return false;
             }
             
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
+              Logger.getLogger(ex.getMessage());
         }
         return false;
     }

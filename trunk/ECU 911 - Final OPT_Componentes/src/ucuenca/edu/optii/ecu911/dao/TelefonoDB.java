@@ -45,7 +45,6 @@ public class TelefonoDB {
             todos.add(unperm);
         }
         db.cerrarConexion();
-         //JOptionPane.showMessageDialog(null, todos.size());
         return todos;
     }
     public ArrayList listar() throws SQLException {
@@ -70,7 +69,6 @@ public class TelefonoDB {
         ResultSet resultado = db.seleccion(query);
            Telefono mitelf=null;
         if (resultado!=null && resultado.next()!=false) {
-            //resultado.next();
             mitelf = new Telefono();
             mitelf.setId(resultado.getInt(1));
             mitelf.setTipo(resultado.getString(2));
@@ -86,7 +84,6 @@ public class TelefonoDB {
         ResultSet resultado = db.seleccion(query);
            Telefono mitelf=null;
         if (resultado!=null && resultado.next()!=false) {
-            //resultado.next();
             mitelf = new Telefono();
             mitelf.setId(resultado.getInt(1));
             mitelf.setNumero(resultado.getString(3));

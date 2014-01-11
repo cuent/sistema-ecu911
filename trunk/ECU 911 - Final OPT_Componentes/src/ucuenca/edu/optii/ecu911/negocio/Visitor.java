@@ -10,7 +10,6 @@ package ucuenca.edu.optii.ecu911.negocio;
  * @author cuent
  */
 public interface Visitor {
-
     public String visitar(EntidadBomberos bomberos);
     public String visitar (EntidadCNT cnt);
     public String visitar (EntidadFuerzasArmadas fuerzasArmadas);

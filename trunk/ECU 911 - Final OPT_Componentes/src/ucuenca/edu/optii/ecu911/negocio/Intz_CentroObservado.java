@@ -4,8 +4,6 @@
  */
 package ucuenca.edu.optii.ecu911.negocio;
 
-import java.util.List;
-
 /**
  *
  * @author May

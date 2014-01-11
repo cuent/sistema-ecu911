@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class ExcepcionVerificarPersonaAfectada extends RuntimeException {
 
     public ExcepcionVerificarPersonaAfectada(JFrame frame) {
-        JOptionPane.showMessageDialog(frame, "Seleccione un Cliente");
+        JOptionPane.showMessageDialog(frame, "Seleccione un Cliente", "SITEMA ECU 911",JOptionPane.WARNING_MESSAGE );
 
     }
 

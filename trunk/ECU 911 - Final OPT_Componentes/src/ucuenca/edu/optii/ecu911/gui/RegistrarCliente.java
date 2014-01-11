@@ -14,6 +14,9 @@ import javax.swing.table.DefaultTableModel;
 import ucuenca.edu.optii.ecu911.negocio.Cliente;
 import ucuenca.edu.optii.ecu911.negocio.Telefono;
 import ucuenca.edu.optii.ecu911.negocio.VectoresObj;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidaDatoInexistenteExcepcion;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCamposTextoExcepcion;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionGrabacionDatos;
 
 /**
  *
@@ -179,7 +182,7 @@ VectoresObj unv=new VectoresObj();
  
     private void addClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClienteActionPerformed
         if (txtceduClientes.getText().equals("") || txtnameClientes.getText().equals("") || ponFonoCli.getText().equals("")|| txtdireccion.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe llenar los campos de texto");
+            throw new ValidacionCamposTextoExcepcion(null, "Debe llenar los campos de texto");
         } else {
             Telefono unt = new Telefono();
             unt.setId(Integer.valueOf(ponFonoCli.getText()));
@@ -187,7 +190,7 @@ VectoresObj unv=new VectoresObj();
             uncliente.setMifono(unt);
             if (uncliente.buscar())//busca telefonos en tabla clientes para validar q exista uno x cliente
             {
-                JOptionPane.showMessageDialog(null, "Telefono ya existente en el cliente " + uncliente.getNombres() + " ingrese otro numero");
+                throw new ValidaDatoInexistenteExcepcion(null, "Telefono ya existente en el cliente " + uncliente.getNombres() + " ingrese otro numero");
             } else {
                 uncliente.setMifono(unt);
                 uncliente.setCedula(txtceduClientes.getText());
@@ -197,7 +200,7 @@ VectoresObj unv=new VectoresObj();
                 if (r == true) {
                     JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
                 } else if (r == false) {
-                    JOptionPane.showMessageDialog(null, "Error al Grabar datos");
+                   throw  new ValidacionGrabacionDatos(null, "Error al Grabar datos");
                 }
             }
           regresarParaLlamar(uncliente.getCedula());

@@ -1,7 +1,6 @@
 
 package ucuenca.edu.optii.ecu911.negocio;
 
-import java.sql.Date;
 import ucuenca.edu.optii.ecu911.dao.LoginDB;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -46,14 +45,12 @@ public class Login {
         this.usu = usu;
     }
     
-    
      public void grabar() {
             LoginDB loginDB = new LoginDB();
         try {
             loginDB.grabar(this);
         } catch (SQLException ex) {
-            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
-            ex.getMessage();
+            Logger.getLogger(ex.getMessage());         
         }
     }
 
@@ -67,8 +64,7 @@ public class Login {
             setId(aux.getId());      
             setUsu(aux.getUsu());
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No existe esa id");
+             Logger.getLogger(ex.getMessage());
         } 
-    } 
-    
+    }    
 }

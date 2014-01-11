@@ -12,7 +12,6 @@ import java.util.List;
  * @author cuent
  */
 public class Centro_Nacional extends CentroEcu_Observado {
-
     String nombre;
 
     public String getNombre() {

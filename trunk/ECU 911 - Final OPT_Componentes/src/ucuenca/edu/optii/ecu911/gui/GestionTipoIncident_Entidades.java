@@ -14,6 +14,8 @@ import ucuenca.edu.optii.ecu911.negocio.EntidadCooperativa;
 import ucuenca.edu.optii.ecu911.negocio.Entidad_TipIncidente;
 import ucuenca.edu.optii.ecu911.negocio.TipoIncidente;
 import ucuenca.edu.optii.ecu911.negocio.VectoresObj;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCamposTextoExcepcion;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionGrabacionDatos;
 
 /**
  *
@@ -215,7 +217,7 @@ public class GestionTipoIncident_Entidades extends javax.swing.JPanel {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         if (jLabel1.getText().equals("") || ponTipoInc.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe llenar los campos de texto");
+           throw new ValidacionCamposTextoExcepcion(null, "Debe llenar los campos de texto");
         } else {
             int miEnt = Integer.valueOf(jLabel1.getText());
             int miTipInc = Integer.valueOf(ponTipoInc.getText());
@@ -223,7 +225,7 @@ public class GestionTipoIncident_Entidades extends javax.swing.JPanel {
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
             } else if (r == false) {
-                JOptionPane.showMessageDialog(null, "Error al Grabar datos");
+               throw new ValidacionGrabacionDatos(null, "Error al Grabar datos");
             }
             actualizaTablaM_M(miEnt);
         }

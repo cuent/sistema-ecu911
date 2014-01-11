@@ -6,9 +6,7 @@ package ucuenca.edu.optii.ecu911.negocio;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import ucuenca.edu.optii.ecu911.dao.RolPermisoDC;
 
 /**
@@ -41,9 +39,8 @@ public class Rol_Permiso {
             aspfDB.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Rol_Permiso.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
-           return false;
+            Logger.getLogger(ex.getMessage());
+            return false;
         }  
     }
        public ArrayList buscarPermisos() {
@@ -54,12 +51,12 @@ public class Rol_Permiso {
             if(aux!=null){
              return aux;
             }else{
-                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
-                 return null;
+                  Logger.getLogger("permiso no existe");
+                  return null;
             }
             
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
+         Logger.getLogger(ex.getMessage());
         }
         return null;
     }
