@@ -39,7 +39,7 @@ public class EntidadDB {
             Telefono unt=new Telefono();
             unaent.setId(resultado.getInt(1));           
             unaent.setCiudad(resultado.getString(2)); 
-              ///para la entidad
+            unaent.setTipo(resultado.getString(3));
             unt.setId(resultado.getInt(4));  
             unaent.setMifono(unt);
             todos.add(unaent);

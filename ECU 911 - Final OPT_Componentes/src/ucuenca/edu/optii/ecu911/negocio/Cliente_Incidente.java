@@ -37,7 +37,5 @@ public class Cliente_Incidente {
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;
-    }
-    
-    
+    }   
 }

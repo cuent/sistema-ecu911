@@ -12,22 +12,22 @@ public class E_Disponible implements Intz_EstadosTelefono{
 
     @Override
     public void SuspenderTelefono(Telefono tel) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       // throw new UnsupportedOperationException("Telefono Suspendido");
+    System.out.print("Telefono Suspendido");
     }
 
     @Override
     public void OcuparTelefono(Telefono tel) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       System.out.print("Telefono Ocupado");
     }
 
     @Override
     public void EsperarTelefono(Telefono tel) {
-        throw new UnsupportedOperationException("Not supported yet.");
+       System.out.print("Telefono en Espera");   
     }
 
     @Override
     public void LiberarTelefono(Telefono tel) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-    
+          System.out.print("Telefono Disponible");
+    }   
 }

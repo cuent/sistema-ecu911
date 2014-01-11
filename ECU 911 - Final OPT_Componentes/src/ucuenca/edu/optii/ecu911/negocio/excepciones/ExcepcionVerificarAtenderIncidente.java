@@ -16,8 +16,7 @@ import javax.swing.JOptionPane;
 public class ExcepcionVerificarAtenderIncidente extends RuntimeException{
 
     public ExcepcionVerificarAtenderIncidente(JFrame frame) {
-                JOptionPane.showMessageDialog(frame, "Seleccione un Incidente");
-
+                JOptionPane.showMessageDialog(frame, "Seleccione un Incidente primero ", "SITEMA ECU 911",JOptionPane.WARNING_MESSAGE );
     }
     
 }

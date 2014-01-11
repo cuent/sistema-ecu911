@@ -81,8 +81,7 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
             aspfDB.grabar(this,Ent);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Permiso.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
+            Logger.getLogger(ex.getMessage());
            return false;
         }  
     }
@@ -97,7 +96,7 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
                  return null;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
         return null;
     } 
@@ -116,7 +115,7 @@ public class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
                  return null;
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
         return null;
     }

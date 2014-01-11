@@ -17,7 +17,6 @@ import ucuenca.edu.optii.ecu911.dao.TipoIncidenteDB;
  * @author May
  */
 public class TipoIncidente {
-
     int id;
     String descripcion;
     List<EntidadCooperativa> misentidades = new ArrayList<EntidadCooperativa>();
@@ -60,9 +59,8 @@ public class TipoIncidente {
             unrol.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Rol.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-            return false;
+             Logger.getLogger(ex.getMessage());
+             return false;
         }
     }
 
@@ -71,8 +69,7 @@ public class TipoIncidente {
             TipoIncidenteDB unrol = new TipoIncidenteDB();
             return unrol.listar(ciudad, descripcion);
         } catch (SQLException ex) {
-            Logger.getLogger(Rol.class.getName()).log(Level.SEVERE, null, ex);
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+           Logger.getLogger(ex.getMessage());
         }
         return null;
     }
@@ -87,12 +84,12 @@ public class TipoIncidente {
                 setDescripcion(aux.getDescripcion());
                 return true;
             } else {
-                JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
+              Logger.getLogger(null, "Error al buscar, incidente no existe");
                 return false;
             }
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
+          Logger.getLogger(ex.getMessage());
         }
         return false;
     }

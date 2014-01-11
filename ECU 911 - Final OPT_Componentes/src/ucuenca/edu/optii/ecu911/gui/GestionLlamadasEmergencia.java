@@ -7,11 +7,16 @@ package ucuenca.edu.optii.ecu911.gui;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import ucuenca.edu.optii.ecu911.negocio.Cliente;
 import ucuenca.edu.optii.ecu911.negocio.Registro_LLamadas;
 import ucuenca.edu.optii.ecu911.negocio.Telefono;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.TelefonoVerificacionException;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidaDatoInexistenteExcepcion;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCamposTextoExcepcion;
 
 /**
  *
@@ -179,7 +184,7 @@ Telefono mifono=new Telefono();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     if (txtcedula.getText().equals("") ) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar su cedula para poder verificar su registro");
+            throw  new ValidacionCamposTextoExcepcion(null,"Debe ingresar su cedula para poder verificar su registro");
         }
     else {
      Cliente uncli=new Cliente();
@@ -187,27 +192,27 @@ Telefono mifono=new Telefono();
      boolean verifica=uncli.buscarCedula();
      if (verifica==true)
      {
-      //grabando registro de llamadas al ecu por parte de los clientes 
        miregistro.setCedula(uncli.getCedula());
        miregistro.setFecha(PonFechaActual());
            mifono.setId(uncli.getMifono().getId());
-           mifono.buscarNumeroSegunIde();
+            try {
+                mifono.buscarNumeroSegunIde();
+            } catch (TelefonoVerificacionException ex) {
+                Logger.getLogger(ex.getMessage());
+            }
        miregistro.setTelefono(mifono.getNumero());    
        boolean confirmregistro=miregistro.grabar();
        if(confirmregistro){
            JOptionPane.showMessageDialog(null, "Registro Satisfactorio");
-       }else{
-           JOptionPane.showMessageDialog(null, "No se pudo hacer el registro de llamada");
        }
-      //mandando a que el operador mande las alarmas a las entidades   
+       
       MenuAdm m =new MenuAdm(txtcedula.getText());
       m.setVisible(true); 
      }else{
-    JOptionPane.showMessageDialog(null, "Ud debe registrarse primero");
-    jButton2.setEnabled(true);
-    txtcedula.setText("");
-    }
-       
+       jButton2.setEnabled(true);
+       txtcedula.setText("");
+       throw  new ValidaDatoInexistenteExcepcion(null, "Ud debe registrarse primero");
+    }   
     } 
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -225,7 +230,6 @@ Telefono mifono=new Telefono();
     k.add(r);
     k.setSize(350, 200);
     k.setVisible(true);
-     // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

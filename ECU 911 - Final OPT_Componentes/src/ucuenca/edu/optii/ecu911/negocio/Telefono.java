@@ -9,6 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import ucuenca.edu.optii.ecu911.dao.TelefonoDB;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.TelefonoVerificacionException;
 
 /**
  *
@@ -66,19 +67,17 @@ public class Telefono {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-    public boolean grabar() {
-        try {
-            TelefonoDB aspfDB = new TelefonoDB();
-            aspfDB.grabar(this);
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
-           return false;
-        }  
+    public boolean grabar()throws TelefonoVerificacionException, SQLException{
+         TelefonoDB aspfDB = new TelefonoDB();
+         if(aspfDB.grabar(this)){
+             return true;
+         }else{
+                throw new TelefonoVerificacionException("Error al Grabar la entidad Telefono");         
+         }
+      
     }
     
-    public boolean buscarNumeroSegunIde() {
+    public boolean buscarNumeroSegunIde() throws TelefonoVerificacionException{
         try {
             Telefono aux;
             TelefonoDB aspectoDB = new TelefonoDB();
@@ -90,15 +89,15 @@ public class Telefono {
              setNumero(aux.getNumero());
              return true;
             }else{       
-                 return false;
+                throw new TelefonoVerificacionException("No se ha encontrado los datos de telefono");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
         return false;
     }
     
-    public boolean buscarNumero() {
+    public boolean buscarNumero()throws TelefonoVerificacionException{
         try {
             Telefono aux;
             TelefonoDB aspectoDB = new TelefonoDB();
@@ -110,10 +109,10 @@ public class Telefono {
              setNumero(aux.getNumero());
              return true;
             }else{       
-                 return false;
+                   throw new TelefonoVerificacionException("No se ha encontrado los datos de telefono");
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Telefono.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
         return false;
     }

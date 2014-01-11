@@ -6,6 +6,8 @@
 package ucuenca.edu.optii.ecu911.negocio;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,8 +37,14 @@ public class Llamar {
         }
     }
 
-    public ArrayList alertar() {
+    public ArrayList alertar() throws ClassNotFoundException {
         LlamarEntidad llamarEntidad = new LlamarEntidad();
+        
+        // profeee
+      /*   EntidadCooperativa e = FactoriaEntidades.get(incidente);
+        lista.add(e.aceptar(llamarEntidad));*/
+        
+        
         for (Object object : lIncidente) {
             String entidad = object.toString();
             switch (entidad) {
@@ -70,6 +78,15 @@ public class Llamar {
                     c.agregarEntidadObservadora(gestionRiesgos);
                     lista.add(gestionRiesgos.aceptar(llamarEntidad));
                     break;
+            }
+            try {
+                EntidadCooperativa e = (EntidadCooperativa) Class.
+                                            forName("ucuenca.edu.aptii.ecu911.negocio.EntidadGestionRiesgos")
+                                            .newInstance();
+            } catch (InstantiationException ex) {
+                Logger.getLogger(Llamar.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IllegalAccessException ex) {
+                Logger.getLogger(Llamar.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }

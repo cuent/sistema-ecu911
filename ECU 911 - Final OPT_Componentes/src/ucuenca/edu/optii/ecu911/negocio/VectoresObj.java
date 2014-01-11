@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
 
 import java.sql.SQLException;
@@ -177,8 +173,7 @@ public class VectoresObj {
             Entidad_TipoIncDB aspPerm = new Entidad_TipoIncDB();
             setEntidades_tiposInc(aspPerm.buscar(entid));
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+            Logger.getLogger(ex.getMessage());
         }
     }
     public void listarRegistrosLlamadas() {
@@ -186,8 +181,7 @@ public class VectoresObj {
             RegistroLlamadasDB aspPerm = new RegistroLlamadasDB();
             setMisregistros(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+             Logger.getLogger(ex.getMessage());
         }
     }
     public void listarPermisos() {
@@ -195,8 +189,7 @@ public class VectoresObj {
             PermisoDB aspPerm = new PermisoDB();
             setPermisos(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+            Logger.getLogger(ex.getMessage());
         }
     }
 
@@ -205,8 +198,7 @@ public class VectoresObj {
             RolDB aspPerm = new RolDB();
             setRoles(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+             Logger.getLogger(ex.getMessage());
         }
     }
  public void listarSesiones() {
@@ -214,8 +206,7 @@ public class VectoresObj {
             LoginDB aspPerm = new LoginDB();
            setSesiones(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+             Logger.getLogger(ex.getMessage());
         }
     }
     public void listarTelefonos() {
@@ -233,8 +224,7 @@ public class VectoresObj {
             ClienteDB aspPerm = new ClienteDB();
             setClientes(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+            Logger.getLogger(ex.getMessage());
         }
     }
 
@@ -243,8 +233,7 @@ public class VectoresObj {
             TipoIncidenteDB aspPerm = new TipoIncidenteDB();
             setTiposInc(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+            Logger.getLogger(ex.getMessage());
         }
     }
 
@@ -253,8 +242,7 @@ public class VectoresObj {
             OperadorEntidadDB aspPerm = new OperadorEntidadDB();
             setOpEntidades(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+            Logger.getLogger(ex.getMessage());
         }
     }
     public void listarOperadoresEcu() {
@@ -262,8 +250,7 @@ public class VectoresObj {
             OperadorEcuDB aspPerm = new OperadorEcuDB();
             setOpEcus(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+             Logger.getLogger(ex.getMessage());
         }
     }
 
@@ -272,7 +259,7 @@ public class VectoresObj {
             EntidadDB aspPerm = new EntidadDB();
             setEntidades(aspPerm.listar());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
     }
     public void listarEntidadesDisponibles() {
@@ -280,7 +267,7 @@ public class VectoresObj {
             EntidadDB aspPerm = new EntidadDB();
             setEntidadesDisponibles(aspPerm.listarDisponibles());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(ex.getMessage());
         }
     }
 
@@ -289,8 +276,7 @@ public class VectoresObj {
             TelefonoDB aspPerm = new TelefonoDB();
             setTelfsDisponibles(aspPerm.listarDisponibles());
         } catch (SQLException ex) {
-            Logger.getLogger(VectoresObj.class.getName()).log(Level.SEVERE, null, ex);
-
+            Logger.getLogger(ex.getMessage());
         }
     }
 

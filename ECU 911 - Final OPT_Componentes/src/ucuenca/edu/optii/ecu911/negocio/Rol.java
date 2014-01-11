@@ -7,9 +7,7 @@ package ucuenca.edu.optii.ecu911.negocio;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import ucuenca.edu.optii.ecu911.dao.RolDB;
 
 /**
@@ -51,9 +49,8 @@ public class Rol {
             unrol.grabar(this);
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(Rol.class.getName()).log(Level.SEVERE, null, ex);
-           JOptionPane.showMessageDialog(null, ex.getMessage());
-           return false;
+            Logger.getLogger(ex.getMessage());
+            return false;
         }  
     }
      
@@ -66,12 +63,11 @@ public class Rol {
              setId(aux.getId());
              return true;
             }else{
-                 JOptionPane.showMessageDialog(null, "Error al buscar, usuario no existe");
-                 return false;
-            }
-            
+                  Logger.getLogger("Usuario no existe");
+                  return false;
+            }         
         } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, ex.getMessage());
+             Logger.getLogger(ex.getMessage());
         }
         return false;
     }

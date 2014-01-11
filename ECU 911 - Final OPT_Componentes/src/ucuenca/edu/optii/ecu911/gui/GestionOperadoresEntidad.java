@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import ucuenca.edu.optii.ecu911.negocio.EntidadBomberos;
@@ -15,6 +17,9 @@ import ucuenca.edu.optii.ecu911.negocio.EntidadCooperativa;
 import ucuenca.edu.optii.ecu911.negocio.Operador_EntidadC;
 import ucuenca.edu.optii.ecu911.negocio.Telefono;
 import ucuenca.edu.optii.ecu911.negocio.VectoresObj;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.TelefonoVerificacionException;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCamposTextoExcepcion;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionGrabacionDatos;
 
 /**
  *
@@ -258,7 +263,11 @@ VectoresObj unvector=new VectoresObj();
             
             Telefono mifono=new Telefono();
             mifono.setId(entidad.getMifono().getId());
-            mifono.buscarNumeroSegunIde();
+            try {
+                mifono.buscarNumeroSegunIde();
+            } catch (TelefonoVerificacionException ex) {
+                Logger.getLogger(ex.getMessage());
+            }
             
             Object nuevo[] = {otrop.getCedula(), otrop.getCorreo_el(), otrop.getSueldo(), tipo, mifono.getNumero()}; //esto es por las tres columnas aunque puede variar
             temp.addRow(nuevo);
@@ -280,7 +289,7 @@ VectoresObj unvector=new VectoresObj();
 
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
         if (txtcedOpCoop.getText().equals("") || txtcorreo.getText().equals("") || txtsueldoU.getText().equals("")||ponEntidadId.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Debe llenar los campos de texto");
+            throw new ValidacionCamposTextoExcepcion(null, "Debe llenar los campos de texto");
         } else {
             operadorEntidad.setCedula(txtcedOpCoop.getText());
             operadorEntidad.setCorreo_el(txtcorreo.getText());
@@ -291,7 +300,7 @@ VectoresObj unvector=new VectoresObj();
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
             } else if (r == false) {
-                JOptionPane.showMessageDialog(null, "Error al Grabar datos");
+                throw  new ValidacionGrabacionDatos(null, "Error al Grabar datos");
             }
             actualizaOperadoresEntidad();
             actualizaEntidadesC();

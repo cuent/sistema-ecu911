@@ -26,7 +26,5 @@ public class Servicio_CentroEcu {
 
     public void setMicentro(CentroEcu_Observado micentro) {
         this.micentro = micentro;
-    }
-    
-    
+    }   
 }

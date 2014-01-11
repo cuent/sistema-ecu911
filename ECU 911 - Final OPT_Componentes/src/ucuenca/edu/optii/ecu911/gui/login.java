@@ -232,7 +232,7 @@ public class login extends javax.swing.JDialog {
             logueo.setUsu(usuario);
             logueo.grabar();            
             }
-          }catch(java.lang.NullPointerException e){
+          }catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, e.getMessage());
          }
        } 

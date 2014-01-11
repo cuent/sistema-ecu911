@@ -12,9 +12,8 @@ import java.util.List;
  * @author cuent
  */
 public class Centro_Zonal extends CentroEcu_Observado {
-
     String nombre;
-
+    
     public String getNombre() {
         return "Centro ECU 911 Zonal";
     }

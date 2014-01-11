@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 public class ExcepcionVerificarDireccionIncidente extends RuntimeException{
 
     public ExcepcionVerificarDireccionIncidente(JFrame frame) {
-                JOptionPane.showMessageDialog(frame, "Ingrese la Direccion del Incidente");
+                JOptionPane.showMessageDialog(frame, "Ingrese la Direccion del Incidente", "SITEMA ECU 911",JOptionPane.WARNING_MESSAGE );
     }
     
 }

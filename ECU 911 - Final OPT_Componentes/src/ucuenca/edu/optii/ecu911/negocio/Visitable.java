@@ -10,6 +10,5 @@ package ucuenca.edu.optii.ecu911.negocio;
  * @author cuent
  */
 public interface Visitable {
-
     public String aceptar(Visitor visitor);
 }
