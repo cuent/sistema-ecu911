@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="testAnt" default="init" basedir=".">
+    
+    <property name="src" value="./src"/>
+    <property name="build" value="./build"/>
+    <property name="dist" value="./dist"/>   
+    
+    <target name="init">
+        <mkdir dir="${build}"/>
+    </target>
+    <target name="compilar" depends="init">
+        <javac srcdir="${src}" destdir="${build}"/>
+    </target>
+    <target name="dist" depends="compilar">
+        <mkdir dir="${dist}/>
+        <jar jarfile="${dist}/lib/testAnt.jar" basedir="${dist}"/>
+    </target>    
+    <target name="runTests" description="Run JUnit tests">
+        <junit printsumary="yes" dir="test-classes" fork="true">
+            <classpath>
+                <test name="xxx.AllNonGWTTestCaseTests" haltonfailure="no" outfile="result">
+                    
+                </test>
+            </classpath>
+            
+        </junit>
+    </target>   
+</project>
