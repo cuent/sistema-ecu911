@@ -12,16 +12,18 @@
         <javac srcdir="${src}" destdir="${build}"/>
     </target>
     <target name="dist" depends="compilar">
-        <mkdir dir="${dist}/>
+        <mkdir dir="${dist}"/>
         <jar jarfile="${dist}/lib/testAnt.jar" basedir="${dist}"/>
     </target>    
     <target name="runTests" description="Run JUnit tests">
-        <junit printsumary="yes" dir="test-classes" fork="true">
+        <junit printsummary="yes" dir="/usr/bin/" fork="true">
             <classpath>
-                <test name="xxx.AllNonGWTTestCaseTests" haltonfailure="no" outfile="result">
-                    
-                </test>
+                <pathelement path="./dist/junit-4.10.jar"/>
             </classpath>
+
+            <test name="xxx.AllNonGWTTestCaseTests" haltonfailure="no" outfile="result">
+                    
+            </test>
             
         </junit>
     </target>   
