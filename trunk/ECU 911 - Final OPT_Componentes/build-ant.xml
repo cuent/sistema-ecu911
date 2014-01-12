@@ -18,7 +18,7 @@
     <target name="runTests" description="Run JUnit tests">
         <junit printsummary="yes" dir="/usr/bin/" fork="true">
             <classpath>
-                <pathelement path="./dist/junit-4.10.jar"/>
+                <pathelement path="./dist/lib/junit-4.10.jar"/>
             </classpath>
 
             <test name="xxx.AllNonGWTTestCaseTests" haltonfailure="no" outfile="result">
