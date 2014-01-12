@@ -5,6 +5,7 @@
 package ucuenca.edu.optii.ecu911.negocio;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidaTextoExcepcion;
 import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCamposTextoExcepcion;
@@ -15,11 +16,11 @@ import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCedulaExcepcion;
  * @author May
  */
 public class validaciones {
-    public boolean validaCedula(String cedula){
+    public boolean validaCedula(String cedula)throws ValidacionCedulaExcepcion{
     int suma=0;
-    if(cedula.length()==9){
-       throw new ValidacionCedulaExcepcion(null,"Ingrese su cedula de 10 digitos");
-       //return false;
+    if(cedula.length()<=9){
+      ValidacionCedulaExcepcion e=new ValidacionCedulaExcepcion(null,"Ingrese su cedula de 10 digitos");
+      return false;
     }else{
       int a[]=new int [cedula.length()/2];
       int b[]=new int [(cedula.length()/2)];
@@ -43,17 +44,19 @@ public class validaciones {
       } 
       int aux=suma/10;
       int dec=(aux+1)*10;
-      if ((dec - suma) == Integer.parseInt(String.valueOf(cedula.charAt(cedula.length()-1))))
-        return true;
+      if ((dec - suma) == Integer.parseInt(String.valueOf(cedula.charAt(cedula.length()-1)))) {
+            return true;
+        }
       else
         if(suma%10==0 && cedula.charAt(cedula.length()-1)=='0'){
           return true;
            
         }else{
-          throw new ValidacionCedulaExcepcion(null, "Su Cédula es invalida");
-                  
+           ValidacionCedulaExcepcion e=new ValidacionCedulaExcepcion(null,"Su cedula es invalida");
+         return false;        
         }
       }
+     
    }
     
     public void validaTexto(KeyEvent evt, JTextField txt){

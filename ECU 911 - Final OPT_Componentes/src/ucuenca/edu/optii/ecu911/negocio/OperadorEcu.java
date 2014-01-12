@@ -123,12 +123,11 @@ public class OperadorEcu extends Persona{
              setMicentro(aux.getMicentro());
              return true;
             }else{
-                 Logger.getLogger(null, "Error al buscar, usuario no existe");
-                 return false;
+                  return false;
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(null, ex.getMessage());
+            Logger.getLogger(ex.getMessage());
         }
         return false;
     }
