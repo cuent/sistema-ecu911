@@ -929,6 +929,11 @@ public class MenuAdm extends javax.swing.JFrame {
                 txtcedUActionPerformed(evt);
             }
         });
+        txtcedU.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcedUKeyTyped(evt);
+            }
+        });
 
         txtnameU.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -1765,7 +1770,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(MenuAdm.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ex.getMessage());
         }
     }//GEN-LAST:event_AddEnArrayPermisosActionPerformed
 
@@ -2244,12 +2249,20 @@ public class MenuAdm extends javax.swing.JFrame {
     }//GEN-LAST:event_txtceduClientesKeyReleased
 
     private void txtceduClientesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtceduClientesKeyPressed
-      
       validaciones v=new validaciones();
       if (txtceduClientes.getText().length()==10){
-      v.validaCedula(txtceduClientes.getText());        // TODO add your handling code here:
+      v.validaCedula(txtceduClientes.getText());    
+       }
+     
     }//GEN-LAST:event_txtceduClientesKeyPressed
-   }
+
+    private void txtcedUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedUKeyTyped
+     validaciones v=new validaciones();
+      if (txtcedU.getText().length()==10){
+      v.validaCedula(txtcedU.getText());    
+    }    
+    }//GEN-LAST:event_txtcedUKeyTyped
+  
     
     public void simularLlamada() {
 
