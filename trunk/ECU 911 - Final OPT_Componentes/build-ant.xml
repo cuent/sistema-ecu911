@@ -16,7 +16,7 @@
         <jar jarfile="${dist}/lib/testAnt.jar" basedir="${dist}"/>
     </target>    
     <target name="runTests" description="Run JUnit tests">
-        <junit printsummary="yes" dir="/usr/bin/" fork="true">
+        <junit printsummary="yes" fork="true">
             <classpath>
                 <pathelement path="./dist/lib/junit-4.10.jar"/>
             </classpath>
