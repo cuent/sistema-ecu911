@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="testAnt" default="init" basedir=".">
+<project name="testAnt" default="dist" basedir=".">
     
     <property name="src" value="./src"/>
     <property name="build" value="./build"/>
-    <property name="dist" value="./dist"/>   
+    <property name="dist" value="${basedir}/dist"/>  
+    <property name="test.report.dir" location="./test" />
+    
+    <!-- Variables used for JUnit testin -->
+    <property name="test.dir" location="src" />
+    <property name="test.report.dir" location="testreport" />
+
+    <!-- Define the classpath which includes the junit.jar and the classes after compiling-->
+    <path id="junit.class.path">
+        <pathelement location="${dist}/lib/junit.jar" />
+        <pathelement location="${build}" />
+    </path>
     
     <target name="init">
         <mkdir dir="${build}"/>
@@ -15,16 +26,28 @@
         <mkdir dir="${dist}"/>
         <jar jarfile="${dist}/lib/testAnt.jar" basedir="${dist}"/>
     </target>    
-    <target name="runTests" description="Run JUnit tests">
-        <junit printsummary="yes" fork="true">
+    <target name="runTests" description="Run JUnit test">
+        <junit printsummary="yes" dir="test" fork="true" haltonfailure="yes">
             <classpath>
-                <pathelement path="./dist/lib/junit-4.10.jar"/>
+                <path refid="junit.class.path"/>
+                <pathelement location="inst-classes" />
             </classpath>
-
-            <test name="xxx.AllNonGWTTestCaseTests" haltonfailure="no" outfile="result">
-                    
-            </test>
+            <formatter type="xml" />
             
+            
+            <batchtest todir="${test.report.dir}">
+                <fileset dir="${src}">
+                    <include name="**/*Test*.java" />
+                </fileset>
+            </batchtest>
         </junit>
-    </target>   
+    </target>
+    
+      
 </project>
+
+
+
+
+
+
