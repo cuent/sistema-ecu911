@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class ValidacionGrabacionDatos extends RuntimeException{
 
     public ValidacionGrabacionDatos(JFrame frame, String message) {
-         JOptionPane.showMessageDialog(frame, message,"SITEMA ECU 911",JOptionPane.WARNING_MESSAGE );
+          System.out.print(message); 
     }
       
 }

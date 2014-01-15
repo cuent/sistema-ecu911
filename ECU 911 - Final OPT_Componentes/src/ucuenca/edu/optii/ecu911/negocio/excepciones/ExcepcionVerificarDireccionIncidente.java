@@ -7,7 +7,6 @@
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,7 +15,7 @@ import javax.swing.JOptionPane;
 public class ExcepcionVerificarDireccionIncidente extends RuntimeException{
 
     public ExcepcionVerificarDireccionIncidente(JFrame frame) {
-                JOptionPane.showMessageDialog(frame, "Ingrese la Direccion del Incidente", "SITEMA ECU 911",JOptionPane.WARNING_MESSAGE );
+                System.out.println("Ingrese la Direccion del Incidente");
     }
     
 }

@@ -6,7 +6,6 @@
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -15,7 +14,7 @@ import javax.swing.JOptionPane;
 public class ExcepcionVerificarPersonaAfectada extends RuntimeException {
 
     public ExcepcionVerificarPersonaAfectada(JFrame frame) {
-        JOptionPane.showMessageDialog(frame, "Seleccione un Cliente", "SITEMA ECU 911",JOptionPane.WARNING_MESSAGE );
+       System.out.print( "Seleccione un Cliente");
 
     }
 
