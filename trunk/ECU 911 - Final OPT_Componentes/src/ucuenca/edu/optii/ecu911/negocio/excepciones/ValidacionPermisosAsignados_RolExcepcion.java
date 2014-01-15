@@ -15,7 +15,7 @@ public class ValidacionPermisosAsignados_RolExcepcion
 extends RuntimeException{
 
     public ValidacionPermisosAsignados_RolExcepcion(JFrame frame, String message) {
-         JOptionPane.showMessageDialog(frame, message,"SITEMA ECU 911",JOptionPane.WARNING_MESSAGE );
+    System.out.print(message); 
     }
     
 }
