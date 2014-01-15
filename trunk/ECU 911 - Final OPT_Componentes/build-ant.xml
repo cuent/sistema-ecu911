@@ -1,13 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="testAnt" default="dist" basedir=".">
+<project name="testAnt" default="compilar.pruebas" basedir=".">
     
+    
+    	<property name="hudson.workspace.root" value="C:\Users\gerard\.hudson\jobs\TestWithReport\workspace"/>
+	<property name="dir.test.reports" value="./testreport" />
+	<property name="dir.test.class" value="./build/test/classes" />
+	<property name="dir.lib" value="./lib" />
+	<property name="classpath" value="./build/classes" />
+        
+        
+        	<!-- Add the test jar (junit and testng) -->
+	<path id="classpath">
+		<pathelement location="${classpath}" />
+		<fileset dir="${dir.lib}">
+			<include name="**/junit.jar" />
+			<!--<include name="**/*test*.jar" />-->
+		</fileset>
+	</path>
+        
+       <target name="create_directory">
+		<echo message="Create the directory report ${dir.test.reports}" />
+		<mkdir dir="${dir.test.reports}" />
+	</target>
+        
+        <target name="execute_batch_test" depends="create_directory">
+ 
+		<echo message="Execute Tests in Batch" />
+		<junit fork="yes" printsummary="yes" haltonfailure="no">
+			<classpath refid="classpath" />
+			<batchtest fork="yes" todir="${dir.test.reports}">
+				<fileset dir="${dir.test.class}">
+					<include name="junit/*" />
+				</fileset>
+			</batchtest>
+			<formatter type="xml" />
+		</junit>
+ 
+		<echo message="Format the tests report" />
+		<junitreport todir="${dir.test.reports}">
+			<fileset dir="${dir.test.reports}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report todir="${dir.test.reports}" />
+		</junitreport>
+	</target>
+        
+        
     <property name="src" value="./src"/>
     <property name="build" value="./build"/>
-    <property name="dist" value="${basedir}/dist"/>  
-    <property name="test.report.dir" location="./test" />
+    <property name="dist" value="./dist"/>  
     
     <!-- Variables used for JUnit testin -->
-    <property name="test.dir" location="src" />
+    <property name="test.dir" location="test" />
     <property name="test.report.dir" location="testreport" />
 
     <!-- Define the classpath which includes the junit.jar and the classes after compiling-->
@@ -18,14 +62,23 @@
     
     <target name="init">
         <mkdir dir="${build}"/>
+        <mkdir dir="${test.report.dir}"/>
     </target>
-    <target name="compilar" depends="init">
+    
+    <target name="compilar.codigo" depends="init">
         <javac srcdir="${src}" destdir="${build}"/>
     </target>
-    <target name="dist" depends="compilar">
+ <!--   
+
+    <target name="compilar.pruebas" depends="compilar.codigo">
+        <javac srcdir="${test.dir}" destdir="${test.report.dir}"/>
+    </target>--> 
+
+    <target name="dist" depends="compilar.codigo">
         <mkdir dir="${dist}"/>
         <jar jarfile="${dist}/lib/testAnt.jar" basedir="${dist}"/>
-    </target>    
+    </target>   
+    
     <target name="runTests" description="Run JUnit test">
         <junit printsummary="yes" dir="test" fork="true" haltonfailure="yes">
             <classpath>
@@ -33,7 +86,6 @@
                 <pathelement location="inst-classes" />
             </classpath>
             <formatter type="xml" />
-            
             
             <batchtest todir="${test.report.dir}">
                 <fileset dir="${src}">
