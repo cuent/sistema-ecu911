@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="testAnt" default="compilar.pruebas" basedir=".">
+<project name="testAnt" default="compilar" basedir=".">
     
     
-    	<property name="hudson.workspace.root" value="C:\Users\gerard\.hudson\jobs\TestWithReport\workspace"/>
-	<property name="dir.test.reports" value="./testreport" />
-	<property name="dir.test.class" value="./build/test/classes" />
-	<property name="dir.lib" value="./lib" />
-	<property name="classpath" value="./build/classes" />
+    <property name="hudson.workspace.root" value="C:\Users\gerard\.hudson\jobs\TestWithReport\workspace"/>
+    <property name="dir.test.reports" value="./testreport" />
+    <property name="dir.test.class" value="./build/test/classes" />
+    <property name="dir.lib" value="./lib" />
+    <property name="classpath" value="./build/classes" />
         
         
-        	<!-- Add the test jar (junit and testng) -->
-	<path id="classpath">
-		<pathelement location="${classpath}" />
-		<fileset dir="${dir.lib}">
-			<include name="**/junit.jar" />
-			<!--<include name="**/*test*.jar" />-->
-		</fileset>
-	</path>
+    <!-- Add the test jar (junit and testng) -->
+    <path id="classpath">
+        <pathelement location="${classpath}" />
+        <fileset dir="${dir.lib}">
+            <include name="**/junit.jar" />
+            <!--<include name="**/*test*.jar" />-->
+        </fileset>
+    </path>
         
-       <target name="create_directory">
-		<echo message="Create the directory report ${dir.test.reports}" />
-		<mkdir dir="${dir.test.reports}" />
-	</target>
+    <target name="create_directory">
+        <echo message="Create the directory report ${dir.test.reports}" />
+        <mkdir dir="${dir.test.reports}" />
+    </target>
         
-        <target name="execute_batch_test" depends="create_directory">
+    <target name="execute_batch_test" depends="create_directory">
  
-		<echo message="Execute Tests in Batch" />
-		<junit fork="yes" printsummary="yes" haltonfailure="no">
-			<classpath refid="classpath" />
-			<batchtest fork="yes" todir="${dir.test.reports}">
-				<fileset dir="${dir.test.class}">
-					<include name="junit/*" />
-				</fileset>
-			</batchtest>
-			<formatter type="xml" />
-		</junit>
+        <echo message="Execute Tests in Batch" />
+        <junit fork="yes" printsummary="yes" haltonfailure="no">
+            <classpath refid="classpath" />
+            <batchtest fork="yes" todir="${dir.test.reports}">
+                <fileset dir="${dir.test.class}">
+                    <include name="junit/*" />
+                </fileset>
+            </batchtest>
+            <formatter type="xml" />
+        </junit>
  
-		<echo message="Format the tests report" />
-		<junitreport todir="${dir.test.reports}">
-			<fileset dir="${dir.test.reports}">
-				<include name="TEST-*.xml" />
-			</fileset>
-			<report todir="${dir.test.reports}" />
-		</junitreport>
-	</target>
+        <echo message="Format the tests report" />
+        <junitreport todir="${dir.test.reports}">
+            <fileset dir="${dir.test.reports}">
+                <include name="TEST-*.xml" />
+            </fileset>
+            <report todir="${dir.test.reports}" />
+        </junitreport>
+    </target>
         
         
     <property name="src" value="./src"/>
@@ -64,20 +64,27 @@
         <mkdir dir="${build}"/>
         <mkdir dir="${test.report.dir}"/>
     </target>
-    
+ 
+    <!--   
     <target name="compilar.codigo" depends="init">
         <javac srcdir="${src}" destdir="${build}"/>
     </target>
- <!--   
+    -->
 
-    <target name="compilar.pruebas" depends="compilar.codigo">
-        <javac srcdir="${test.dir}" destdir="${test.report.dir}"/>
-    </target>--> 
+    <target name="compilar" depends="init">
+        <javac srcdir="${test.dir}" destdir="${test.report.dir}" includeantruntime="false"
+        debug="${javac.debug}" debuglevel="${javac.debuglevel}" verbose="true"
+        memoryMaximumSize="${javac.memoryMaximumSize}" fork="yes"
+                               executable="/home/cuent/jdk1.7.0_45/bin/javac"
+source="1.7"
+                       target="1.7"
+        />
+    </target> 
 
-    <target name="dist" depends="compilar.codigo">
+    <target name="dist" depends="compilar" >
         <mkdir dir="${dist}"/>
         <jar jarfile="${dist}/lib/testAnt.jar" basedir="${dist}"/>
-    </target>   
+    </target>
     
     <target name="runTests" description="Run JUnit test">
         <junit printsummary="yes" dir="test" fork="true" haltonfailure="yes">
