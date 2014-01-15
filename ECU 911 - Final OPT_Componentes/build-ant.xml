@@ -49,6 +49,7 @@
     <property name="src" value="./src"/>
     <property name="build" value="./build"/>
     <property name="dist" value="./dist"/>  
+    <property name="clases.test" value="./classes-test"/>  
     
     <!-- Variables used for JUnit testin -->
     <property name="test.dir" location="test" />
@@ -95,7 +96,7 @@ source="1.7"
             <formatter type="xml" />
             
             <batchtest todir="${test.report.dir}">
-                <fileset dir="${src}">
+                <fileset dir="clases.test">
                     <include name="**/*Test*.java" />
                 </fileset>
             </batchtest>
