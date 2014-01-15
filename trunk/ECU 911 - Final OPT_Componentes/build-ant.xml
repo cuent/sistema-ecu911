@@ -96,7 +96,7 @@ source="1.7"
             <formatter type="xml" />
             
             <batchtest todir="${test.report.dir}">
-                <fileset dir="clases.test">
+                <fileset dir="${clases.test}">
                     <include name="**/*Test*.java" />
                 </fileset>
             </batchtest>
