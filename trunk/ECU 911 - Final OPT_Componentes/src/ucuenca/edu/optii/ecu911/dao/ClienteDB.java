@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import ucuenca.edu.optii.ecu911.negocio.Cliente;
 import ucuenca.edu.optii.ecu911.negocio.Telefono;
-
 /**
  *
  * @author May
