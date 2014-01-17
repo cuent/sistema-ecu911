@@ -33,9 +33,6 @@ public class Cliente extends Persona{
         this.mifono = mifono;
     }
     
-    public void llamar(){
-    }
-    
       public boolean grabar() {
         try {
             ClienteDB unrol = new ClienteDB();

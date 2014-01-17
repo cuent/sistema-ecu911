@@ -18,7 +18,6 @@ import ucuenca.edu.optii.ecu911.dao.TelefonoDB;
 public abstract class EntidadCooperativa implements Intz_EntidadCooperativa_Observador{
    int id;
    String ciudad;
-  
    Telefono mifono;
    String tipo;
 
@@ -57,12 +56,12 @@ public abstract class EntidadCooperativa implements Intz_EntidadCooperativa_Obse
    
     @Override
     public void recibir_info() {
-        throw new UnsupportedOperationException("Not supported yet.");
+       
     }
 
     @Override
     public String recibir_alarma() {
-        return "";
+        return "alarma recibida...";
     }
 
     @Override
@@ -72,7 +71,7 @@ public abstract class EntidadCooperativa implements Intz_EntidadCooperativa_Obse
 
     @Override
     public void actualizar() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("");
     }
     
     public boolean grabar(String Ent) {

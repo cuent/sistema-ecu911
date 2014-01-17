@@ -9,7 +9,6 @@ package ucuenca.edu.optii.ecu911.negocio;
  * @author May
  */
 public class EntidadCNT extends EntidadCooperativa implements Visitable {
-
     private String nombre = "CNT";
 
     @Override
