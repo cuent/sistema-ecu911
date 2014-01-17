@@ -11,22 +11,22 @@ package ucuenca.edu.optii.ecu911.negocio;
 public class E_Suspendido implements Intz_EstadosTelefono{
 
     @Override
-    public void SuspenderTelefono(Telefono tel) {
+    public String SuspenderTelefono(Telefono tel) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void OcuparTelefono(Telefono tel) {
+    public String OcuparTelefono(Telefono tel) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void EsperarTelefono(Telefono tel) {
+    public String EsperarTelefono(Telefono tel) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public void LiberarTelefono(Telefono tel) {
+    public String LiberarTelefono(Telefono tel) {
         throw new UnsupportedOperationException("Not supported yet.");
     }   
 }
