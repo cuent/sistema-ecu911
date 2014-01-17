@@ -1,31 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class ClienteTest {
-     String expResult = "Los olivos";
-    public ClienteTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
+     String resDireccion = "Los olivos";
+  
     /**
      * Test of getDireccion method, of class Cliente.
      */
@@ -33,10 +17,9 @@ public class ClienteTest {
     public void testGetDireccion() {
         System.out.println("getDireccion");
         Cliente instance = new Cliente();
-        instance.direccion="Los olivos";
-       
+        instance.direccion="Los olivos";      
         String result = instance.getDireccion();
-        assertEquals(expResult, result);
+        assertEquals(resDireccion, result);
        }
 
     /**
@@ -48,7 +31,7 @@ public class ClienteTest {
         String direccion = "calle de la quena";
         Cliente instance = new Cliente();
         instance.setDireccion(direccion);
-               
+        assertEquals(direccion, instance.getDireccion());       
     }
 
     /**
@@ -60,8 +43,7 @@ public class ClienteTest {
         Cliente instance = new Cliente();
         Telefono expResult = null;
         Telefono result = instance.getMifono();
-        assertEquals(expResult, result);
-        
+        assertEquals(expResult, result);   
     }
 
     /**
@@ -74,20 +56,9 @@ public class ClienteTest {
         mifono.setId(5);
         Cliente instance = new Cliente();
         instance.setMifono(mifono);
-        
+        assertEquals(mifono, instance.getMifono());
     }
-
-    /**
-     * Test of llamar method, of class Cliente.
-     */
-    @Test
-    public void testLlamar() {
-        System.out.println("llamar");
-        Cliente instance = new Cliente();
-        instance.llamar();
-        
-    }
-
+  
     /**
      * Test of grabar method, of class Cliente.
      */
@@ -103,8 +74,7 @@ public class ClienteTest {
         instance.setMifono(fono);
         boolean expResult = false;
         boolean result = instance.grabar();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);    
     }
 
     /**
@@ -120,7 +90,6 @@ public class ClienteTest {
         boolean expResult = false;
         boolean result = instance.buscar();
         assertEquals(expResult, result);
-       
     }
 
     /**
@@ -133,7 +102,6 @@ public class ClienteTest {
         instance.setCedula("010203");
         boolean expResult = true;
         boolean result = instance.buscarCedula();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);   
     }
 }

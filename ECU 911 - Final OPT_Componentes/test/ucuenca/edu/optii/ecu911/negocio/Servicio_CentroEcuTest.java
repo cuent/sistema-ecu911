@@ -1,31 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class Servicio_CentroEcuTest {
-    
-    public Servicio_CentroEcuTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getMiservicio method, of class Servicio_CentroEcu.
      */
@@ -36,19 +18,18 @@ public class Servicio_CentroEcuTest {
         Servicio expResult = null;
         Servicio result = instance.getMiservicio();
         assertEquals(expResult, result);
-        
     }
-
     /**
      * Test of setMiservicio method, of class Servicio_CentroEcu.
      */
     @Test
     public void testSetMiservicio() {
         System.out.println("setMiservicio");
-        Servicio miservicio = null;
+        Servicio miservicio = new Servicio();
+        miservicio.descripcion="gestion de vigilancia";
         Servicio_CentroEcu instance = new Servicio_CentroEcu();
         instance.setMiservicio(miservicio);
-      
+        assertEquals(instance.getMiservicio().descripcion, "gestion de vigilancia");
     }
 
     /**
@@ -58,21 +39,20 @@ public class Servicio_CentroEcuTest {
     public void testGetMicentro() {
         System.out.println("getMicentro");
         Servicio_CentroEcu instance = new Servicio_CentroEcu();
-        CentroEcu_Observado expResult = null;
-        CentroEcu_Observado result = instance.getMicentro();
-        assertEquals(expResult, result);
-       
+        CentroEcu_Observado expResult = new CentroEcu_Observado();
+        instance.setMicentro(expResult);
+        assertEquals(expResult,  instance.getMicentro());
     }
-
     /**
      * Test of setMicentro method, of class Servicio_CentroEcu.
      */
     @Test
     public void testSetMicentro() {
         System.out.println("setMicentro");
-        CentroEcu_Observado micentro = null;
+        CentroEcu_Observado micentro = new CentroEcu_Observado();
+        micentro.setCiudad("Loja");
         Servicio_CentroEcu instance = new Servicio_CentroEcu();
         instance.setMicentro(micentro);
-        
+        assertEquals(instance.getMicentro().ciudad, "Loja");
     }
 }

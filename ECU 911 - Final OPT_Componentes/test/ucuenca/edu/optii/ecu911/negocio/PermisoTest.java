@@ -1,31 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class PermisoTest {
-    
-    public PermisoTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getId method, of class Permiso.
      */
@@ -33,22 +15,20 @@ public class PermisoTest {
     public void testGetId() {
         System.out.println("getId");
         Permiso instance = new Permiso();
-        int expResult = 0;
-        int result = instance.getId();
-        assertEquals(expResult, result);
-       
+        int expResult = 2;
+        instance.setId(expResult);
+        assertEquals(expResult, instance.getId());
     }
-
     /**
      * Test of setId method, of class Permiso.
      */
     @Test
     public void testSetId() {
         System.out.println("setId");
-        int id = 0;
+        int id = 2;
         Permiso instance = new Permiso();
         instance.setId(id);
-       
+        assertEquals(id, instance.getId());
     }
 
     /**
@@ -58,10 +38,9 @@ public class PermisoTest {
     public void testGetDescripcion() {
         System.out.println("getDescripcion");
         Permiso instance = new Permiso();
-     instance.descripcion="listados";
+        instance.descripcion="listados";
         String result = instance.getDescripcion();
-        assertEquals("listados", result);
-       
+        assertEquals("listados", result);   
     }
 
     /**
@@ -70,10 +49,10 @@ public class PermisoTest {
     @Test
     public void testSetDescripcion() {
         System.out.println("setDescripcion");
-        String descripcion = "";
+        String descripcion = "acceder a db";
         Permiso instance = new Permiso();
         instance.setDescripcion(descripcion);
-       
+        assertEquals(instance.descripcion, descripcion);     
     }
 
     /**
@@ -85,9 +64,7 @@ public class PermisoTest {
         Permiso instance = new Permiso();
         boolean expResult = false;
         boolean result = instance.grabar();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-       
+        assertEquals(expResult, result);  
     }
 
     /**
@@ -99,7 +76,6 @@ public class PermisoTest {
         Permiso instance = new Permiso();
         boolean expResult = false;
         boolean result = instance.buscarDescripcion();
-        assertEquals(expResult, result);
-     
+        assertEquals(expResult, result);  
     }
 }

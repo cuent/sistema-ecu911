@@ -1,9 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,17 +9,6 @@ import static org.junit.Assert.*;
  * @author May
  */
 public class EntidadCooperativaTest {
-    
-    public EntidadCooperativaTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of getTipo method, of class EntidadCooperativa.
@@ -35,8 +19,7 @@ public class EntidadCooperativaTest {
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         instance.tipo="Policia";
         String result = instance.getTipo();
-        assertEquals("Policia", result);
-       
+        assertEquals("Policia", result);       
     }
 
     /**
@@ -45,10 +28,10 @@ public class EntidadCooperativaTest {
     @Test
     public void testSetTipo() {
         System.out.println("setTipo");
-        String tipo = "";
+        String tipo = "asalto a mano armada";
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         instance.setTipo(tipo);
-       
+        assertEquals(tipo, instance.getTipo());
     }
 
     /**
@@ -61,7 +44,6 @@ public class EntidadCooperativaTest {
         Telefono expResult = null;
         Telefono result = instance.getMifono();
         assertEquals(expResult, result);
-        
     }
 
     /**
@@ -75,7 +57,7 @@ public class EntidadCooperativaTest {
         mifono.setNumero("072558844");
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         instance.setMifono(mifono);
-      
+        assertEquals("072558844", instance.getMifono().getNumero());
     }
 
     /**
@@ -87,8 +69,7 @@ public class EntidadCooperativaTest {
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         int expResult = 0;
         int result = instance.getId();
-        assertEquals(expResult, result);
-      
+        assertEquals(expResult, result);    
     }
 
     /**
@@ -100,7 +81,7 @@ public class EntidadCooperativaTest {
         int id = 0;
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         instance.setId(id);
-       
+        assertEquals(id, instance.getId());
     }
 
     /**
@@ -113,8 +94,7 @@ public class EntidadCooperativaTest {
         instance.ciudad="Loja";
         String expResult = "Loja";
         String result = instance.getCiudad();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);     
     }
 
     /**
@@ -123,23 +103,11 @@ public class EntidadCooperativaTest {
     @Test
     public void testSetCiudad() {
         System.out.println("setCiudad");
-        String ciudad = "";
+        String ciudad = "Riobamba";
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         instance.setCiudad(ciudad);
-       
+        assertEquals(ciudad, instance.getCiudad()); 
     }
-
-    /**
-     * Test of recibir_info method, of class EntidadCooperativa.
-     */
-    @Test
-    public void testRecibir_info() {
-        System.out.println("recibir_info");
-        EntidadCooperativa instance = new EntidadCooperativaImpl();
-        instance.recibir_info();
-       
-    }
-
     /**
      * Test of recibir_alarma method, of class EntidadCooperativa.
      */
@@ -147,10 +115,9 @@ public class EntidadCooperativaTest {
     public void testRecibir_alarma() {
         System.out.println("recibir_alarma");
         EntidadCooperativa instance = new EntidadCooperativaImpl();
-        String expResult = "";
+        String expResult = "alarma recibida...";
         String result = instance.recibir_alarma();
         assertEquals(expResult, result);
-       
     }
 
     /**
@@ -161,7 +128,7 @@ public class EntidadCooperativaTest {
         System.out.println("generar_reportes_incidente");
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         instance.generar_reportes_incidente();
-    
+        assertEquals(instance, this);
     }
 
     /**
@@ -172,7 +139,7 @@ public class EntidadCooperativaTest {
         System.out.println("actualizar");
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         instance.actualizar();
-        
+        assertEquals(instance, this);
     }
 
     /**
@@ -200,8 +167,7 @@ public class EntidadCooperativaTest {
         EntidadCooperativa instance = new EntidadCooperativaImpl();
        instance.id=1;
         String result = instance.buscarEntidadHijo();
-        assertEquals("Policia", result);
-      
+        assertEquals("Policia", result);    
     }
 
     /**
@@ -213,8 +179,7 @@ public class EntidadCooperativaTest {
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         EntidadCooperativa expResult = null;
         EntidadCooperativa result = instance.buscar();
-        assertEquals(expResult, result);
-      
+        assertEquals(expResult, result);     
     }
 
     /**
@@ -227,12 +192,10 @@ public class EntidadCooperativaTest {
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         String expResult = "";
         String result = instance.aceptar(visitor);
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);     
     }
 
     public class EntidadCooperativaImpl extends EntidadCooperativa {
-
         public String aceptar(Visitor visitor) {
             return "";
         }

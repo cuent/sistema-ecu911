@@ -1,9 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import java.awt.event.KeyEvent;
 import org.junit.After;
 import org.junit.Before;
@@ -15,18 +10,6 @@ import static org.junit.Assert.*;
  * @author May
  */
 public class validacionesTest {
-    
-    public validacionesTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of validaCedula method, of class validaciones.
      */
@@ -52,11 +35,4 @@ public class validacionesTest {
     /**
      * Test of validaTexto method, of class validaciones.
      */
-    @Test
-    public void testValidaTexto() {
-        System.out.println("");
-        KeyEvent evt ;
-       validaciones instance = new validaciones();
-        assertEquals(false, false);
-    }
 }

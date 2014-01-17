@@ -1,30 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class EntidadPoliciaTest {
-    
-    public EntidadPoliciaTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of recibir_alarma method, of class EntidadPolicia.
@@ -35,10 +18,8 @@ public class EntidadPoliciaTest {
         EntidadPolicia instance = new EntidadPolicia();
         String expResult = "Policia en Camino...";
         String result = instance.recibir_alarma();
-        assertEquals(expResult, result);
-        
+        assertEquals(expResult, result);    
     }
-
     /**
      * Test of aceptar method, of class EntidadPolicia.
      */
@@ -49,10 +30,8 @@ public class EntidadPoliciaTest {
         EntidadPolicia instance = new EntidadPolicia();
         String expResult = "Policia";
         String result = instance.aceptar(visitor);
-        assertEquals(expResult, result);
-        
+        assertEquals(expResult, result);   
     }
-
     /**
      * Test of getNombre method, of class EntidadPolicia.
      */
@@ -62,7 +41,6 @@ public class EntidadPoliciaTest {
         EntidadPolicia instance = new EntidadPolicia();
         String expResult = "Policia";
         String result = instance.getNombre();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);  
     }
 }

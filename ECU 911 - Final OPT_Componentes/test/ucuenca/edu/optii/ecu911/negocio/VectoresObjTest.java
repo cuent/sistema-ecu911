@@ -1,32 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
+import org.junit.Ignore;
 /**
  *
  * @author May
  */
 public class VectoresObjTest {
-    
-    public VectoresObjTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getEntidadesDisponibles method, of class VectoresObj.
      */
@@ -34,10 +17,10 @@ public class VectoresObjTest {
     public void testGetEntidadesDisponibles() {
         System.out.println("getEntidadesDisponibles");
         VectoresObj instance = new VectoresObj();
-        ArrayList expResult = null;
+        instance.setEntidades(null);
+        instance.setEntidadesDisponibles(null);
         ArrayList result = instance.getEntidadesDisponibles();
-        assertEquals(expResult, result);
-     
+        assertEquals(null, result);  
     }
 
     /**
@@ -46,10 +29,10 @@ public class VectoresObjTest {
     @Test
     public void testSetEntidadesDisponibles() {
         System.out.println("setEntidadesDisponibles");
-        ArrayList entidadesDisponibles = null;
+        ArrayList entidadesDisponibles = new ArrayList();
         VectoresObj instance = new VectoresObj();
         instance.setEntidadesDisponibles(entidadesDisponibles);
-      
+        assertEquals(instance.getEntidadesDisponibles(), entidadesDisponibles);
     }
 
     /**
@@ -59,10 +42,10 @@ public class VectoresObjTest {
     public void testGetTelfsDisponibles() {
         System.out.println("getTelfsDisponibles");
         VectoresObj instance = new VectoresObj();
+        instance.setTelfsDisponibles(null);
         ArrayList expResult = null;
         ArrayList result = instance.getTelfsDisponibles();
         assertEquals(expResult, result);
-  
     }
 
     /**
@@ -74,7 +57,7 @@ public class VectoresObjTest {
         ArrayList telfsDisponibles = null;
         VectoresObj instance = new VectoresObj();
         instance.setTelfsDisponibles(telfsDisponibles);
-       
+        assertEquals(instance.getTelfsDisponibles(), null);
     }
 
     /**
@@ -84,10 +67,10 @@ public class VectoresObjTest {
     public void testGetEntidades_tiposInc() {
         System.out.println("getEntidades_tiposInc");
         VectoresObj instance = new VectoresObj();
+        instance.setEntidades_tiposInc(null);
         ArrayList expResult = null;
         ArrayList result = instance.getEntidades_tiposInc();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);     
     }
 
     /**
@@ -99,7 +82,7 @@ public class VectoresObjTest {
         ArrayList entidades_tiposInc = null;
         VectoresObj instance = new VectoresObj();
         instance.setEntidades_tiposInc(entidades_tiposInc);
-       
+        assertEquals(instance.getEntidades_tiposInc(), null);
     }
 
     /**
@@ -109,10 +92,10 @@ public class VectoresObjTest {
     public void testGetIncidentes() {
         System.out.println("getIncidentes");
         VectoresObj instance = new VectoresObj();
-        ArrayList expResult = null;
+        ArrayList expResult = null ;
+        instance.setIncidentes(null);
         ArrayList result = instance.getIncidentes();
         assertEquals(expResult, result);
-       
     }
 
     /**
@@ -124,7 +107,7 @@ public class VectoresObjTest {
         ArrayList incidentes = null;
         VectoresObj instance = new VectoresObj();
         instance.setIncidentes(incidentes);
-       
+        assertEquals(incidentes, instance.getIncidentes());  
     }
 
     /**
@@ -135,9 +118,9 @@ public class VectoresObjTest {
         System.out.println("getTiposInc");
         VectoresObj instance = new VectoresObj();
         ArrayList expResult = null;
+        instance.setTiposInc(null);
         ArrayList result = instance.getTiposInc();
         assertEquals(expResult, result);
-      
     }
 
     /**
@@ -149,6 +132,7 @@ public class VectoresObjTest {
         ArrayList tiposInc = null;
         VectoresObj instance = new VectoresObj();
         instance.setTiposInc(tiposInc);
+        assertEquals(tiposInc, instance.getTiposInc());
        
     }
 
@@ -159,10 +143,10 @@ public class VectoresObjTest {
     public void testGetTelefonos() {
         System.out.println("getTelefonos");
         VectoresObj instance = new VectoresObj();
+        instance.setTelefonos(null);
         ArrayList expResult = null;
         ArrayList result = instance.getTelefonos();
         assertEquals(expResult, result);
-    
     }
 
     /**
@@ -174,7 +158,7 @@ public class VectoresObjTest {
         ArrayList telefonos = null;
         VectoresObj instance = new VectoresObj();
         instance.setTelefonos(telefonos);
-       
+        assertEquals(instance.getTelefonos(), telefonos);
     }
 
     /**
@@ -184,10 +168,10 @@ public class VectoresObjTest {
     public void testGetPermisos() {
         System.out.println("getPermisos");
         VectoresObj instance = new VectoresObj();
+        instance.setPermisos(null);
         ArrayList expResult = null;
         ArrayList result = instance.getPermisos();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);     
     }
 
     /**
@@ -199,7 +183,7 @@ public class VectoresObjTest {
         ArrayList permisos = null;
         VectoresObj instance = new VectoresObj();
         instance.setPermisos(permisos);
-       
+        assertEquals(instance.getPermisos(), permisos);  
     }
 
     /**
@@ -209,10 +193,10 @@ public class VectoresObjTest {
     public void testGetClientes() {
         System.out.println("getClientes");
         VectoresObj instance = new VectoresObj();
+        instance.setClientes(null);
         ArrayList expResult = null;
         ArrayList result = instance.getClientes();
         assertEquals(expResult, result);
- 
     }
 
     /**
@@ -224,7 +208,7 @@ public class VectoresObjTest {
         ArrayList clientes = null;
         VectoresObj instance = new VectoresObj();
         instance.setClientes(clientes);
-       
+        assertEquals(clientes, instance.getClientes());
     }
 
     /**
@@ -234,10 +218,10 @@ public class VectoresObjTest {
     public void testGetRoles() {
         System.out.println("getRoles");
         VectoresObj instance = new VectoresObj();
+        instance.setRoles(null);
         ArrayList expResult = null;
         ArrayList result = instance.getRoles();
         assertEquals(expResult, result);
-      
     }
 
     /**
@@ -249,7 +233,7 @@ public class VectoresObjTest {
         ArrayList roles = null;
         VectoresObj instance = new VectoresObj();
         instance.setRoles(roles);
-       
+        assertEquals(roles, instance.getRoles());
     }
 
     /**
@@ -259,10 +243,10 @@ public class VectoresObjTest {
     public void testGetOpEcus() {
         System.out.println("getOpEcus");
         VectoresObj instance = new VectoresObj();
+        instance.setOpEcus(null);
         ArrayList expResult = null;
         ArrayList result = instance.getOpEcus();
-        assertEquals(expResult, result);
-        
+        assertEquals(expResult, result);       
     }
 
     /**
@@ -274,7 +258,7 @@ public class VectoresObjTest {
         ArrayList opEcus = null;
         VectoresObj instance = new VectoresObj();
         instance.setOpEcus(opEcus);
-       
+        assertEquals(opEcus, instance.getOpEcus());
     }
 
     /**
@@ -284,10 +268,10 @@ public class VectoresObjTest {
     public void testGetOpEntidades() {
         System.out.println("getOpEntidades");
         VectoresObj instance = new VectoresObj();
+        instance.setOpEntidades(null);
         ArrayList expResult = null;
         ArrayList result = instance.getOpEntidades();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);     
     }
 
     /**
@@ -299,7 +283,7 @@ public class VectoresObjTest {
         ArrayList opEntidades = null;
         VectoresObj instance = new VectoresObj();
         instance.setOpEntidades(opEntidades);
-        
+        assertEquals(instance.getOpEntidades(), opEntidades);
     }
 
     /**
@@ -309,10 +293,10 @@ public class VectoresObjTest {
     public void testGetCentros() {
         System.out.println("getCentros");
         VectoresObj instance = new VectoresObj();
+        instance.setCentros(null);
         ArrayList expResult = null;
         ArrayList result = instance.getCentros();
         assertEquals(expResult, result);
-       
     }
 
     /**
@@ -324,7 +308,7 @@ public class VectoresObjTest {
         ArrayList centros = null;
         VectoresObj instance = new VectoresObj();
         instance.setCentros(centros);
-        
+        assertEquals(centros, instance.getCentros());
     }
 
     /**
@@ -334,10 +318,10 @@ public class VectoresObjTest {
     public void testGetEntidades() {
         System.out.println("getEntidades");
         VectoresObj instance = new VectoresObj();
+        instance.setEntidades(null);
         ArrayList expResult = null;
         ArrayList result = instance.getEntidades();
         assertEquals(expResult, result);
-      
     }
 
     /**
@@ -349,7 +333,7 @@ public class VectoresObjTest {
         ArrayList entidades = null;
         VectoresObj instance = new VectoresObj();
         instance.setEntidades(entidades);
-       
+        assertEquals(entidades, instance.getEntidades());
     }
 
     /**
@@ -359,10 +343,10 @@ public class VectoresObjTest {
     public void testGetServicios() {
         System.out.println("getServicios");
         VectoresObj instance = new VectoresObj();
+        instance.setServicios(null);
         ArrayList expResult = null;
         ArrayList result = instance.getServicios();
         assertEquals(expResult, result);
-        
     }
 
     /**
@@ -374,7 +358,7 @@ public class VectoresObjTest {
         ArrayList servicios = null;
         VectoresObj instance = new VectoresObj();
         instance.setServicios(servicios);
-        
+        assertEquals(servicios, instance.getServicios());
     }
 
     /**
@@ -384,10 +368,10 @@ public class VectoresObjTest {
     public void testGetMisregistros() {
         System.out.println("getMisregistros");
         VectoresObj instance = new VectoresObj();
+        instance.setMisregistros(null);
         ArrayList expResult = null;
         ArrayList result = instance.getMisregistros();
         assertEquals(expResult, result);
-        
     }
 
     /**
@@ -399,7 +383,7 @@ public class VectoresObjTest {
         ArrayList misregistros = null;
         VectoresObj instance = new VectoresObj();
         instance.setMisregistros(misregistros);
-       
+        assertEquals(instance.getMisregistros(), misregistros);
     }
 
     /**
@@ -409,10 +393,10 @@ public class VectoresObjTest {
     public void testGetSesiones() {
         System.out.println("getSesiones");
         VectoresObj instance = new VectoresObj();
+        instance.setSesiones(null);
         ArrayList expResult = null;
         ArrayList result = instance.getSesiones();
         assertEquals(expResult, result);
-
     }
 
     /**
@@ -422,9 +406,9 @@ public class VectoresObjTest {
     public void testSetSesiones() {
         System.out.println("setSesiones");
         ArrayList sesiones = null;
-        VectoresObj instance = new VectoresObj();
+        VectoresObj instance = new VectoresObj();    
         instance.setSesiones(sesiones);
-       
+       assertEquals(null, sesiones);
     }
 
     /**
@@ -434,140 +418,130 @@ public class VectoresObjTest {
     public void testListarTiposIncidentesSegunEntidades() {
         System.out.println("listarTiposIncidentesSegunEntidades");
         int entid = 0;
+        ArrayList enti=new ArrayList();
         VectoresObj instance = new VectoresObj();
         instance.listarTiposIncidentesSegunEntidades(entid);
-   
+        assertEquals(enti, instance.getEntidades_tiposInc());
     }
 
     /**
      * Test of listarRegistrosLlamadas method, of class VectoresObj.
      */
+    @Ignore
     @Test
     public void testListarRegistrosLlamadas() {
         System.out.println("listarRegistrosLlamadas");
         VectoresObj instance = new VectoresObj();
         instance.listarRegistrosLlamadas();
-       
     }
 
     /**
      * Test of listarPermisos method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarPermisos() {
         System.out.println("listarPermisos");
         VectoresObj instance = new VectoresObj();
         instance.listarPermisos();
-       
     }
 
     /**
      * Test of listarRoles method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarRoles() {
         System.out.println("listarRoles");
         VectoresObj instance = new VectoresObj();
         instance.listarRoles();
-
     }
 
     /**
      * Test of listarSesiones method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarSesiones() {
         System.out.println("listarSesiones");
         VectoresObj instance = new VectoresObj();
-        instance.listarSesiones();
-      
+        instance.listarSesiones(); 
     }
 
     /**
      * Test of listarTelefonos method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarTelefonos() {
         System.out.println("listarTelefonos");
         VectoresObj instance = new VectoresObj();
         instance.listarTelefonos();
-
     }
 
     /**
      * Test of listarClientes method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=200)
     public void testListarClientes() {
         System.out.println("listarClientes");
         VectoresObj instance = new VectoresObj();
-        instance.listarClientes();
-       
+        instance.listarClientes();  
     }
 
     /**
      * Test of listarTipoIncidentes method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarTipoIncidentes() {
         System.out.println("listarTipoIncidentes");
         VectoresObj instance = new VectoresObj();
         instance.listarTipoIncidentes();
-       
     }
 
     /**
      * Test of listarOperadoresEntidades method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarOperadoresEntidades() {
         System.out.println("listarOperadoresEntidades");
         VectoresObj instance = new VectoresObj();
-        instance.listarOperadoresEntidades();
-      
+        instance.listarOperadoresEntidades();  
     }
 
     /**
      * Test of listarOperadoresEcu method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarOperadoresEcu() {
         System.out.println("listarOperadoresEcu");
         VectoresObj instance = new VectoresObj();
         instance.listarOperadoresEcu();
-       
     }
 
     /**
      * Test of listarEntidades method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarEntidades() {
         System.out.println("listarEntidades");
         VectoresObj instance = new VectoresObj();
-        instance.listarEntidades();
-        
+        instance.listarEntidades();     
     }
 
     /**
      * Test of listarEntidadesDisponibles method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarEntidadesDisponibles() {
         System.out.println("listarEntidadesDisponibles");
         VectoresObj instance = new VectoresObj();
         instance.listarEntidadesDisponibles();
-       
     }
 
     /**
      * Test of listarTelefonosDisponibles method, of class VectoresObj.
      */
-    @Test
+    @Test(timeout=300)
     public void testListarTelefonosDisponibles() {
         System.out.println("listarTelefonosDisponibles");
         VectoresObj instance = new VectoresObj();
-        instance.listarTelefonosDisponibles();
-      
+        instance.listarTelefonosDisponibles();  
     }
 }
