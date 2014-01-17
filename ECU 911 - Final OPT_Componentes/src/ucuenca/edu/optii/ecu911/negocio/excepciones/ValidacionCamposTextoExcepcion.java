@@ -5,14 +5,9 @@
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
 import javax.swing.JFrame;
-/**
- *
- * @author May
- */
 public class ValidacionCamposTextoExcepcion extends RuntimeException {
 
     public ValidacionCamposTextoExcepcion(JFrame frame,String mensaje) {
      System.out.print(mensaje); 
     }
-   
 }

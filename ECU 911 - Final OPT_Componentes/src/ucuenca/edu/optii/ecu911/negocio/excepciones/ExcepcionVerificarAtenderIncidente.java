@@ -5,7 +5,6 @@
  */
 
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
-
 import javax.swing.JFrame;
 
 /**

@@ -4,12 +4,7 @@
  */
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
-/**
- *
- * @author May
- */
 public class TelefonoVerificacionException extends RuntimeException{
-
     public TelefonoVerificacionException(String message) {
         super(message);
     }

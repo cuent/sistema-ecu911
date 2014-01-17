@@ -6,13 +6,8 @@ package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
 import javax.swing.JFrame;
 
-/**
- *
- * @author May
- */
 public class ValidaNumerosExcepcion extends RuntimeException {
 
-   
     public ValidaNumerosExcepcion(JFrame frame,String mensaje) {
      System.out.print(mensaje); }
     

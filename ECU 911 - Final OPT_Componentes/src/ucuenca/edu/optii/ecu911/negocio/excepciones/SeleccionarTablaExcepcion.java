@@ -6,14 +6,8 @@ package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
 import javax.swing.JFrame;
 
-/**
- *
- * @author May
- */
 public class SeleccionarTablaExcepcion extends RuntimeException {
-
     public SeleccionarTablaExcepcion(JFrame frame,String mensaje) {
        System.out.print(mensaje);
-    }
-    
+    }   
 }
