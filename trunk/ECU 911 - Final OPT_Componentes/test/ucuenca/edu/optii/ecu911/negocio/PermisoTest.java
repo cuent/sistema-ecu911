@@ -58,24 +58,24 @@ public class PermisoTest {
     /**
      * Test of grabar method, of class Permiso.
      */
-    @Test
+   /* @Test
     public void testGrabar() {
         System.out.println("grabar");
         Permiso instance = new Permiso();
         boolean expResult = false;
         boolean result = instance.grabar();
         assertEquals(expResult, result);  
-    }
+    }*/
 
     /**
      * Test of buscarDescripcion method, of class Permiso.
      */
-    @Test
+  /*  @Test
     public void testBuscarDescripcion() {
         System.out.println("buscarDescripcion");
         Permiso instance = new Permiso();
         boolean expResult = false;
         boolean result = instance.buscarDescripcion();
         assertEquals(expResult, result);  
-    }
+    }*/
 }
