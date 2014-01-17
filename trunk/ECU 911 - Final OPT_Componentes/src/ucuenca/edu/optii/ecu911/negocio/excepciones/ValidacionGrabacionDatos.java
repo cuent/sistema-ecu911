@@ -7,12 +7,7 @@ package ucuenca.edu.optii.ecu911.negocio.excepciones;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author May
- */
 public class ValidacionGrabacionDatos extends RuntimeException{
-
     public ValidacionGrabacionDatos(JFrame frame, String message) {
           System.out.print(message); 
     }

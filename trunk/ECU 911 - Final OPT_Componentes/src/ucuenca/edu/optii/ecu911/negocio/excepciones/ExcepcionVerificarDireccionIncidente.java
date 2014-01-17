@@ -8,12 +8,7 @@ package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
 import javax.swing.JFrame;
 
-/**
- *
- * @author cuent
- */
 public class ExcepcionVerificarDireccionIncidente extends RuntimeException{
-
     public ExcepcionVerificarDireccionIncidente(JFrame frame) {
                 System.out.println("Ingrese la Direccion del Incidente");
     }
