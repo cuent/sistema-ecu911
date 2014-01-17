@@ -1,31 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class EntidadCNTTest {
-    
-    public EntidadCNTTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of recibir_alarma method, of class EntidadCNT.
      */
@@ -35,8 +17,7 @@ public class EntidadCNTTest {
         EntidadCNT instance = new EntidadCNT();
         String expResult = "CNT en camino...";
         String result = instance.recibir_alarma();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);    
     }
 
     /**
@@ -45,13 +26,11 @@ public class EntidadCNTTest {
     @Test
     public void testAceptar() {
         System.out.println("aceptar");
-        Visitor visitor = null;
+        Visitor visitor = new LlamarEntidad();
         EntidadCNT instance = new EntidadCNT();
-        instance.setId(10) ;
-        String expResult = "";
-       // String result = instance.aceptar(visitor);
-        //assertEquals(expResult, result);
-        
+        String expResult = "CNT";
+        String result = instance.aceptar(visitor);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -63,7 +42,6 @@ public class EntidadCNTTest {
         EntidadCNT instance = new EntidadCNT();
         String expResult = "CNT";
         String result = instance.getNombre();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);  
     }
 }

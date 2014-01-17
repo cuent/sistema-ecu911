@@ -1,33 +1,15 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class TipoIncidenteTest {
-    
-    public TipoIncidenteTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getMisentidades method, of class TipoIncidente.
      */
@@ -35,10 +17,9 @@ public class TipoIncidenteTest {
     public void testGetMisentidades() {
         System.out.println("getMisentidades");
         TipoIncidente instance = new TipoIncidente();
-        List expResult = null;
+        List expResult = new ArrayList();
         List result = instance.getMisentidades();
         assertEquals(expResult, result);
-     
     }
 
     /**
@@ -50,7 +31,7 @@ public class TipoIncidenteTest {
         List<EntidadCooperativa> misentidades = null;
         TipoIncidente instance = new TipoIncidente();
         instance.setMisentidades(misentidades);
-       
+        assertEquals(instance, this);   
     }
 
     /**
@@ -62,8 +43,7 @@ public class TipoIncidenteTest {
         TipoIncidente instance = new TipoIncidente();
         int expResult = 0;
         int result = instance.getId();
-        assertEquals(expResult, result);
-      
+        assertEquals(expResult, result);   
     }
 
     /**
@@ -72,10 +52,10 @@ public class TipoIncidenteTest {
     @Test
     public void testSetId() {
         System.out.println("setId");
-        int id = 0;
+        int id = 3;
         TipoIncidente instance = new TipoIncidente();
         instance.setId(id);
-       
+       assertEquals(id, instance.getId());
     }
 
     /**
@@ -85,10 +65,9 @@ public class TipoIncidenteTest {
     public void testGetDescripcion() {
         System.out.println("getDescripcion");
         TipoIncidente instance = new TipoIncidente();
-        String expResult = "";
+        instance.descripcion = "telefono 1";
         String result = instance.getDescripcion();
-        assertEquals(expResult, result);
-       
+        assertEquals("telefono 1", result);
     }
 
     /**
@@ -100,7 +79,7 @@ public class TipoIncidenteTest {
         String descripcion = "";
         TipoIncidente instance = new TipoIncidente();
         instance.setDescripcion(descripcion);
-        
+        assertEquals(instance, instance.getDescripcion());
     }
 
     /**
@@ -110,10 +89,9 @@ public class TipoIncidenteTest {
     public void testGrabar() {
         System.out.println("grabar");
         TipoIncidente instance = new TipoIncidente();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.grabar();
         assertEquals(expResult, result);
-       
     }
 
     /**
@@ -122,13 +100,14 @@ public class TipoIncidenteTest {
     @Test
     public void testListar() {
         System.out.println("listar");
-        String ciudad = "";
-        String descripcion = "";
+        String ciudad = "Cuenca";
+        String descripcion = "incendio forestal";
         TipoIncidente instance = new TipoIncidente();
-        ArrayList expResult = null;
+        instance.descripcion=descripcion;
+        ArrayList expResult = new ArrayList();
+        expResult.add("Policia");
         ArrayList result = instance.listar(ciudad, descripcion);
         assertEquals(expResult, result);
-
     }
 
     /**
@@ -138,9 +117,8 @@ public class TipoIncidenteTest {
     public void testBuscarDescripcion() {
         System.out.println("buscarDescripcion");
         TipoIncidente instance = new TipoIncidente();
-        boolean expResult = false;
+        instance.id=2;
         boolean result = instance.buscarDescripcion();
-        assertEquals(expResult, result);
-       
+        assertTrue("esperando buscado true", result);      
     }
 }

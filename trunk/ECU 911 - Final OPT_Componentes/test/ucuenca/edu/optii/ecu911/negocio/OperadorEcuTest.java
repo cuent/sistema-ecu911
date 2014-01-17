@@ -1,31 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class OperadorEcuTest {
-    
-    public OperadorEcuTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getMirol method, of class OperadorEcu.
      */
@@ -35,8 +17,7 @@ public class OperadorEcuTest {
         OperadorEcu instance = new OperadorEcu();
         Rol expResult = null;
         Rol result = instance.getMirol();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result); 
     }
 
     /**
@@ -45,12 +26,12 @@ public class OperadorEcuTest {
     @Test
     public void testSetMirol() {
         System.out.println("setMirol");
-        Rol mirol = null;
+        Rol mirol = new Rol();
+        mirol.descripcion="rol secretaria";
         OperadorEcu instance = new OperadorEcu();
         instance.setMirol(mirol);
-       
+        assertEquals(instance.getMirol().getDescripcion(), mirol.descripcion);
     }
-
     /**
      * Test of getMicentro method, of class OperadorEcu.
      */
@@ -60,8 +41,7 @@ public class OperadorEcuTest {
         OperadorEcu instance = new OperadorEcu();
         CentroEcu_Observado expResult = null;
         CentroEcu_Observado result = instance.getMicentro();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);    
     }
 
     /**
@@ -70,10 +50,11 @@ public class OperadorEcuTest {
     @Test
     public void testSetMicentro() {
         System.out.println("setMicentro");
-        CentroEcu_Observado micentro = null;
+        CentroEcu_Observado micentro = new CentroEcu_Observado();
+        micentro.ciudad="Ambato";
         OperadorEcu instance = new OperadorEcu();
         instance.setMicentro(micentro);
-        
+        assertEquals("Ambato", instance.getMicentro().ciudad);
     }
 
     /**
@@ -83,10 +64,9 @@ public class OperadorEcuTest {
     public void testGetUsuario() {
         System.out.println("getUsuario");
         OperadorEcu instance = new OperadorEcu();
-        String expResult = "";
+        instance.usuario="mayra";
         String result = instance.getUsuario();
-        assertEquals(expResult, result);
-     
+        assertEquals("mayra", result);  
     }
 
     /**
@@ -95,12 +75,11 @@ public class OperadorEcuTest {
     @Test
     public void testSetUsuario() {
         System.out.println("setUsuario");
-        String usuario = "";
+        String usuario = "pablo";
         OperadorEcu instance = new OperadorEcu();
         instance.setUsuario(usuario);
-        
+        assertEquals(instance.getUsuario(), "pablo");    
     }
-
     /**
      * Test of getPassw method, of class OperadorEcu.
      */
@@ -108,22 +87,20 @@ public class OperadorEcuTest {
     public void testGetPassw() {
         System.out.println("getPassw");
         OperadorEcu instance = new OperadorEcu();
-        String expResult = "";
+        instance.passw = "1234";
         String result = instance.getPassw();
-        assertEquals(expResult, result);
-  
+        assertEquals("1234", result);
     }
-
     /**
      * Test of setPassw method, of class OperadorEcu.
      */
     @Test
     public void testSetPassw() {
         System.out.println("setPassw");
-        String passw = "";
+        String passw = "admin pass";
         OperadorEcu instance = new OperadorEcu();
         instance.setPassw(passw);
-        
+        assertEquals(passw, instance.getPassw());
     }
 
     /**
@@ -136,7 +113,6 @@ public class OperadorEcuTest {
         double expResult = 0.0;
         double result = instance.getSueldo();
         assertEquals(expResult, result, 0.0);
-       
     }
 
     /**
@@ -145,79 +121,47 @@ public class OperadorEcuTest {
     @Test
     public void testSetSueldo() {
         System.out.println("setSueldo");
-        double sueldo = 0.0;
+        double sueldo = 500.8;
         OperadorEcu instance = new OperadorEcu();
         instance.setSueldo(sueldo);
-        
+        assertEquals(instance.getSueldo(), sueldo, 500.8);
     }
-
     /**
      * Test of loguearse method, of class OperadorEcu.
      */
-    @Test
+    @Test(timeout=200)
     public void testLoguearse() {
         System.out.println("loguearse");
         OperadorEcu instance = new OperadorEcu();
         instance.loguearse();
-       
     }
-
     /**
      * Test of atenderLlamada method, of class OperadorEcu.
      */
-    @Test
+    @Test(timeout=100)
     public void testAtenderLlamada() {
         System.out.println("atenderLlamada");
         OperadorEcu instance = new OperadorEcu();
         instance.atenderLlamada();
-
     }
-
     /**
      * Test of rastrearLlamada method, of class OperadorEcu.
      */
-    @Test
+    @Test(timeout=300)
     public void testRastrearLlamada() {
         System.out.println("rastrearLlamada");
         OperadorEcu instance = new OperadorEcu();
         instance.rastrearLlamada();
-        
     }
-
-    /**
-     * Test of recibirDatosIncidente method, of class OperadorEcu.
-     */
-    @Test
-    public void testRecibirDatosIncidente() {
-        System.out.println("recibirDatosIncidente");
-        OperadorEcu instance = new OperadorEcu();
-        instance.recibirDatosIncidente();
-        // TODO review the generated test code and remove the default call to fail.
-       
-    }
-
-    /**
-     * Test of validarIncidente method, of class OperadorEcu.
-     */
-    @Test
-    public void testValidarIncidente() {
-        System.out.println("validarIncidente");
-        OperadorEcu instance = new OperadorEcu();
-        instance.validarIncidente();
-       
-    }
-
     /**
      * Test of lanzarAlarma method, of class OperadorEcu.
      */
-    @Test
+    @Test(timeout=200)
     public void testLanzarAlarma() {
         System.out.println("lanzarAlarma");
         OperadorEcu instance = new OperadorEcu();
-        instance.lanzarAlarma();
-        
+        instance.lanzarAlarma(); 
     }
-
     /**
      * Test of grabar method, of class OperadorEcu.
      */
@@ -228,22 +172,7 @@ public class OperadorEcuTest {
         boolean expResult = false;
         boolean result = instance.grabar();
         assertEquals(expResult, result);
-       
     }
-
-    /**
-     * Test of buscarPorCedula method, of class OperadorEcu.
-     */
-    @Test
-    public void testBuscarPorCedula() {
-        System.out.println("buscarPorCedula");
-        OperadorEcu instance = new OperadorEcu();
-        boolean expResult = false;
-        boolean result = instance.buscarPorCedula();
-        assertEquals(expResult, result);
-       
-    }
-
     /**
      * Test of buscar method, of class OperadorEcu.
      */
@@ -253,7 +182,6 @@ public class OperadorEcuTest {
         OperadorEcu instance = new OperadorEcu();
         boolean expResult = false;
         boolean result = instance.buscar();
-        assertEquals(expResult, result);
-      
+        assertEquals(expResult, result); 
     }
 }

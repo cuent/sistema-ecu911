@@ -1,31 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class Registro_LLamadasTest {
-    
-    public Registro_LLamadasTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getCedula method, of class Registro_LLamadas.
      */
@@ -33,10 +15,9 @@ public class Registro_LLamadasTest {
     public void testGetCedula() {
         System.out.println("getCedula");
         Registro_LLamadas instance = new Registro_LLamadas();
-       instance.cedula = "0102244887";
+        instance.cedula = "0102244887";
         String result = instance.getCedula();
         assertEquals("0102244887", result);
-       
     }
 
     /**
@@ -45,10 +26,10 @@ public class Registro_LLamadasTest {
     @Test
     public void testSetCedula() {
         System.out.println("setCedula");
-        String cedula = "";
+        String cedula = "0104645676";
         Registro_LLamadas instance = new Registro_LLamadas();
         instance.setCedula(cedula);
-       
+        assertEquals(cedula, instance.getCedula());
     }
 
     /**
@@ -61,7 +42,6 @@ public class Registro_LLamadasTest {
         instance.telefono="072998855";
         String result = instance.getTelefono();
         assertEquals("072998855", result);
-       
     }
 
     /**
@@ -70,10 +50,10 @@ public class Registro_LLamadasTest {
     @Test
     public void testSetTelefono() {
         System.out.println("setTelefono");
-        String telefono = "";
+        String telefono = "072558452";
         Registro_LLamadas instance = new Registro_LLamadas();
         instance.setTelefono(telefono);
-      
+         assertEquals(telefono, instance.getTelefono());
     }
 
     /**
@@ -85,8 +65,7 @@ public class Registro_LLamadasTest {
         Registro_LLamadas instance = new Registro_LLamadas();
        instance.fecha="10/10/2010";
         String result = instance.getFecha();
-        assertEquals("10/10/2010", result);
-       
+        assertEquals("10/10/2010", result);   
     }
 
     /**
@@ -95,10 +74,10 @@ public class Registro_LLamadasTest {
     @Test
     public void testSetFecha() {
         System.out.println("setFecha");
-        String fecha = "";
+        String fecha = "10/10/2013";
         Registro_LLamadas instance = new Registro_LLamadas();
         instance.setFecha(fecha);
-        
+        assertEquals(instance.getFecha(), fecha);  
     }
 
     /**
@@ -110,7 +89,6 @@ public class Registro_LLamadasTest {
         Registro_LLamadas instance = new Registro_LLamadas();
         boolean expResult = false;
         boolean result = instance.grabar();
-        assertEquals(expResult, result);
-     
+        assertEquals(expResult, result);    
     }
 }

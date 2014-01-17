@@ -1,31 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class Ubicacion_IncidenteTest {
-    
-    public Ubicacion_IncidenteTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of getMitipo method, of class Ubicacion_Incidente.
      */
@@ -36,7 +18,6 @@ public class Ubicacion_IncidenteTest {
         TipoIncidente expResult = null;
         TipoIncidente result = instance.getMitipo();
         assertEquals(expResult, result);
-       
     }
 
     /**
@@ -45,10 +26,11 @@ public class Ubicacion_IncidenteTest {
     @Test
     public void testSetMitipo() {
         System.out.println("setMitipo");
-        TipoIncidente mitipo = null;
+        TipoIncidente mitipo = new TipoIncidente();
+        mitipo.descripcion="asaltos";
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
         instance.setMitipo(mitipo);
-       
+        assertEquals(instance.getMitipo().descripcion, "asaltos");
     }
 
     /**
@@ -58,10 +40,9 @@ public class Ubicacion_IncidenteTest {
     public void testGetCalle_principal() {
         System.out.println("getCalle_principal");
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
-        String expResult = "";
+        instance.calle_principal = "calle san roque";
         String result = instance.getCalle_principal();
-        assertEquals(expResult, result);
-       
+        assertEquals("calle san roque", result);       
     }
 
     /**
@@ -70,10 +51,10 @@ public class Ubicacion_IncidenteTest {
     @Test
     public void testSetCalle_principal() {
         System.out.println("setCalle_principal");
-        String calle_principal = "";
+        String calle_principal = "calle remigio crespo";
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
         instance.setCalle_principal(calle_principal);
-     
+        assertEquals(instance.getCalle_principal(), calle_principal);
     }
 
     /**
@@ -83,10 +64,9 @@ public class Ubicacion_IncidenteTest {
     public void testGetInterseccion() {
         System.out.println("getInterseccion");
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
-        String expResult = "";
+        instance.interseccion  = "y calle vieja";
         String result = instance.getInterseccion();
-        assertEquals(expResult, result);
-       
+        assertEquals("y calle vieja", result);
     }
 
     /**
@@ -95,10 +75,10 @@ public class Ubicacion_IncidenteTest {
     @Test
     public void testSetInterseccion() {
         System.out.println("setInterseccion");
-        String interseccion = "";
+        String interseccion = "interseccion miraflores";
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
         instance.setInterseccion(interseccion);
-
+        assertEquals(instance.getInterseccion(), interseccion);
     }
 
     /**
@@ -108,10 +88,9 @@ public class Ubicacion_IncidenteTest {
     public void testGetReferencia_ubicacion() {
         System.out.println("getReferencia_ubicacion");
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
-        String expResult = "";
+        instance.referencia_ubicacion  = "cerca del parque miraflores";
         String result = instance.getReferencia_ubicacion();
-        assertEquals(expResult, result);
-      
+        assertEquals("cerca del parque miraflores", result);   
     }
 
     /**
@@ -120,10 +99,10 @@ public class Ubicacion_IncidenteTest {
     @Test
     public void testSetReferencia_ubicacion() {
         System.out.println("setReferencia_ubicacion");
-        String referencia_ubicacion = "";
+        String referencia_ubicacion = "cerca del mall del rio";
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
         instance.setReferencia_ubicacion(referencia_ubicacion);
-     
+        assertEquals(instance.getReferencia_ubicacion(), referencia_ubicacion);
     }
 
     /**
@@ -133,10 +112,9 @@ public class Ubicacion_IncidenteTest {
     public void testGetCiudad() {
         System.out.println("getCiudad");
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
-        String expResult = "";
+        instance.ciudad = "Ambato";
         String result = instance.getCiudad();
-        assertEquals(expResult, result);
-    
+        assertEquals("Ambato", result);
     }
 
     /**
@@ -145,10 +123,10 @@ public class Ubicacion_IncidenteTest {
     @Test
     public void testSetCiudad() {
         System.out.println("setCiudad");
-        String ciudad = "";
+        String ciudad = "Manabi";
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
         instance.setCiudad(ciudad);
-       
+        assertEquals(ciudad, instance.getCiudad());
     }
 
     /**
@@ -158,9 +136,13 @@ public class Ubicacion_IncidenteTest {
     public void testGrabar() {
         System.out.println("grabar");
         Ubicacion_Incidente instance = new Ubicacion_Incidente();
-        boolean expResult = false;
+        TipoIncidente miti=new TipoIncidente();
+        miti.id=2;
+        instance.ciudad="Loja";
+        instance.interseccion="y calle del batan";
+        instance.referencia_ubicacion="cerca del mall";
+        instance.mitipo=miti;
         boolean result = instance.grabar();
-        assertEquals(expResult, result);
-       
+        assertTrue("esoerando grabado true", result);
     }
 }

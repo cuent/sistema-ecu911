@@ -1,31 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class EntidadBomberosTest {
-    
-    public EntidadBomberosTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of recibir_alarma method, of class EntidadBomberos.
      */
@@ -35,8 +17,7 @@ public class EntidadBomberosTest {
         EntidadBomberos instance = new EntidadBomberos();
         String expResult = "Bomberos en camino...";
         String result = instance.recibir_alarma();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);    
     }
 
     /**
@@ -45,8 +26,10 @@ public class EntidadBomberosTest {
     @Test
     public void testAceptar() {
         System.out.println("aceptar");
-        Visitor visitor = null ;
+        Visitor visitor = new LlamarEntidad() ;
         EntidadBomberos instance = new EntidadBomberos();
+        String result=instance.aceptar(visitor);
+        assertEquals("Bomberos", result);
     }
 
     /**
@@ -58,7 +41,6 @@ public class EntidadBomberosTest {
         EntidadBomberos instance = new EntidadBomberos();
         String expResult = "Bomberos";
         String result = instance.getNombre();
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);    
     }
 }

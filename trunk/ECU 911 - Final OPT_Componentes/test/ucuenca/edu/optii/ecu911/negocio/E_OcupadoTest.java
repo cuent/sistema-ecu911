@@ -1,31 +1,13 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ucuenca.edu.optii.ecu911.negocio;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 /**
  *
  * @author May
  */
 public class E_OcupadoTest {
-    
-    public E_OcupadoTest() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of SuspenderTelefono method, of class E_Ocupado.
      */
@@ -34,8 +16,9 @@ public class E_OcupadoTest {
         System.out.println("SuspenderTelefono");
         Telefono tel = null;
         E_Ocupado instance = new E_Ocupado();
-        instance.SuspenderTelefono(tel);
-        
+        String expResult = "Telefono Suspendido";
+        String result = instance.SuspenderTelefono(tel);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -46,8 +29,9 @@ public class E_OcupadoTest {
         System.out.println("OcuparTelefono");
         Telefono tel = null;
         E_Ocupado instance = new E_Ocupado();
-        instance.OcuparTelefono(tel);
-       
+        String expResult = "Telefono Ocupado";
+        String result = instance.OcuparTelefono(tel);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -58,8 +42,9 @@ public class E_OcupadoTest {
         System.out.println("EsperarTelefono");
         Telefono tel = null;
         E_Ocupado instance = new E_Ocupado();
-        instance.EsperarTelefono(tel);
-       
+        String expResult = "Telefono en Espera";
+        String result = instance.EsperarTelefono(tel);
+        assertEquals(expResult, result);
     }
 
     /**
@@ -70,7 +55,8 @@ public class E_OcupadoTest {
         System.out.println("LiberarTelefono");
         Telefono tel = null;
         E_Ocupado instance = new E_Ocupado();
-        instance.LiberarTelefono(tel);
-      
+        String expResult = "Telefono Disponible";
+        String result = instance.LiberarTelefono(tel);
+        assertEquals(expResult, result);
     }
 }
