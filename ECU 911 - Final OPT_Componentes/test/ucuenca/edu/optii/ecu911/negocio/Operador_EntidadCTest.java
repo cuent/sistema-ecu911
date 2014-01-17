@@ -79,7 +79,7 @@ public class Operador_EntidadCTest {
     /**
      * Test of grabar method, of class Operador_EntidadC.
      */
-    @Test
+  /*  @Test
     public void testGrabar() {
         System.out.println("grabar");
         Operador_EntidadC instance = new Operador_EntidadC();
@@ -92,5 +92,5 @@ public class Operador_EntidadCTest {
         boolean expResult = false;
         boolean result = instance.grabar();
         assertEquals(expResult, result);  
-    }
+    }*/
 }

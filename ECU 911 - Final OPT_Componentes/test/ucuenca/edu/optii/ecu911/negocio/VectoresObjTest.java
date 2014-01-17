@@ -414,7 +414,7 @@ public class VectoresObjTest {
     /**
      * Test of listarTiposIncidentesSegunEntidades method, of class VectoresObj.
      */
-    @Test
+   /* @Test
     public void testListarTiposIncidentesSegunEntidades() {
         System.out.println("listarTiposIncidentesSegunEntidades");
         int entid = 0;
@@ -422,7 +422,7 @@ public class VectoresObjTest {
         VectoresObj instance = new VectoresObj();
         instance.listarTiposIncidentesSegunEntidades(entid);
         assertEquals(enti, instance.getEntidades_tiposInc());
-    }
+    }*/
 
     /**
      * Test of listarRegistrosLlamadas method, of class VectoresObj.
@@ -438,110 +438,110 @@ public class VectoresObjTest {
     /**
      * Test of listarPermisos method, of class VectoresObj.
      */
-    @Test(timeout=300)
+   /* @Test(timeout=300)
     public void testListarPermisos() {
         System.out.println("listarPermisos");
         VectoresObj instance = new VectoresObj();
         instance.listarPermisos();
-    }
+    }*/
 
     /**
      * Test of listarRoles method, of class VectoresObj.
      */
-    @Test(timeout=300)
+   /* @Test(timeout=300)
     public void testListarRoles() {
         System.out.println("listarRoles");
         VectoresObj instance = new VectoresObj();
         instance.listarRoles();
-    }
+    }*/
 
     /**
      * Test of listarSesiones method, of class VectoresObj.
      */
-    @Test(timeout=300)
+   /* @Test(timeout=300)
     public void testListarSesiones() {
         System.out.println("listarSesiones");
         VectoresObj instance = new VectoresObj();
         instance.listarSesiones(); 
-    }
+    }*/
 
     /**
      * Test of listarTelefonos method, of class VectoresObj.
      */
-    @Test(timeout=300)
+   /* @Test(timeout=300)
     public void testListarTelefonos() {
         System.out.println("listarTelefonos");
         VectoresObj instance = new VectoresObj();
         instance.listarTelefonos();
-    }
+    }*/
 
     /**
      * Test of listarClientes method, of class VectoresObj.
      */
-    @Test(timeout=200)
+    /*@Test(timeout=200)
     public void testListarClientes() {
         System.out.println("listarClientes");
         VectoresObj instance = new VectoresObj();
         instance.listarClientes();  
-    }
+    }*/
 
     /**
      * Test of listarTipoIncidentes method, of class VectoresObj.
      */
-    @Test(timeout=300)
+   /* @Test(timeout=300)
     public void testListarTipoIncidentes() {
         System.out.println("listarTipoIncidentes");
         VectoresObj instance = new VectoresObj();
         instance.listarTipoIncidentes();
-    }
+    }*/
 
     /**
      * Test of listarOperadoresEntidades method, of class VectoresObj.
      */
-    @Test(timeout=300)
+   /* @Test(timeout=300)
     public void testListarOperadoresEntidades() {
         System.out.println("listarOperadoresEntidades");
         VectoresObj instance = new VectoresObj();
         instance.listarOperadoresEntidades();  
-    }
+    }*/
 
     /**
      * Test of listarOperadoresEcu method, of class VectoresObj.
      */
-    @Test(timeout=300)
+    /*@Test(timeout=300)
     public void testListarOperadoresEcu() {
         System.out.println("listarOperadoresEcu");
         VectoresObj instance = new VectoresObj();
         instance.listarOperadoresEcu();
-    }
+    }*/
 
     /**
      * Test of listarEntidades method, of class VectoresObj.
      */
-    @Test(timeout=300)
+  /*  @Test(timeout=300)
     public void testListarEntidades() {
         System.out.println("listarEntidades");
         VectoresObj instance = new VectoresObj();
         instance.listarEntidades();     
-    }
+    }*/
 
     /**
      * Test of listarEntidadesDisponibles method, of class VectoresObj.
      */
-    @Test(timeout=300)
+   /* @Test(timeout=300)
     public void testListarEntidadesDisponibles() {
         System.out.println("listarEntidadesDisponibles");
         VectoresObj instance = new VectoresObj();
         instance.listarEntidadesDisponibles();
-    }
+    }*/
 
     /**
      * Test of listarTelefonosDisponibles method, of class VectoresObj.
      */
-    @Test(timeout=300)
+    /*@Test(timeout=300)
     public void testListarTelefonosDisponibles() {
         System.out.println("listarTelefonosDisponibles");
         VectoresObj instance = new VectoresObj();
         instance.listarTelefonosDisponibles();  
-    }
+    }*/
 }

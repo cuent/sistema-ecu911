@@ -145,7 +145,7 @@ public class EntidadCooperativaTest {
     /**
      * Test of grabar method, of class EntidadCooperativa.
      */
-    @Test
+   /* @Test
     public void testGrabar() {
         System.out.println("grabar");
         Telefono mitelefono=new Telefono();
@@ -154,33 +154,32 @@ public class EntidadCooperativaTest {
         instance.mifono=mitelefono;
         boolean expResult = false;
         boolean result = instance.grabar("Cruz Roja");
-        assertEquals(expResult, result);
-       
-    }
+        assertEquals(expResult, result);      
+    }*/
 
     /**
      * Test of buscarEntidadHijo method, of class EntidadCooperativa.
      */
-    @Test
+  /*  @Test
     public void testBuscarEntidadHijo() {
         System.out.println("buscarEntidadHijo");
         EntidadCooperativa instance = new EntidadCooperativaImpl();
        instance.id=1;
         String result = instance.buscarEntidadHijo();
         assertEquals("Policia", result);    
-    }
+    }*/
 
     /**
      * Test of buscar method, of class EntidadCooperativa.
      */
-    @Test
+  /*  @Test
     public void testBuscar() {
         System.out.println("buscar");
         EntidadCooperativa instance = new EntidadCooperativaImpl();
         EntidadCooperativa expResult = null;
         EntidadCooperativa result = instance.buscar();
         assertEquals(expResult, result);     
-    }
+    }*/
 
     /**
      * Test of aceptar method, of class EntidadCooperativa.
