@@ -11,23 +11,23 @@ package ucuenca.edu.optii.ecu911.negocio;
 public class E_Ocupado implements Intz_EstadosTelefono{
 
     @Override
-    public void SuspenderTelefono(Telefono tel) {
-        System.out.print("Telefono Suspendido");
+    public String SuspenderTelefono(Telefono tel) {
+        return "Telefono Suspendido";
     }
 
     @Override
-    public void OcuparTelefono(Telefono tel) {
-         System.out.print("Telefono Ocupado");
+    public String OcuparTelefono(Telefono tel) {
+         return "Telefono Ocupado";
     }
 
     @Override
-    public void EsperarTelefono(Telefono tel) {
-         System.out.print("Telefono en Espera");
+    public String  EsperarTelefono(Telefono tel) {
+         return "Telefono en Espera";
     }
 
     @Override
-    public void LiberarTelefono(Telefono tel) {
-        System.out.print("Telefono Disponible");
+    public String LiberarTelefono(Telefono tel) {
+        return "Telefono Disponible";
     }
     
 }

@@ -77,7 +77,6 @@ public class OperadorEcu extends Persona{
     public void lanzarAlarma(){
     }
     
-    
        public boolean grabar() {
         try {
             OperadorEcuDB aspfDB = new OperadorEcuDB();
