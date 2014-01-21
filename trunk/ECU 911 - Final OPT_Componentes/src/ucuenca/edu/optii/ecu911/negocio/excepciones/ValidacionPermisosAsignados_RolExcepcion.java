@@ -4,13 +4,10 @@
  */
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
 public class ValidacionPermisosAsignados_RolExcepcion 
 extends RuntimeException{
 
-    public ValidacionPermisosAsignados_RolExcepcion(JFrame frame, String message) {
+    public ValidacionPermisosAsignados_RolExcepcion(String message) {
     System.out.print(message); 
     }   
 }

@@ -5,7 +5,6 @@
  */
 
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
-import javax.swing.JFrame;
 
 /**
  *
@@ -13,7 +12,7 @@ import javax.swing.JFrame;
  */
 public class ExcepcionVerificarAtenderIncidente extends RuntimeException{
 
-    public ExcepcionVerificarAtenderIncidente(JFrame frame) {
+    public ExcepcionVerificarAtenderIncidente() {
                 System.out.println("Seleccione un Incidente primero ");
     }
     

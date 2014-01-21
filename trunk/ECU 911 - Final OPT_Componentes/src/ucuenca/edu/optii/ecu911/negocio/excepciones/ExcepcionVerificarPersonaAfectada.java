@@ -5,10 +5,8 @@
  */
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
-import javax.swing.JFrame;
-
 public class ExcepcionVerificarPersonaAfectada extends RuntimeException {
-    public ExcepcionVerificarPersonaAfectada(JFrame frame) {
+    public ExcepcionVerificarPersonaAfectada() {
        System.out.print( "Seleccione un Cliente");
 
     }
