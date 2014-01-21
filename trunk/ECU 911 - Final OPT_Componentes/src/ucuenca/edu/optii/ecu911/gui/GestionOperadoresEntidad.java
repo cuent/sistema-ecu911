@@ -308,7 +308,7 @@ VectoresObj unvector=new VectoresObj();
 
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
         if (txtcedOpCoop.getText().equals("") || txtcorreo.getText().equals("") || txtsueldoU.getText().equals("")||ponEntidadId.getText().equals("")) {
-            throw new ValidacionCamposTextoExcepcion(null, "Debe llenar los campos de texto");
+            throw new ValidacionCamposTextoExcepcion( "Debe llenar los campos de texto");
         } else {
             operadorEntidad.setCedula(txtcedOpCoop.getText());
             operadorEntidad.setCorreo_el(txtcorreo.getText());
@@ -319,7 +319,7 @@ VectoresObj unvector=new VectoresObj();
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
             } else if (r == false) {
-                throw  new ValidacionGrabacionDatos(null, "Error al Grabar datos");
+                throw  new ValidacionGrabacionDatos( "Error al Grabar datos");
             }
             actualizaOperadoresEntidad();
             actualizaEntidadesC();
