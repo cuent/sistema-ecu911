@@ -132,34 +132,4 @@ public class TelefonoTest {
         assertEquals(numero, instance.getNumero());
     }
 
-    /**
-     * Test of grabar method, of class Telefono.
-     */
-   /* @Test(expected=TelefonoVerificacionException.class)
-    public void testGrabar() throws Exception {
-        System.out.println("grabar");
-        Telefono instance = new Telefono();
-        instance.grabar();
-    }*/
-    /**
-     * Test of buscarNumeroSegunIde method, of class Telefono.
-     */
-   /* @Test
-    public void testBuscarNumeroSegunIde() {
-        System.out.println("buscarNumeroSegunIde");
-        Telefono instance = new Telefono();
-        instance.id=2;
-        boolean result = instance.buscarNumeroSegunIde();
-        assertTrue("Esperando true", result);  
-    }*/
-    /**
-     * Test of buscarNumero method, of class Telefono.
-     */
-    /*@Test
-    public void testBuscarNumero() {
-        System.out.println("buscarNumero");
-        Telefono instance = new Telefono();
-        boolean result = instance.buscarNumero();
-        assertTrue("esperando true", result);     
-    }*/
 }

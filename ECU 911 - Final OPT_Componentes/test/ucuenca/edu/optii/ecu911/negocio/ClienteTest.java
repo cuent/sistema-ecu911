@@ -58,48 +58,4 @@ public class ClienteTest {
         instance.setMifono(mifono);
         assertEquals(mifono, instance.getMifono());
     }
-  
-    /**
-     * Test of grabar method, of class Cliente.
-     */
-    /*
-    @Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        Cliente instance = new Cliente();
-        instance.setCedula("010208");
-        instance.setNombres("cliente nuevo");
-        instance.setDireccion("mi direccion");
-          Telefono fono = new Telefono();
-          fono.setId(2);
-        instance.setMifono(fono);
-        boolean result = instance.grabar();
-        assertEquals(false, result);    
-    }*/
-
-    /**
-     * Test of buscar method, of class Cliente.
-     */
-   /* @Test
-    public void testBuscar() {
-        System.out.println("buscar");
-        Cliente instance = new Cliente();
-        Telefono fono=new Telefono();
-        fono.setId(2);
-        instance.setMifono(fono);
-        boolean result = instance.buscar();
-        assertTrue("esperando telefono true", result);
-    }*/
-
-    /**
-     * Test of buscarCedula method, of class Cliente.
-     */
-   /* @Test
-    public void testBuscarCedula() {
-        System.out.println("buscarCedula");
-        Cliente instance = new Cliente();
-        instance.setCedula("010203");
-        boolean result = instance.buscarCedula();
-        assertTrue("esperando cedula true", result);   
-    }*/
 }

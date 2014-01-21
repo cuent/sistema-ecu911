@@ -76,21 +76,5 @@ public class Operador_EntidadCTest {
         assertEquals(instance.mientidad.ciudad, "Cuenca");
     }
 
-    /**
-     * Test of grabar method, of class Operador_EntidadC.
-     */
-  /*  @Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        Operador_EntidadC instance = new Operador_EntidadC();
-        instance.cedula="010204";
-        instance.correo_el="jorge@gmail";
-        instance.sueldo=0;
-        instance.nombres="jorge";
-        EntidadBomberos b=new EntidadBomberos();
-        instance.setMientidad(b);
-        boolean expResult = false;
-        boolean result = instance.grabar();
-        assertEquals(expResult, result);  
-    }*/
+  
 }

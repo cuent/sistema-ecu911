@@ -128,21 +128,4 @@ public class Ubicacion_IncidenteTest {
         instance.setCiudad(ciudad);
         assertEquals(ciudad, instance.getCiudad());
     }
-
-    /**
-     * Test of grabar method, of class Ubicacion_Incidente.
-     */
-    /*@Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        Ubicacion_Incidente instance = new Ubicacion_Incidente();
-        TipoIncidente miti=new TipoIncidente();
-        miti.id=2;
-        instance.ciudad="Loja";
-        instance.interseccion="y calle del batan";
-        instance.referencia_ubicacion="cerca del mall";
-        instance.mitipo=miti;
-        boolean result = instance.grabar();
-        assertTrue("esoerando grabado true", result);
-    }*/
 }
