@@ -4,10 +4,8 @@
  */
 package ucuenca.edu.optii.ecu911.negocio.excepciones;
 
-import javax.swing.JFrame;
-
 public class ValidaDatoInexistenteExcepcion extends RuntimeException{
-    public ValidaDatoInexistenteExcepcion(JFrame frame, String message) {
+    public ValidaDatoInexistenteExcepcion( String message) {
          System.out.print(message);
     }
     
