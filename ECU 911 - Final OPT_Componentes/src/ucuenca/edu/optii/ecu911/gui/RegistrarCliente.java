@@ -182,7 +182,7 @@ VectoresObj unv=new VectoresObj();
  
     private void addClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClienteActionPerformed
         if (txtceduClientes.getText().equals("") || txtnameClientes.getText().equals("") || ponFonoCli.getText().equals("")|| txtdireccion.getText().equals("")) {
-            throw new ValidacionCamposTextoExcepcion(null, "Debe llenar los campos de texto");
+            throw new ValidacionCamposTextoExcepcion( "Debe llenar los campos de texto");
         } else {
             Telefono unt = new Telefono();
             unt.setId(Integer.valueOf(ponFonoCli.getText()));
@@ -190,7 +190,7 @@ VectoresObj unv=new VectoresObj();
             uncliente.setMifono(unt);
             if (uncliente.buscar())//busca telefonos en tabla clientes para validar q exista uno x cliente
             {
-                throw new ValidaDatoInexistenteExcepcion(null, "Telefono ya existente en el cliente " + uncliente.getNombres() + " ingrese otro numero");
+                throw new ValidaDatoInexistenteExcepcion( "Telefono ya existente en el cliente " + uncliente.getNombres() + " ingrese otro numero");
             } else {
                 uncliente.setMifono(unt);
                 uncliente.setCedula(txtceduClientes.getText());
@@ -200,7 +200,7 @@ VectoresObj unv=new VectoresObj();
                 if (r == true) {
                     JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
                 } else if (r == false) {
-                   throw  new ValidacionGrabacionDatos(null, "Error al Grabar datos");
+                   throw  new ValidacionGrabacionDatos( "Error al Grabar datos");
                 }
             }
           regresarParaLlamar(uncliente.getCedula());

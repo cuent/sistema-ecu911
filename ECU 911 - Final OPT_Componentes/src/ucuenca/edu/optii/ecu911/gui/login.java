@@ -6,18 +6,23 @@ package ucuenca.edu.optii.ecu911.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.ActionMap;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
+import javax.xml.bind.ValidationException;
 import ucuenca.edu.optii.ecu911.negocio.Login;
 import ucuenca.edu.optii.ecu911.negocio.OperadorEcu;
-
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidaDatoInexistenteExcepcion;
+import ucuenca.edu.optii.ecu911.negocio.excepciones.ValidacionCamposTextoExcepcion;
 /**
  *
  * @author May
@@ -42,7 +47,7 @@ public class login extends javax.swing.JDialog {
     /**
      * Creates new form login
      */
-    public login(java.awt.Frame parent, boolean modal) {
+    public login(java.awt.Frame parent, boolean modal) throws SQLException {
         super(parent, modal);
         initComponents();
         formato=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -222,7 +227,7 @@ public class login extends javax.swing.JDialog {
        usuario.setPassw(txtpass.getText());
        boolean v=usuario.buscar();
        if(v==true) { 
-       try {
+       
        if(!txtuser.getText().equals("") && !txtpass.getText().equals("")){
             admi.setVisible(true);
             
@@ -232,10 +237,15 @@ public class login extends javax.swing.JDialog {
             logueo.setUsu(usuario);
             logueo.grabar();            
             }
-          }catch(NullPointerException e){
-            JOptionPane.showMessageDialog(null, e.getMessage());
-         }
+       else {
+           throw new ValidacionCamposTextoExcepcion("Los campos de logueo estan vacios");
+       }
        } 
+       else{
+           throw new ValidaDatoInexistenteExcepcion("El usuario operador no existe");
+           
+       }
+           
     }//GEN-LAST:event_okButtonActionPerformed
     
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
@@ -285,14 +295,18 @@ public class login extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                login dialog = new login(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                try {
+                    login dialog = new login(new javax.swing.JFrame(), true);
+                    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                        @Override
+                        public void windowClosing(java.awt.event.WindowEvent e) {
+                            System.exit(0);
+                        }
+                    });
+                    dialog.setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

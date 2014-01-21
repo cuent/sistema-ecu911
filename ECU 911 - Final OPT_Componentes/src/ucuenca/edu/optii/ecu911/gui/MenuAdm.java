@@ -81,14 +81,14 @@ public class MenuAdm extends javax.swing.JFrame {
     /**
      * Creates new form MenuAdm
      */
-    public MenuAdm() {
+    public MenuAdm() throws SQLException {
         initComponents();
         actualizaTodo();
         jTabbedPane1.setEnabledAt(7, false);
 
     }
 
-    public MenuAdm(String cedCLiente) {
+    public MenuAdm(String cedCLiente) throws SQLException {
         initComponents();
         ClienteQueLlama = cedCLiente;
         actualizaTodo();
@@ -112,7 +112,7 @@ public class MenuAdm extends javax.swing.JFrame {
         jTabbedPane1.removeTabAt(0);
     }
 
-    public void actualizaTodo() {
+    public void actualizaTodo() throws SQLException {
         //actualizando tablas
         actualizaroles();
         actualizapermisos();
@@ -1804,14 +1804,14 @@ public class MenuAdm extends javax.swing.JFrame {
 
     private void agregaPermisosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregaPermisosActionPerformed
         if (txtnamePermisos.getText().equals("")) {
-           throw new ValidacionCamposTextoExcepcion(this, "Debe llenar los campos de textopara poder agregar los permisos");
+           throw new ValidacionCamposTextoExcepcion("Debe llenar los campos de textopara poder agregar los permisos");
         } else {
             unpermiso.setDescripcion(txtnamePermisos.getText());
             boolean r = unpermiso.grabar();
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
             } else if (r == false) {
-                throw new ValidacionGrabacionDatos(null, "Error al Grabar el Permiso");
+                throw new ValidacionGrabacionDatos( "Error al Grabar el Permiso");
             }
             actualizapermisos();
         }
@@ -1819,7 +1819,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
     private void addEntidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEntidadActionPerformed
         if (txtfonoEntidad.getText().equals("") || txtciudadEntidad.getText().equals("") || ponEntidad.getText().equals("")) {
-          throw new ValidacionCamposTextoExcepcion(this, "Debe llenar los campos de texto para proceder a guardar datos");
+          throw new ValidacionCamposTextoExcepcion( "Debe llenar los campos de texto para proceder a guardar datos");
         } else {
             Telefono minum = new Telefono();
             minum.setNumero(txtfonoEntidad.getText());
@@ -1867,7 +1867,7 @@ public class MenuAdm extends javax.swing.JFrame {
                 if (r == true) {
                     JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
                 } else if (r == false) {
-                    throw new ValidacionGrabacionDatos(null, "Error al Grabar datos de la Entidad Cooperativa");
+                    throw new ValidacionGrabacionDatos("Error al Grabar datos de la Entidad Cooperativa");
                 }
             }
             actualizaEntidades();
@@ -1886,7 +1886,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         if (txtRolname.getText().equals("") || ponIdPermiso.getText().equals("")) {
-            throw  new ValidacionCamposTextoExcepcion(this, "Debe llenar los campos de texto para guardar");
+            throw  new ValidacionCamposTextoExcepcion( "Debe llenar los campos de texto para guardar");
         } else {
             unrol.setDescripcion(txtRolname.getText());
             if (permisosAgregados != null) {
@@ -1895,7 +1895,7 @@ public class MenuAdm extends javax.swing.JFrame {
                 if (r == true) {
                     JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
                 } else if (r == false) {
-                   throw new ValidacionGrabacionDatos(null, "Error al Grabar los datos del Rol");
+                   throw new ValidacionGrabacionDatos("Error al Grabar los datos del Rol");
                 }
 
                 unrol.buscarIde();
@@ -1937,14 +1937,14 @@ public class MenuAdm extends javax.swing.JFrame {
             }
             t_PermisosDRoles.setModel(temp);
         } else {
-           throw new ValidacionPermisosAsignados_RolExcepcion(this, "Este Rol no tiene permisos asignados");
+           throw new ValidacionPermisosAsignados_RolExcepcion( "Este Rol no tiene permisos asignados");
         }
 
     }//GEN-LAST:event_t_rolesMouseClicked
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         if (txtnumTelefono.getText().equals("") || txtTipoTelf.getText().equals("")) {
-          throw new ValidacionCamposTextoExcepcion(this, "Debe llenar campos de texto primero");
+          throw new ValidacionCamposTextoExcepcion( "Debe llenar campos de texto primero");
         } else {
             JOptionPane.showMessageDialog(null, txtnumTelefono.getText() + txtTipoTelf.getText());
             untelefono.setNumero(txtnumTelefono.getText());
@@ -1972,7 +1972,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
     private void addClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClienteActionPerformed
         if (txtceduClientes.getText().equals("") || txtnameClientes.getText().equals("") || ponFonoCli.getText().equals("")) {
-            throw new ValidacionCamposTextoExcepcion(null, "Debe llenar los campos de texto");
+            throw new ValidacionCamposTextoExcepcion( "Debe llenar los campos de texto");
         } else {
             Telefono unt = new Telefono();
             unt.setId(Integer.valueOf(ponFonoCli.getText()));
@@ -1989,7 +1989,7 @@ public class MenuAdm extends javax.swing.JFrame {
                 if (r == true) {
                     JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
                 } else if (r == false) {
-                    throw new ValidacionGrabacionDatos(this, "Error al Grabar datos de Cliente");
+                    throw new ValidacionGrabacionDatos( "Error al Grabar datos de Cliente");
                 }
             }
             actualizaclientes();
@@ -2000,7 +2000,7 @@ public class MenuAdm extends javax.swing.JFrame {
 
     private void addUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserActionPerformed
         if (txtcedU.getText().equals("") || txtnameU.getText().equals("") || txtpassU.getText().equals("") || txtsueldoU.getText().equals("")) {
-          throw new ValidacionCamposTextoExcepcion(this, "Primero debe llenar los campos de texto primero");
+          throw new ValidacionCamposTextoExcepcion( "Primero debe llenar los campos de texto primero");
         } else {
             unopE.setCedula(txtcedU.getText());
             unopE.setNombres(txtnameU.getText());
@@ -2010,7 +2010,7 @@ public class MenuAdm extends javax.swing.JFrame {
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
             } else if (r == false) {
-               throw new ValidacionGrabacionDatos(this, "Error al Grabar datos de Operador Ecu");
+               throw new ValidacionGrabacionDatos( "Error al Grabar datos de Operador Ecu");
             }
             actualizaOperadoresEcu();
         }
@@ -2024,7 +2024,7 @@ public class MenuAdm extends javax.swing.JFrame {
             k.setSize(500, 350);
             k.setVisible(true);
         } else {
-          throw new SeleccionarTablaExcepcion(this, "Debe seleccionar una Entidad en la tabla, para gestionar sus Incidentes Permitidos");    
+          throw new SeleccionarTablaExcepcion( "Debe seleccionar una Entidad en la tabla, para gestionar sus Incidentes Permitidos");    
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -2072,14 +2072,14 @@ public class MenuAdm extends javax.swing.JFrame {
 
     private void addTipoIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTipoIActionPerformed
         if (nameTipoInc.getText().equals("")) {
-            throw new ValidacionCamposTextoExcepcion(this, "Debe llenar los campos de texto primero");
+            throw new ValidacionCamposTextoExcepcion( "Debe llenar los campos de texto primero");
         } else {
             untipoI.setDescripcion(nameTipoInc.getText());
             boolean r = untipoI.grabar();
             if (r == true) {
                 JOptionPane.showMessageDialog(null, "Datos Grabados Satisfactoriamente...");
             } else if (r == false) {
-                throw new ValidacionGrabacionDatos(null, "Error al Grabar datos de Tipo Incidente");
+                throw new ValidacionGrabacionDatos( "Error al Grabar datos de Tipo Incidente");
             }
             actualizatiposInc();
         }
@@ -2120,14 +2120,14 @@ public class MenuAdm extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             if (txtCedulaAlarma.getText().replace(" ", "").equals("")) {
-                throw new ValidacionCamposTextoExcepcion(this, "Debe llenar los campos de texto primero");
+                throw new ValidacionCamposTextoExcepcion( "Debe llenar los campos de texto primero");
             } else {
 
                 uncliente.setCedula(txtCedulaAlarma.getText());
                 if (uncliente.buscarCedula()) {
                     txtNombresAlarma.setText(uncliente.getNombres());
                 } else {
-                    throw new ValidaDatoInexistenteExcepcion(this, "Registre primero el Cliente");
+                    throw new ValidaDatoInexistenteExcepcion( "Registre primero el Cliente");
                 }
                 actualizaclientes();
                 actualizaComboTelefonos();
@@ -2147,11 +2147,11 @@ public class MenuAdm extends javax.swing.JFrame {
         String incidente = txtAtender.getText();
         Llamar llamar = null;
         if (txtCedulaAlarma.getText().replace(" ", "").equals("")) {
-            throw new ExcepcionVerificarPersonaAfectada(this);
+            throw new ExcepcionVerificarPersonaAfectada();
         } else if (txtAtender.getText().equals("")) {
-            throw new ExcepcionVerificarAtenderIncidente(this);
+            throw new ExcepcionVerificarAtenderIncidente();
         } else if (txtDireccionAlarma.getText().replace(" ", "").equals("")) {
-            throw new ExcepcionVerificarDireccionIncidente(this);
+            throw new ExcepcionVerificarDireccionIncidente();
         } else {
             ArrayList lista = new TipoIncidente().listar(cboProvincias.getSelectedItem().toString(), txtAtender.getText());
 
@@ -2298,7 +2298,11 @@ public class MenuAdm extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuAdm().setVisible(true);
+                try {
+                    new MenuAdm().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(MenuAdm.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -2464,7 +2468,7 @@ public class MenuAdm extends javax.swing.JFrame {
         t_TipoIncidente.setModel(temp);
     }
 
-    public void actualizaSesiones() {
+    public void actualizaSesiones() throws SQLException {
         unv.listarSesiones();
         ArrayList sesiones = new ArrayList();
         sesiones = unv.getSesiones();
@@ -2482,8 +2486,8 @@ public class MenuAdm extends javax.swing.JFrame {
             String centroEcu = "";
             try {
                 centroEcu = miEcu.buscar(operador.getMicentro().getId());
-            } catch (SQLException ex) {
-                Logger.getLogger(MenuAdm.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ValidaDatoInexistenteExcepcion ex) {
+                System.out.println(ex.getMessage());
             }
 
             Object nuevo[] = {otrop.getUsu().getCedula(), operador.getNombres(), centroEcu, otrop.getFecha_inicio()}; //esto es por las tres columnas aunque puede variar

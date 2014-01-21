@@ -4,6 +4,7 @@
  */
 package ucuenca.edu.optii.ecu911.gui;
 
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -184,7 +185,7 @@ Telefono mifono=new Telefono();
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     if (txtcedula.getText().equals("") ) {
-            throw  new ValidacionCamposTextoExcepcion(null,"Debe ingresar su cedula para poder verificar su registro");
+            throw  new ValidacionCamposTextoExcepcion("Debe ingresar su cedula para poder verificar su registro");
         }
     else {
      Cliente uncli=new Cliente();
@@ -192,26 +193,30 @@ Telefono mifono=new Telefono();
      boolean verifica=uncli.buscarCedula();
      if (verifica==true)
      {
-       miregistro.setCedula(uncli.getCedula());
-       miregistro.setFecha(PonFechaActual());
-           mifono.setId(uncli.getMifono().getId());
             try {
-                mifono.buscarNumeroSegunIde();
-            } catch (TelefonoVerificacionException ex) {
-                Logger.getLogger(ex.getMessage());
+                miregistro.setCedula(uncli.getCedula());
+                miregistro.setFecha(PonFechaActual());
+                    mifono.setId(uncli.getMifono().getId());
+                     try {
+                         mifono.buscarNumeroSegunIde();
+                     } catch (TelefonoVerificacionException ex) {
+                         Logger.getLogger(ex.getMessage());
+                     }
+                miregistro.setTelefono(mifono.getNumero());    
+                boolean confirmregistro=miregistro.grabar();
+                if(confirmregistro){
+                    JOptionPane.showMessageDialog(null, "Registro Satisfactorio");
+                }
+                
+               MenuAdm m =new MenuAdm(txtcedula.getText());
+               m.setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(GestionLlamadasEmergencia.class.getName()).log(Level.SEVERE, null, ex);
             }
-       miregistro.setTelefono(mifono.getNumero());    
-       boolean confirmregistro=miregistro.grabar();
-       if(confirmregistro){
-           JOptionPane.showMessageDialog(null, "Registro Satisfactorio");
-       }
-       
-      MenuAdm m =new MenuAdm(txtcedula.getText());
-      m.setVisible(true); 
      }else{
        jButton2.setEnabled(true);
        txtcedula.setText("");
-       throw  new ValidaDatoInexistenteExcepcion(null, "Ud debe registrarse primero");
+       throw  new ValidaDatoInexistenteExcepcion("Ud debe registrarse primero");
     }   
     } 
         // TODO add your handling code here:
