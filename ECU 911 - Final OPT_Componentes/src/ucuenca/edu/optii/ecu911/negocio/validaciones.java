@@ -19,7 +19,7 @@ public class validaciones {
     public boolean validaCedula(String cedula)throws ValidacionCedulaExcepcion{
     int suma=0;
     if(cedula.length()<=9){
-      ValidacionCedulaExcepcion e=new ValidacionCedulaExcepcion(null,"Ingrese su cedula de 10 digitos");
+      ValidacionCedulaExcepcion e=new ValidacionCedulaExcepcion("ERROR! Ingrese su cedula de 10 digitos");
       return false;
     }else{
       int a[]=new int [cedula.length()/2];
@@ -52,7 +52,7 @@ public class validaciones {
           return true;
            
         }else{
-           ValidacionCedulaExcepcion e=new ValidacionCedulaExcepcion(null,"Su cedula es invalida");
+           ValidacionCedulaExcepcion e=new ValidacionCedulaExcepcion("SU CEDULA ES INVALIDA");
          return false;        
         }
       }
@@ -63,7 +63,7 @@ public class validaciones {
         int k = (int) evt.getKeyChar();
         if (k>47 && k<58) {
         evt.setKeyChar((char) KeyEvent.VK_CLEAR);
-         throw new ValidaTextoExcepcion(null, "NO SE PUEDE INGRESAR NÚMEROS!") ;
+         throw new ValidaTextoExcepcion( "NO SE PUEDE INGRESAR NÚMEROS!") ;
         }
         if (k==10) {
         txt.transferFocus();
