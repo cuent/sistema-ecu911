@@ -162,26 +162,5 @@ public class OperadorEcuTest {
         OperadorEcu instance = new OperadorEcu();
         instance.lanzarAlarma(); 
     }
-    /**
-     * Test of grabar method, of class OperadorEcu.
-     */
-   /* @Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        OperadorEcu instance = new OperadorEcu();
-        boolean expResult = false;
-        boolean result = instance.grabar();
-        assertEquals(expResult, result);
-    }*/
-    /**
-     * Test of buscar method, of class OperadorEcu.
-     */
-  /*  @Test
-    public void testBuscar() {
-        System.out.println("buscar");
-        OperadorEcu instance = new OperadorEcu();
-        boolean expResult = false;
-        boolean result = instance.buscar();
-        assertEquals(expResult, result); 
-    }*/
+  
 }

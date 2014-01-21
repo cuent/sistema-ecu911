@@ -79,16 +79,5 @@ public class Registro_LLamadasTest {
         instance.setFecha(fecha);
         assertEquals(instance.getFecha(), fecha);  
     }
-
-    /**
-     * Test of grabar method, of class Registro_LLamadas.
-     */
-   /* @Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        Registro_LLamadas instance = new Registro_LLamadas();
-        boolean expResult = false;
-        boolean result = instance.grabar();
-        assertEquals(expResult, result);    
-    }*/
+   
 }

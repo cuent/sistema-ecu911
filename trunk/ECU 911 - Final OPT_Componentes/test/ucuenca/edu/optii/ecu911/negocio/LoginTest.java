@@ -99,30 +99,5 @@ public class LoginTest {
         Login instance = new Login();
         instance.setUsu(usu);
     }
-    /**
-     * Test of grabar method, of class Login.
-     */
-   /* @Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        Login instance = new Login();
-        OperadorEcu usuario=new OperadorEcu();
-        usuario.cedula="";
-        instance.setId(10);
-        instance.setFecha_inicio("20/10/2013");
-        instance.setUsu(usuario);
-        instance.grabar();
-        instance.buscar(); 
-        assertEquals(instance.getFecha_inicio(), "20/10/2013");
-    }*/
-    /**
-     * Test of buscar method, of class Login.
-     */
-  /*  @Test(timeout=100)
-    public void testBuscar() {
-        System.out.println("buscar");
-        Login instance = new Login();
-        instance.setId(2);
-        instance.buscar();    
-    }*/
+ 
 }

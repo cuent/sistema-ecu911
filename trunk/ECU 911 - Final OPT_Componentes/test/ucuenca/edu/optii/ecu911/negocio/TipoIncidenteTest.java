@@ -82,43 +82,4 @@ public class TipoIncidenteTest {
         assertEquals(descripcion, instance.getDescripcion());
     }
 
-    /**
-     * Test of grabar method, of class TipoIncidente.
-     */
-  /* @Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        TipoIncidente instance = new TipoIncidente();
-        boolean expResult = true;
-        boolean result = instance.grabar();
-        assertEquals(expResult, result);
-    }*/
-
-    /**
-     * Test of listar method, of class TipoIncidente.
-     */
-    /*@Test
-    public void testListar() {
-        System.out.println("listar");
-        String ciudad = "Cuenca";
-        String descripcion = "incendio forestal";
-        TipoIncidente instance = new TipoIncidente();
-        instance.descripcion=descripcion;
-        ArrayList expResult = new ArrayList();
-        expResult.add("Policia");
-        ArrayList result = instance.listar(ciudad, descripcion);
-        assertEquals(expResult, result);
-    }*/
-
-    /**
-     * Test of buscarDescripcion method, of class TipoIncidente.
-     */
- /*   @Test
-    public void testBuscarDescripcion() {
-        System.out.println("buscarDescripcion");
-        TipoIncidente instance = new TipoIncidente();
-        instance.id=2;
-        boolean result = instance.buscarDescripcion();
-        assertTrue("esperando buscado true", result);      
-    }*/
 }

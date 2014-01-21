@@ -56,17 +56,5 @@ public class Entidad_TipIncidenteTest {
         instance.setMiTipoIn(miTipoIn);
         assertEquals(instance.getMiTipoIn().descripcion, "accidente de transito");
     }
-    /**
-     * Test of grabar method, of class Entidad_TipIncidente.
-     */
-   /* @Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        int inc = 2;
-        int ent = 2;
-        Entidad_TipIncidente instance = new Entidad_TipIncidente();
-        boolean expResult = false;
-        boolean result = instance.grabar(inc, ent);
-        assertEquals(expResult, result);
-    }*/
+    
 }

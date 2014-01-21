@@ -81,28 +81,5 @@ public class RolTest {
         instance.setDescripcion(descripcion);
         assertEquals(instance.getDescripcion(), descripcion);
     }
-
-    /**
-     * Test of grabar method, of class Rol.
-     */
-   /* @Test
-    public void testGrabar() {
-        System.out.println("grabar");
-        Rol instance = new Rol();
-        boolean expResult = false;
-        boolean result = instance.grabar();
-        assertEquals(expResult, result); 
-    }*/
-
-    /**
-     * Test of buscarIde method, of class Rol.
-     */
-    /*@Test
-    public void testBuscarIde() {
-        System.out.println("buscarIde");
-        Rol instance = new Rol();
-        boolean expResult = true;
-        boolean result = instance.buscarIde();
-        assertEquals(expResult, result);      
-    }*/
+ 
 }
